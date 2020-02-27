@@ -14,8 +14,10 @@ public class Translator {
     /**
      *Applies regex to a text file.
      * 
-     * @param _semester
-     * @param _group
+     * @param _semester This determines which file will be parsed
+      * @param _group This is the group number that will be output from the
+     * regex(number is based on parentheses count), specific parts of the regex
+     * can be used instead of the whole thing
      * @throws IOException
      */
     protected static void applyRegex(String _semester, int _group) throws IOException {
@@ -41,7 +43,7 @@ public class Translator {
     /**
      * Returns all parsed data
      *
-     * @param _semester
+     * @param _semester this determines which file will be parsed
      * @throws IOException
      */
     protected static void getAllData(String _semester) throws IOException {
@@ -54,7 +56,7 @@ public class Translator {
      * Returns only class names with sections, also returns a bunch of null
      * values which can be ignored (this can be used in the class lookup)
      *
-     * @param _semester
+     * @param _semester this determines which file will be parsed
      * @throws IOException
      */
     protected static void getClassData(String _semester) throws IOException {
