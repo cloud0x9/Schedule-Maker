@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class Tests {
     public static void main(String[] args) {    
         try {        
-            ParseData.getAllData("raw/spring2020");
+            Translator.getAllData("raw/spring2020");
         } catch (IOException ex) {
             Logger.getLogger(Tests.class.getName()).log(Level.SEVERE, null, ex);
         }   

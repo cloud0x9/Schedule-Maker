@@ -1,7 +1,6 @@
 package ScheduleCreator.models;
 
 import java.util.HashMap;
-
 /**
  * This class models information for course sections.
  *
@@ -11,19 +10,31 @@ import java.util.HashMap;
  */
 
 public class Section {
-
-    protected String location;
-    protected String instructor;
-    protected HashMap daysAndTimes;
-    protected String CRN;
-    protected int sectionNumber;
+    protected String className; // e.g. Software Engineering
+    protected String abbreviation; // e.g. "CSC"
+    protected int courseNumber; // e.g. 340
+    protected int sectionNumber; // e.g. 02
+    protected String location; // e.g. Petty Building 007
+    protected String instructor; // e.g. Richard I Quigley
+    protected HashMap daysAndTimes; // TODO
+    protected String CRN; // e.g. 13198
 
     public Section() {
-
     }
 
 //=================  GETTERS ===============
 
+    public String getClassName() {
+        return className;
+    }
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+    
+    public int getCourseNumber() {
+        return courseNumber;
+    }
+    
     public HashMap getDaysAndTimes() {
         return daysAndTimes;
     }
@@ -45,7 +56,17 @@ public class Section {
     }
 
 //=================  SETTERS ===============
+    public void setClassName (String _className) {
+        this.className = _className;
+    }
 
+    public void setAbbreviation(String _abbreviation) {
+        this.abbreviation = _abbreviation;
+    }
+    public void setCourseNumber(int _courseNumber) {
+        this.courseNumber = _courseNumber;
+    }
+    
     public void setSectionNumber(int _sectionNumber) {
         this.sectionNumber = _sectionNumber;
     }

@@ -9,16 +9,13 @@ package ScheduleCreator;
 import java.io.IOException;
 import java.util.regex.*;
 
-public class ParseData {
+public class Translator {
 
     /**
      *Applies regex to a text file.
      * 
-     * @param semester - This determines which file will be parsed, based on
-     * semester.
-     * @param Group - This is the group number that will be output from the
-     * regex(number is based on parentheses count), specific parts of the regex
-     * can be used instead of the whole thing
+     * @param _semester
+     * @param _group
      * @throws IOException
      */
     protected static void applyRegex(String _semester, int _group) throws IOException {
@@ -44,8 +41,7 @@ public class ParseData {
     /**
      * Returns all parsed data
      *
-     * @param semester - this determines which file will be parsed, based on
-     * semester.
+     * @param _semester
      * @throws IOException
      */
     protected static void getAllData(String _semester) throws IOException {
@@ -58,8 +54,7 @@ public class ParseData {
      * Returns only class names with sections, also returns a bunch of null
      * values which can be ignored (this can be used in the class lookup)
      *
-     * @param semester - this determines which file will be parsed, based on
-     * semester.
+     * @param _semester
      * @throws IOException
      */
     protected static void getClassData(String _semester) throws IOException {

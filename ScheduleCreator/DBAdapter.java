@@ -1,7 +1,6 @@
 package ScheduleCreator;
 
 import java.util.TreeSet;
-import ScheduleCreator.models.Course;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
