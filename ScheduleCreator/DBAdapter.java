@@ -1,81 +1,73 @@
 package ScheduleCreator;
 
-import java.util.TreeSet;
-import ScheduleCreator.models.Course;
-import java.io.File;
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-/** This class is used to retrieve and modify persistent data for the application.
- *
+/** This class is used to retrieve course lists
+ * NOTE: DUMMY methods until we finish the translator
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
- * 
- * Last Updated: 2/21/2020
+ * Last Updated: 2/28/2020
  */
 
+import java.util.ArrayList;
+
+
 public class DBAdapter {
-    
-    protected static Scanner input;
-    protected static File file;
-    protected static int currentLineNumber = 0;
-    protected static String currentLine = "";
-    
-    /**
-     * Saves a selected course (abbreviation and number) and saves to database.
-     * @param _course
-     * @throws Exception 
-     */   
-    public static void saveCourse(String _course) throws Exception {
-            file = new File("src/ScheduleCreator/resources/raw/user_selected_courses.txt");
-            
-            //Open file to add new classes.
-            FileWriter output = new FileWriter(file, true);
-            
-            //Adds new selected course to new line. 
-            output.append(_course + "\n");
-                        
-            output.close();
-    }
-    
-    public static ArrayList<String> getSelectedCourses() throws Exception {
-        file = new File("src/ScheduleCreator/resources/raw/user_selected_courses.txt");
-        Scanner input = new Scanner(file);
-        
-        //Load courses from text file to be returned as a list. 
-        ArrayList<String> selectedCourses = new ArrayList();
-        String line = "";
-        while (input.hasNext()) {
-            line = input.nextLine();
-            selectedCourses.add(line.trim());
-        }
-        
-        return selectedCourses;
-    }
-    
-    public static void getCourses(String _abbreviation) throws Exception {
-        
-        input = new Scanner(file);
-        String line;
-        while (input.hasNext()) {
-                
-                //add whitespace to start and end of abbreviation
-                _abbreviation = " " + _abbreviation + " ";
-                _abbreviation.toUpperCase();
-                
-                while (input.hasNext()) {
-                    currentLine = input.nextLine();
-                    if (currentLine.contains(_abbreviation)) System.out.println(currentLine);
-                }
-        }
-        
-        input.close();
-    }
-    
-    public void skipLine(int numberOfLines) {
-        for (int i = 0; i <= numberOfLines; i++) {
-            this.currentLine = this.input.nextLine();
-            this.currentLineNumber++;
-        }
-    }
+
+	// return available semesters 
+	public static ArrayList<String> getSemesters() {
+		ArrayList<String> semesters = new ArrayList<>();
+		semesters.add("Spring"); // DUMMY!!!!
+		semesters.add("Fall");
+		return semesters;
+	};
+
+	// return list of semesters that the user has saved
+	public static ArrayList<String> getUserSemesters() {
+		ArrayList<String> semesters= new ArrayList<>();
+		semesters.add("Spring"); // user only has one saved semester
+		return semesters;
+	}
+
+	// get the sections for a semester
+	public static ArrayList <ScheduleCreator.models.Section> getSemesterSections(String _semesterName) {
+
+		// create dummy list of sections
+		ArrayList<ScheduleCreator.models.Section> semester = new ArrayList<>();
+
+		// add some dummy data (classes taught both semesters)
+		semester.add(new ScheduleCreator.models.Section("Software Engineering", "CSC", 340, 124124));
+		semester.add(new ScheduleCreator.models.Section("Introduction to Robotics", "EGR", 112, 12415));
+                semester.add(new ScheduleCreator.models.Section("Metaphysical Contraband", "SOC", 301, 203));
+
+		// add some semester-specific courses
+		switch (_semesterName) {
+		case "Spring":
+			semester.add(new ScheduleCreator.models.Section("Spring Break CupCake", "BLRA", 420, 124111));
+                        break;
+		case "Fall":
+			semester.add(new ScheduleCreator.models.Section("Falling For Poo", "FUC", 69, 420420));
+                        break;
+		}
+                return semester;
+	}
+
+	public static ArrayList <ScheduleCreator.models.Section> getUserSections(String _semesterName) {
+
+		// create dummy list of sections
+		ArrayList<ScheduleCreator.models.Section> semester = new ArrayList<>();
+
+		// add some semester-specific courses
+		switch (_semesterName) {
+		case "Spring":
+			semester.add(new ScheduleCreator.models.Section("Spring Break CupCake", "BLRA", 420, 124100011));
+                        break;
+		case "Fall":
+			semester.add(new ScheduleCreator.models.Section("Introduction to Robotics", "EGR", 112, 124123125));
+                        break;
+		}
+                return semester;
+	}
+
+	public static void saveUserSections(String _semesterName, ArrayList <ScheduleCreator.models.Section> _sections) {
+            // DUMMY, does nothing
+	}
+
 }
