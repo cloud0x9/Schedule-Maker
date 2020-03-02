@@ -52,7 +52,11 @@ public class CoursesController implements Initializable {
         selectedCourses.getItems().add(choice);
         DBAdapter.saveCourse(choice);
     }
-    
+	public void switchSemester(ActionEvent _event) {
+		System.out.println("dummye");
+	}
+
+	
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
         Object itemToRemove = selectedCourses.getSelectionModel().getSelectedItem();
         String courseToDelete = (String)itemToRemove;

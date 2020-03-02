@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.ResourceBundle;
+import javafx.event.EventType;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -39,6 +40,8 @@ public class PrimaryController implements Initializable {
             //Get information from primary stage
             Stage window = (Stage)((Node)_event.getSource()).getScene().getWindow();
             window.setScene(classViewScene);
+            window.setMinHeight(600);
+            window.setMinWidth(1000);
             window.show();
         }
         
