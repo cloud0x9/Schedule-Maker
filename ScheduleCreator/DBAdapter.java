@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 
 /** This class is used to retrieve and modify persistent data for the application.
@@ -35,6 +36,7 @@ public class DBAdapter {
                         
             output.close();
     }
+	
     
     public static void removeCourse(String _course) throws Exception {
         
@@ -54,6 +56,21 @@ public class DBAdapter {
             writer.close();
             
     }
+	// get a list of semesters (which can be used as an argument to DBAdapter.getCourses)
+	public static List<String> getSemesters() {
+		List<String> semesters = new ArrayList();
+		
+		File dir = ScheduleCreator.Boilerplate.GetResourceFile("raw/semesters");
+		String[] pathnames;
+		pathnames = dir.list();
+		
+		for (String pathname : pathnames) {
+			System.out.println(pathname);
+			File f = new File(pathname);
+			semesters.add(f.getName());
+		}
+                return semesters;
+	}
     
     public static ArrayList<String> getSelectedCourses() throws Exception {
 
