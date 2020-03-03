@@ -1,0 +1,515 @@
+AAD 498 - Intrnshp in Arts Admin and ENT 
+ACC 201 - Financial Accounting 
+ACC 202 - Managerial Accounting 
+ACC 318 - Intermediate Accounting I 
+ACC 319 - Intermediate Accounting II 
+ACC 350 - Accounting Internship 
+ACC 621 - Accounting Internship 
+ACC 646 - Adv Study Bus Envir/Concepts 
+ACC 648 - Guided Study Tax and Bus Law 
+ACC 652 - Taxatn Estates Gifts Trusts 
+ACC 688 - Advanced Business Law 
+ADS 201 - Intro African American Studies 
+ADS 306 - Tpcs:Intro to Comtempry Africa 
+ADS 325 - Black Women in the U.S. 
+APD 200 - Fund Apparel Product Devlpmt 
+ARE 364 - Practicum Service-Learning 
+ARE 367 - Child Art and Teaching 
+ARH 112 - Survey of Non-Western Art 
+ARH 401 - Sp Prob:Internship Museum Stds 
+ART 100 - Introduction to Art 
+ART 340 - Concepts in Time-based Media 
+ART 345 - Introduction to Web Design 
+ASL 101 - Elementary ASL I 
+ASL 102 - Elementary ASL II 
+ATY 212 - Introduction to Anthropology 
+ATY 213 - Intro to Cultural Anthropology 
+ATY 253 - Intro to Biological Anthrpolgy 
+ATY 253L - Intro Biological Anthro Lab 
+BIO 105 - Major Concepts Biology 
+BIO 105L - Major Concepts in Bio Lab 
+BIO 111 - Principles of Biology I 
+BIO 111L - Princpls of Biology I Lab 
+BIO 112 - Principles of Biology II 
+BIO 112L - Princpls of Biology II Lab 
+BIO 271 - Human Anatomy 
+BIO 271L - Human Anatomy Lab 
+BIO 277 - Human Physiology 
+BIO 277L - Human Physiology Lab 
+BIO 280 - Fundamentals of Microbiology 
+BIO 280L - Fundmntls of Microbiology Lab 
+BIO 301 - Principles of Ecology 
+BIO 330 - Evolution 
+BIO 493 - Honors Work 
+BIO 497 - Internship in Biology 
+BIO 499 - Undergraduate Research 
+BIO 695 - Biological Research 
+BIO 699 - Thesis 
+BIO 801 - Thesis Extension 
+BIO 802 - Dissertation Extension 
+BIO 803 - Grad Resrch Proj Ext 
+BLS 320 - Tpcs: Know Slow 
+BLS 325 - Mystery, Mayhem and Murder 
+BLS 347 - Shakespeare Off the Page 
+BLS 348 - Representing Women 
+BLS 360 - Tpcs:Plight of Migrant Workers 
+BLS 361 - American Dreams 
+BLS 380 - Tpcs:Ancient Cities 
+BLS 385 - American Motherhood 
+BLS 386 - Women, War, and Terror 
+BUS 616 - Intrntnl Business Negotiations 
+BUS 695 - Special Topics Intl Business 
+BUS 705 - Sem Acdmc Writing and Publshng 
+BUS 730 - Sem in Internatl Busness Thry 
+CCI 205 - Mythology 
+CED 688 - College & Career Readiness 
+CED 688 - Counslg Sexually Abused Client 
+CED 688 - Trauma, Stress & their impact 
+CHE 101 - Introductory Chemistry 
+CHE 103 - General Descriptive Chem I 
+CHE 104 - General Descriptive Chem II 
+CHE 110 - Introductory Chemistry Lab 
+CHE 111 - General Chemistry I 
+CHE 112 - General Chemistry I Lab 
+CHE 114 - General Chemistry II 
+CHE 115 - General Chemistry II Lab 
+CHE 291 - Sophomore Research 
+CHE 292 - Sophomore Research 
+CHE 351 - Organic Chemistry I 
+CHE 352 - Organic Chemistry II 
+CHE 354 - Organic Chemistry II Lab 
+CHE 354 - Organic Chmstry II Laboratory 
+CHE 391 - Junior Research 
+CHE 392 - Junior Research 
+CHE 456 - Biochemistry I 
+CHE 491 - Senior Research 
+CHE 492 - Senior Research 
+CHE 780 - Resrch Prob in Medicnl Biochem 
+CHE 799 - Dissrtatn Resrch in Med Bioche 
+CHE 801 - Thesis Extension 
+CRS 332 - Intrnshp Consmr Apparel Retail 
+CSC 261 - Computr Org / Assembly Languag 
+CSC 350 - Foundations of Comp Science II 
+CSC 494 - Directed Study in Comp Sci 
+CSD 219 - Communication Disorders Lab 
+CSD 250 - Concepts in Communication Sci 
+CSD 334 - Introduction to Audiology 
+CSD 457 - Pediatric Aural Rehabilitation 
+CSD 488 - Neurology of Spch, Lang, Hear 
+CSD 588 - Neurology of Spch, Lang, Hear 
+CSD 603 - Seminar in Voice Problems 
+CSD 605 - Sem in Speech Lang Path 
+CSD 608 - Seminar in Cleft Palate 
+CSD 677 - Intership in Com Disorders 
+CSD 678 - Adv Clin Pract Sp Lng Path 
+CST 105 - Intro to Communication Studies 
+CST 207 - Relational Communication 
+CST 210 - Communicating Ethically 
+CST 300 - Communication Theory 
+CST 341 - Communication / Workplace Rel 
+CST 350 - Small Group and Team Com 
+CST 408 - Health Communication 
+CST 417 - Communication & Friendship 
+CST 460 - Sp Tpcs Soc ID in Pop Culture 
+CTR 102 - Creating a Meaningful Life 
+CTR 315 - Practicum in Rec and Parks 
+CTR 417 - Intrnshp in Recreation / Parks 
+CTR 419 - Dirctd Res in Rec and Parks 
+CTR 695 - Independent Study 
+CTR 696 - Directed Readings 
+CTR 697 - Intnship in Recreation / Parks 
+CTR 698 - Field Project in Rec and Parks 
+CTR 699 - Thesis 
+CTR 801 - Thesis Extension 
+CTR 803 - Research Extension 
+DCE 112 - Contemporary Dance I 
+DCE 143 - Dance Performance Workshop 
+DCE 200 - Dance Appreciation 
+DCE 212 - Contemporary Dance II 
+DCE 243 - Dance Repertory II 
+DCE 312 - Contemporary Dance III 
+DCE 343 - Repertory III 
+DCE 412 - Contemporary Dance IV 
+DCE 651 - Choreographic Practice 
+DCE 655 - P-12 Dance Ed:Choreography 
+DCE 659 - Laban Movement Analysis 
+DCE 662 - Practicum in Teaching Dance 
+DCE 667 - The Dancer's Body 
+DCE 676 - Problems Seminar 
+ECO 201 - Principles of Microeconomics 
+ECO 201R - Microeconomics Recitation 
+ECO 202 - Principles of Macroeconomics 
+ECO 250 - Econ / Business Statistics I 
+ECO 250R - Econ/Bus Stats I Recitation 
+ECO 300 - The International Economy 
+ECO 426 - Intrnshp:Exprntl Lrning in ECO 
+ELC 616 - Culturally Responsive Leadrshp 
+ELC 660 - The School Principalship 
+ELC 662 - Power, Politics and Schools 
+ELC 673 - Principal Ldrshp Special Educ 
+ELC 683 - Engaging Public in Education 
+ELC 684 - Tchr Rts, Recruit, Reten, Eval 
+ELC 686 - Curriculum Theory 
+ELC 688 - Crtcl Inqry, Praxis & Pedagogy 
+ELC 688 - Crtcl Multicultural Perspctivs 
+ELC 690 - Practicum in Eductnl Admin 
+ELC 692 - Independent Study 
+ELC 702 - School District Leadership 
+ELC 751 - Concepts and Cases in Ed Adm 
+ELC 775 - Directed Doctoral Research 
+ELC 799 - Dissertation 
+ELC 802 - Dissertation Extension 
+ELC 803 - Research Extension 
+ENG 101 - College Writing I 
+ENG 105 - Introduction to Narrative 
+ENG 106 - Introduction to Poetry 
+ENG 201 - Euro Lit Classcs: Ancnt to Ren 
+ENG 208 - Topics in Global Literature 
+ENG 211 - British Authors:Med-18th Cntry 
+ENG 215 - Literature and Film 
+ENG 251 - Maj Am Auth: Colonial-Romantic 
+ENG 252 - Maj Am Auth: Realist to Modern 
+ENG 305 - Contemporary Rhetoric 
+ENG 306 - Digital Rhetoric 
+ENG 327 - Writing for Prfssnls/Entrprnrs 
+ENG 347 - Queer Poetry and Poetics 
+ENG 371 - Literary Study of the Bible 
+ENG 401 - Internship in Journalsm / Edit 
+ENG 402 - Internship in English Studies 
+ENG 493 - Honors Work 
+ENG 675 - Schlrly/Critcl Writng for Prof 
+ENG 680 - Teaching Internship in English 
+ENG 744 - Seminar in Composition Studies 
+ENG 803 - Research Extension 
+ENT 309 - Entrprnrshp in the Pblic Sctor 
+ENT 498 - Intrnshp in Arts Admin and ENT 
+ERM 400X - Exp: Data Literacy 
+ERM 605 - Educational Measurement / Eval 
+ERM 692 - Independent Study 
+ERM 730 - Practicum in Ed Research Evalu 
+ERM 799 - Dissertation 
+ERM 802 - Dissertation Extension 
+ESL 602 - Culture-Comnty Grd Studies III 
+ESL 620 - Academic Listening II 
+ESL 621 - Communication-Presentation II 
+ESL 622 - Academic Reading-Vocab Dev II 
+ESL 623 - Writing and Grammar II 
+ESL 630 - Academic Listening III 
+ESL 631 - Communication-Presentation III 
+ESL 632 - Academic Reading-Vocab Dev III 
+ESL 633 - Writing and Grammar III 
+FIN 315 - Business Finance I 
+FRE 101 - Beginning French I 
+FRE 102 - Beginning French II 
+FRE 203 - Intermediate French I 
+FRE 204 - Intermediate French II 
+GEN 669 - Clinical Skills Sem 
+GEN 671 - Risk Assmnt in Gen Counseling 
+GEN 698 - Summer Clinicl Rotations 
+GER 101 - Beginning German I 
+GER 102 - Beginning German II 
+GER 203 - Intermediate German 
+GER 204 - Intermediate German Topics 
+GER 217 - Masterworks Ger Lit in English 
+GES 103 - Introduction to Earth Science 
+GES 103L - Earth Science Laboratory 
+GES 104 - World Regional Geography 
+GES 105 - Intro to Human Geography 
+GES 121 - Intro to Geo Informatn Sci 
+GES 121L - Intro to GIS Lab 
+GES 164 - Intro to Environment 
+GES 301 - Urban Geography:Global Pattern 
+GES 450 - Applied Physical Geography 
+GES 451 - Seminar in Regional Geography 
+GES 650 - Applied Physical Geography 
+GES 651 - Seminar in Regional Geography 
+GRO 631 - Plan/Eval Profs in Aging 
+GRO 679 - Integrated Capstone Gerontolgy 
+GRO 803 - Grad Resrch Proj Ext 
+HDF 211 - Human Dev Across Life Span 
+HDF 212 - Families / Close Relatnshps 
+HDF 302 - Infant and Child Development 
+HDF 303 - Adolscnt Dev:Pubrty-Yng Adlthd 
+HDF 321 - Issues in Parenting 
+HDF 341 - Soc Emotnl Comp in Inclsve Set 
+HDF 390 - Families and Children Glbl Per 
+HEA 113 - Medical Terminology-PubHlthPro 
+HEA 201 - Personal Health 
+HEA 260 - Human Sexuality 
+HEA 307 - Global Health 
+HEA 310 - Mental Health and Well-Being 
+HEA 331 - Alcohol, Tobacco, Other Drugs 
+HEA 447 - Income, Social Status, Health 
+HEA 616 - Workplace Health Promotion 
+HEA 662 - Gender and Health 
+HEA 725 - Adv Community Health Projects 
+HEA 799 - Doctoral Dissertation Research 
+HEA 803 - Grad Resrch Proj Ext 
+HED 799 - Dissertation 
+HED 802 - Dissertation Extension 
+HHS 125 - Dsgn Life I:Wht Cld Do w/Life 
+HIS 206 - Tpcs:Afro-Eurasian to 1500 
+HIS 207 - Tpcs:African Atlantic to 1800 
+HIS 209 - Tpcs:Native Amer Caribbean 
+HIS 209 - Tpcs:Women in Modern World His 
+HIS 210 - Humn Rights in Mdrn Wrld Hstry 
+HIS 211 - The United States to 1865 
+HIS 212 - The US Since 1865 
+HIS 217 - The World in the 20th Century 
+HIS 218 - The World since 1945 
+HIS 329 - US Women's History Since 1865 
+HIS 335 - America Before the Revolution 
+HIS 339 - Civil War-Superpower 1896-1945 
+HIS 347 - History of North Carolina 
+HIS 390 - History Internship 
+HIS 424 - Mkng Mod America 1877-1920 
+HIS 524 - Mkng Mod America 1877-1920 
+HIS 555 - Field Mthds Presrvtn Tchn 
+HIS 690 - Internship 
+IAR 412 - Interior Architecture IV 
+IAR 452 - Internship in Interior Arch 
+IAR 455 - Field Meth in Preservatn Techn 
+IAR 555 - Field Meth in Preservatn Techn 
+IAR 600 - Supervised Professional Experi 
+IAR 690 - Internship 
+IPS 301 - Design Thinking 
+IPS 302 - Systems Thinking 
+IPS 303 - Understanding Data 
+IPS 304 - Contemporary Media Literacies 
+IPS 305 - Glbl Awrnss/Intrcltrl Cmptnce 
+IPS 306 - Self-Awareness 
+IPS 401 - Tpcs:Trnds & Iss in Hlth & Wel 
+IPS 405 - Tpcs: Ethical Leadership 
+IPS 405 - Tpcs: Your Body of Work 
+IPS 405 - Tpcs:Working in Virtual Teams 
+IPS 410 - Capstone 
+ISM 110 - Business Computing I 
+ISM 280 - Information Systms in Orgnztns 
+ISM 667 - Global Cyber Threat Analysis 
+ISM 678 - Prjct Mgmnt Dynamic Envirnmnts 
+KIN 101 - Beginning Volleyball 
+KIN 104 - Beginning Basketball 
+KIN 175 - Beginning Tennis 
+KIN 220 - Lifetime Wellness 
+KIN 265 - Strength Training/Conditioning 
+KIN 265L - Strngth Training/Condition Lab 
+KIN 375 - Physiology of Sport / Phys Act 
+KIN 375L - Physio of Sport / Phys Act Lab 
+KIN 376 - Biomech of Sport / Phys Act 
+KIN 379 - Instrctn Mthd of Physcl Actvty 
+KIN 386 - Motor Development / Learning 
+KIN 475 - Independent Study 
+KIN 496 - Kinesiology Internship 
+KIN 536 - Anatomical Basis of Ath Injury 
+KIN 601 - Applying Resrch to Prof Pract 
+KIN 634 - Athletic Training Foundations 
+KIN 706 - Online Pedagogy in Kin/Relatd 
+KIN 715 - Prof Ethics in HHS 
+KIN 732 - Analysis of Teaching/Learning 
+KIN 752 - Advncd Prfssnl Seminar in KIN 
+KIN 799 - Dissertation 
+KIN 802 - Dissertation Extension 
+LIS 200 - Info Use in a Digital World 
+LIS 600 - Foundation of Lib / Info Stud 
+LIS 604 - Hist Libraries / Librarianship 
+LIS 617 - Materials for Children 
+LIS 618 - Materials for Adolescents 
+LIS 620 - Info Services and Sources 
+LIS 635 - Media Prod Serv Library Progs 
+LIS 661 - Library / Info Science Resrch 
+LIS 666 - Information Ethics / Policy 
+LIS 674 - Sem: Issues / Virtual Communty 
+LIS 688 - History of the Book 
+LIS 688 - Lrning & Makerspaces 
+LIS 688 - Presrvtn Mgt Lib & Arcv 
+LIS 690 - Independent Study 
+LIS 691 - Practicum 
+LIS 694 - Supervsn: Sch Sys Lib Media Pr 
+LIS 698 - Capstone Exp Libry Info Stdies 
+LLC 130 - Glbl Grn: Cltrs Prdctn/Cnsmptn 
+LLC 250 - Glbl Cltrs thrgh Flm:Angls Vsn 
+MAS 610A - Tpcs:The Contemporary World 
+MAS 610B - Tpcs:Voices from Latin America 
+MAS 610C - Tpcs:Food and Film 
+MAS 620A - Tpcs: Dangerous Minds 
+MAS 620B - Tpcs:Ethical Leadership 
+MAS 630A - Tpcs: Understanding Data 
+MAS 630A - TpcsRevoltion and Revoltinries 
+MAT 112 - Contemporary Topics Math 
+MAT 115 - College Algebra 
+MAT 120 - Calculus w/ Business Applictns 
+MAT 150 - Precalculus I 
+MAT 151 - Precalculus II 
+MAT 191 - Calculus I 
+MAT 292 - Calculus II 
+MBA 706 - Marketing Management 
+MBA 718 - Global Business in Practice 
+MBA 724 - Financial Institutions 
+MBA 730 - Marketing Research 
+MBA 742 - Organizational Internship 
+MGT 300 - Management of Organizations 
+MGT 301 - Intro to Internationl Business 
+MGT 312 - Organizational Behavior 
+MGT 313 - Human Resources Management 
+MGT 330 - Legal Environment of Business 
+MGT 375 - Management Process Skills 
+MGT 491 - Business Policy and Strategy 
+MKT 309 - Business Communications 
+MKT 320 - Principles of Marketing 
+MST 225 - Film Appreciation 
+MST 492 - Media Internship 
+MUE 601 - Research Methods in Music 
+MUE 605 - Measurement of Musical Behavr 
+MUE 627 - Issues-Multicultural Music Ed 
+MUE 633 - Music for Exceptional Children 
+MUE 634 - Contemporary Trends-Music Ed 
+MUE 639 - Advanced Conducting 
+MUE 650 - Seminar in Music Education 
+MUE 653 - Music Supervision 
+MUP 802 - Dissertation Extension 
+MUS 102 - Music Theory II 
+MUS 106 - Ear Training II 
+MUS 211 - Tpcs: Hip Hop 
+MUS 241 - Music Appreciation 
+MUS 329 - History of Rock Music 
+MUS 674 - Masterpieces of Musical Styles 
+NTR 213 - Introductory Nutrition 
+NUR 210 - Fundamental Concpts in Nursing 
+NUR 220 - Nursing Assessmnt Well Individ 
+NUR 220L - Nursng Assessmnt Well Indiv Lb 
+NUR 330 - Glbl Prspctvs on Hlth of Women 
+NUR 390 - Culture and Health Care 
+NUR 612 - Theor Found Adv Nurse Eductr 
+NUR 620 - Law,Policy,Econmcs Health Care 
+NUR 705 - Resrch/Evidence Based Practice 
+NUR 752 - Biochem for Nurse Anesthesia 
+NUR 755 - Cell Pathphysio-Nurs Anesthes 
+NUR 771B - Clncl Prctcm in Nur Ansthsia I 
+NUR 773B - Clin Prac Nurs Anesthesia III 
+NUR 775B - Clncl Prac Nur Anesthesia V 
+NUR 781 - Health Promotn Mdls Intrvntns 
+NUR 790 - Directed Research 
+NUR 792 - Independent Study 
+NUR 797 - Integrated Clinical Concepts 
+NUR 799 - Dissertation 
+NUR 802 - Dissertation Extension 
+NUR 803 - Research Extension 
+NUR 819 - Effective Leadership for Pract 
+NUR 825 - DNP Essntls:Clinical Schlrshp 
+NUR 898C - Appd EvidBsd Prac/Trn Meth III 
+PCS 205 - Violence in the Modern World 
+PCS 212 - Intro Peace / Conflict Studies 
+PCS 305 - Foundtn of Peace & Cnflct Stds 
+PCS 308 - Wrkng thrgh Interprsnl Cnflcts 
+PCS 631 - Crisis Mgmt:Response/Resolutn 
+PHI 111 - Introduction to Philosophy 
+PHI 115 - Critical Thinking 
+PHI 121 - Contemporary Moral Problems 
+PHI 251 - Hist of Ancient Philosophy 
+PHI 301 - Tpcs: Death in Dying 
+PHI 361 - Ethical Issues in Business 
+PHY 205 - Conceptual Physics 
+PHY 211 - General Physics I 
+PHY 211L - General Physics Lab I 
+PHY 212 - General Physics II 
+PHY 212L - General Physics Lab II 
+PSC 105 - Exploring Political Issues 
+PSC 200 - American Politics 
+PSC 240 - The International System 
+PSC 260 - Intro to Comparative Politics 
+PSC 309 - Entrprnrshp in the Pblic Sctor 
+PSC 316 - Judicial Process 
+PSC 329 - American Interest Grp Politics 
+PSC 401 - Individual Study 
+PSC 402 - Individual Study 
+PSC 510 - Tpcs:Comm with Data Pub Policy 
+PSC 511B - Tpcs PA:Mrkt Pub Nonprft Agncs 
+PSC 511G - Tpcs Pub Aff:Grant Writing 
+PSC 511S - Tpcs:In Pub Aff Social 
+PSC 511V - Tpcs Pub Aff:Volunteer Mgmt 
+PSC 560 - Tpcs:Local Government 
+PSC 615 - Human Res Dev and Perf Mgmt 
+PSC 645 - Nonprofit Fin Mgmt & Budgeting 
+PSC 695 - Public Affairs Internship 
+PSC 696 - Directed Field Research 
+PSC 697 - Special Probs in Political Sci 
+PSC 698 - Special Probs in Political Sci 
+PSC 699 - Thesis 
+PSY 121 - General Psychology 
+PSY 240 - Principles of Learning 
+PSY 250 - Developmental Psychology 
+PSY 265 - Theories of Personality 
+PSY 280 - Cognitive Psychology 
+PSY 310 - Stats in Behav Sci Research 
+PSY 390 - Health Psychology and Culture 
+PSY 410 - Intrmdte Psychologicl Statstcs 
+PSY 444 - Changng Behvr Real Wrld Setngs 
+RCS 361 - Fndmntls Retail Buying Mrchnd 
+REL 101 - Intro to Religious Studies 
+REL 109 - Relgion / Contempry Culture 
+REL 231 - Religion in America 
+REL 250 - Rel Tradntns and Care of Earth 
+SCM 302 - Operations Management 
+SCM 678 - Prjct Mgmnt Dynamic Envirnmnts 
+SES 242 - Intro Excp Childrn Early Yrs 
+SES 250 - Intro to Prof in Spec Educ 
+SES 333 - Special Projects 
+SES 341 - Soc Emotnl Comp in Inclsve Set 
+SES 540 - Intro to Special Education 
+SES 605 - Diversity Inclsv Erly Care Edu 
+SES 659 - Behavior Management 
+SES 775 - Directed Doctoral Research 
+SES 790 - Independent Doctoral Study 
+SES 799 - Dissertation 
+SES 802 - Dissertation Extension 
+SES 803 - Research Extension 
+SOC 101 - Introduction to Sociology 
+SOC 201 - Social Probs 
+SOC 222 - Sociology of Deviant Behavior 
+SOC 225 - Race,Class,Gender:Soc Inequali 
+SOC 302 - Intro to Data Analysis 
+SOC 323 - Global Deviance 
+SOC 327 - Race and Ethnic Relations 
+SOC 329 - Sociol Perspectives on Gender 
+SOC 335 - Marriage and the Family 
+SOC 340 - Intro to Cultural Sociology 
+SOC 350 - Juvenile Delinquency 
+SOC 364 - African-Amercn Social Thought 
+SOC 373 - Green Criminology 
+SOC 490 - Seeing Society Contempry Thry 
+SPA 101 - Beginning Spanish I 
+SPA 102 - Beginning Spanish II 
+SPA 203 - Intermediate Spanish I 
+SPA 204 - Intermediate Spanish II 
+SPA 462 - Studies in Film Genre 
+SPA 562 - Studies in Film Genre 
+STA 108 - Elemntry Intro Probablty Stats 
+STA 271 - Fundmntl Concepts of Statistcs 
+STH 200 - Intro to Sustainable Develpmnt 
+SWK 215 - Introduction to Social Work 
+SWK 451 - Special Problems Social Work 
+SWK 484 - Social Services for Children 
+SWK 551 - Special Problems Social Work 
+SWK 624 - Soc Wrk Pract / Hum Diversity 
+SWK 626 - Social Work Research Methods 
+SWK 631 - Soc Work Indvls:Theory Prctice 
+SWK 632 - Soc Work Families Groups 
+TED 416 - Emergent Literacy / Literature 
+TED 435 - Literacy in the Content Area 
+TED 516 - Emergent Literacy / Literature 
+TED 520 - Social Studies in Elem School 
+TED 535 - Literacy in the Content Area 
+TED 545 - Diverse Learners 
+TED 604 - Appl Linguistics for ESL Tchrs 
+TED 610 - Intrg Tech into Subj Matter 
+TED 625 - Mathematics in Elem School II 
+TED 640 - Wrtng Instr Across Grade Lvls 
+TED 647 - Teaching Learning Makerspaces 
+TED 650 - Est/Mntng Resp Clssrm Envrmnt 
+TED 653 - Eart/Space Sci in Elem School 
+TED 669 - Ed Implicatns of Lrn/Dev Thry 
+TED 775 - Directed Doctoral Research 
+VPA 323 - The Arts as Human Experience 
+VPA 364 - Community Arts Intensive 
+WGS 250 - Intro Women's / Gender Studies 
+WGS 270 - Introduction to LGBTQI Studies 

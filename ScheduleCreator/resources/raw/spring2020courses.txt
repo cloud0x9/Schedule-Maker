@@ -1,0 +1,1298 @@
+AAD 202 - Arts Admin and Entrepreneurship 
+AAD 301 - Arts Management 
+AAD 381 - Intro to Art Museum Collections 
+AAD 475 - Independent Study 
+AAD 478 - Variable Topics in Arts Administration 
+AAD 498 - Internship in Arts Administration and Entrepreneurship 
+ACC 201 - Financial Accounting 
+ACC 202 - Managerial Accounting 
+ACC 318 - Intermediate Accounting I 
+ACC 319 - Intermediate Accounting II 
+ACC 325 - Accounting Transaction Processing Systems 
+ACC 330 - Cost Accounting 
+ACC 420 - Federal Tax Concepts 
+ACC 440 - Auditing Concepts 
+ACC 461 - Governmental and Nonprofit Accounting 
+ACC 561 - Governmental and Nonprofit Accounting 
+ACC 613 - Directed Studies in Accounting 
+ACC 621 - Accounting Internship 
+ACC 630 - Seminar in Contemporary Accounting Issues 
+ACC 646 - Advanced Study in Business Environment and Concepts 
+ACC 647 - Advanced Study in Financial Accounting and Reporting 
+ACC 649 - Advanced Study in Auditing and Attestation 
+ACC 651 - Introduction to Business Entity Taxation 
+ACC 656 - Taxation of Flow-Through Business Entities 
+ADS 200 - African American Art History 
+ADS 201 - Introduction to African American Studies 
+ADS 210 - Blacks in American Society: Social, Economic, and Political Perspectives 
+ADS 260 - Understanding Race 
+ADS 305 - Spec Top in AFS: Genes Race & 
+ADS 305 - Spec Top in AFS: Rhymes & Resi 
+ADS 306 - ST in Afr Dia: Africana Res Me 
+ADS 315 - Theories and Paradigms in African American Studies 
+ADS 325 - Black Women in the U.S. 
+ADS 330 - Black Music as Cultural History: 1960-1980 
+ADS 356 - The Making of the African Diaspora 
+ADS 376 - Africana Literature 
+ADS 400 - Independent Study 
+ADS 410 - Seminar in African American Studies 
+ADS 600 - Independent Study 
+APD 200 - Fundamentals of Apparel Product Development 
+APD 244 - Visual Communication for the Textile Products Industry 
+APD 252 - Studio II: Patternmaking and Draping 
+ARB 102 - Beginning Arabic II 
+ARB 204 - Intermediate Arabic II 
+ARE 361 - Foundations of Art Education II 
+ARE 363 - Curriculum and Teaching Methods in the Elementary School 
+ARE 465 - Student Teaching 
+ARE 468 - Teaching Practice and Curriculum in Art 
+ARH 111 - Survey of Western Art: Renaissance-Contemporary 
+ARH 211 - Art and the African-American Presence 
+ARH 322 - Art of the Italian High Renaissance and Maniera, 1480-1600 
+ARH 350 - History of Photography 
+ARH 354 - Art Since 2000 
+ARH 360 - Women Artists of Disney and Pixar Animation 
+ARH 381 - Intro to Art Museum Collections 
+ARH 401 - Special Problems: Internship in Museum Studies 
+ARH 405 - Research Topics in Art 
+ARH 490 - Art Museums and Exhibition Spaces 
+ARH 500 - Traditions of Art Criticism 
+ARS 100 - Reclaim, Regain, and Recover 
+ARS 120 - Academic Connections in Education 
+ARS 140 - Academic Coaching in Transitions 
+ART 100 - Introduction to Art 
+ART 120 - Fundamentals of Drawing 
+ART 140 - Foundation Design I 
+ART 150 - Three-Dimensional Foundations I 
+ART 220 - Intermediate Drawing 
+ART 221 - Life Drawing I 
+ART 232 - Painting I 
+ART 240 - Foundations Design 2 
+ART 253 - Three-Dimensional Foundations II 
+ART 276 - Creative Space: The Meeting of Art and Entrepreneurship 
+ART 281 - Ceramics I 
+ART 285 - Photography I 
+ART 286 - Digital Photography One 
+ART 321 - Life Drawing II 
+ART 322 - Variable Topics in Drawing 
+ART 328 - Printmaking II 
+ART 329 - Lithography 
+ART 335 - Painting II 
+ART 337 - Painting III 
+ART 340 - Concepts in Time-based Media 
+ART 341 - Letters, Signs, and Symbols 
+ART 344 - Digital Darkroom 
+ART 349 - Expanded Print Media 
+ART 354 - Metal Sculpture 
+ART 355 - Sculpture I 
+ART 356 - Sculpture II 
+ART 381 - Ceramics II 
+ART 384 - Photojournalism and Documentary Photography 
+ART 385 - Photography II 
+ART 386 - Studio Lighting for Photography 
+ART 387 - Alternative Photographic Processes 
+ART 393 - Practicum/Internship in Art Careers 
+ART 394 - Advanced Studio Practicum: Art and Entrepreneurship 
+ART 442 - Image Sequencing/Sequential Images 
+ART 446 - Graphic Design 
+ART 447 - New Media and/or Design Capstone 
+ART 448 - Variable Topics in New Media and Design 
+ART 457 - Site-Specific Sculpture 
+ART 459 - Sculpture and/or Ceramics Studio Capstone 
+ART 481 - Ceramics III 
+ART 482 - Capstone Painting Studio and Practice Seminar 
+ART 496 - Special Problems, Studio 
+ART 557 - Site-Specific Sculpture 
+ART 610 - Graduate Studio Seminar 
+ART 635 - Painting 
+ART 649 - Studio Problems in New Media 
+ART 657 - Sculpture 
+ART 685 - Photography 
+ART 699 - Thesis 
+ASL 102 - Elementary American Sign Language II 
+ASL 204 - Intermediate American Sign Language II 
+ASL 245 - Introduction to the Deaf Community 
+AST 233 - Astronomy: The Solar System 
+AST 235 - Astronomy: Stars and Galaxies 
+ATY 100 - Contemporary Non-Western Cultures 
+ATY 212 - Introduction to Anthropology 
+ATY 213 - Introduction to Cultural Anthropology 
+ATY 253 - Introduction to Biological Anthropology 
+ATY 253L - Introduction to Biological Anthropology Laboratory 
+ATY 258 - Introduction to Archaeology 
+ATY 300X - ExpCrs: Music, Sound and Power 
+ATY 304 - Anthropology through Film 
+ATY 308 - Lost Tribes and Sunken Lands 
+ATY 311 - Reading Culture and Society 
+ATY 315 - World Ethnographies 
+ATY 330 - Cultures of North American Indians 
+ATY 341 - Paleolithic Archaeology 
+ATY 360 - Methods in Archaeology 
+ATY 363 - History of Anthropological Theory 
+ATY 385 - Language and Culture 
+ATY 400X - EC: ATY of Infectious Disease 
+ATY 423 - Applying Archaeology in the Real World 
+ATY 424 - Applying Anthropology in the Real World 
+ATY 426 - Food and Culture in a Global Context 
+ATY 453 - Human Osteology 
+ATY 453L - Human Osteology Lab 
+ATY 457 - Primate Behavior 
+ATY 495 - Contemporary Issues in Anthropology 
+ATY 498 - Special Problems in Anthropology 
+BIO 105 - Major Concepts of Biology 
+BIO 105L - Major Concepts of Biology Laboratory 
+BIO 111 - Principles of Biology I 
+BIO 111L - Principles of Biology I Laboratory 
+BIO 112 - Principles of Biology II 
+BIO 112L - Principles of Biology II Laboratory 
+BIO 271 - Human Anatomy 
+BIO 271L - Human Anatomy Laboratory 
+BIO 277 - Human Physiology 
+BIO 277L - Human Physiology Laboratory 
+BIO 280 - Fundamentals of Microbiology 
+BIO 280L - Fundamentals of Microbiology Laboratory 
+BIO 301 - Principles of Ecology 
+BIO 315 - Ecology and Evolution Laboratory 
+BIO 330 - Evolution 
+BIO 355 - Cell Biology 
+BIO 361 - Biology and Conservation of Sea Turtles 
+BIO 375 - Cell Biology and Genetics Laboratory 
+BIO 392 - Genetics 
+BIO 407 - Advanced Topics in Neurobiology 
+BIO 420 - Marine Biology 
+BIO 424 - Plant Physiology and Biotechnology 
+BIO 429 - Aquatic Ecology 
+BIO 432 - Aquatic Ecology Laboratory 
+BIO 435 - Biochemistry: Metabolic Regulation in Health and Disease 
+BIO 438 - Animal Behavior 
+BIO 443 - Biophysics 
+BIO 449 - Current Topics in Neurobiology 
+BIO 449 - Foraging Ecology to Population 
+BIO 449 - Scientific Reading & Writing 
+BIO 449 - Stable Isotope Applications 
+BIO 451 - Vascular Plant Systematics 
+BIO 451L - Vascular Plant Systematics Lab 
+BIO 455 - Vertebrate Reproduction 
+BIO 460 - Symbiosis 
+BIO 464 - Developmental Biology 
+BIO 476 - Population Genetics and Molecular Evolution 
+BIO 482 - Molecular Biological Approaches in Research 
+BIO 488 - Essentials of Toxicology 
+BIO 493 - Honors Work 
+BIO 494 - Introduction to Biotechnology 
+BIO 496 - Science Pedagogy for Learning Assistants 
+BIO 497 - Internship in Biology 
+BIO 499 - Undergraduate Research 
+BIO 629 - Aquatic Ecology 
+BIO 638 - Aquatic Ecology Laboratory 
+BIO 643 - Biophysics 
+BIO 646 - Advanced Topics in Neurobiology 
+BIO 648 - Current Topics in Neurobiology 
+BIO 648 - Foraging Ecology to Population 
+BIO 648 - Scientific Reading & Writing 
+BIO 648 - Stable Isotope Applications 
+BIO 651 - Vascular Plant Systematics 
+BIO 651L - Vascular Plant Systematics Laboratory 
+BIO 660 - Symbiosis 
+BIO 676 - Population Genetics and Molecular Evolution 
+BIO 682 - Molecular Biological Approaches in Research 
+BIO 695 - Biological Research 
+BIO 699 - Thesis 
+BIO 732 - Environmental Health Science II: Individuals to Molecules 
+BIO 734 - Current Research in Environmental Health Science 
+BIO 749 - Research Lab Rotations 
+BIO 790 - Directed Study in Environmental Health Science 
+BIO 791 - Independent Doctoral Research 
+BIO 799 - Dissertation 
+BIO 801 - Thesis Extension 
+BIO 802 - Dissertation Extension 
+BIO 803 - Research Extension 
+BLS 300 - Self, Society, Salvation 
+BLS 301 - Pathways: Reading and Writing in the Humanities 
+BLS 320 - Banned Books 
+BLS 321 - Reading and the Human Experience 
+BLS 322 - Revolutionary Lives 
+BLS 323 - Contemporary Short Stories 
+BLS 325 - Mystery, Mayhem, and Murder 
+BLS 326 - Telling Stories: The Memoir 
+BLS 340 - Disclosure, Drama, Documentary 
+BLS 340 - Gender on the Big Screen 
+BLS 342 - Painting on the Page 
+BLS 348 - Representing Women 
+BLS 362 - Vice, Crime, and American Law 
+BLS 363 - Ethics and Technology 
+BLS 364 - Mystics in America 
+BLS 365 - Divided We Stand 
+BLS 366 - Life, Death, and Meaning 
+BLS 380 - Great Gun Debate 
+BLS 380 - The New South 
+BLS 380 - Women's Voices Personal is Pol 
+BLS 384 - Great Trials in American History 
+BLS 385 - American Motherhood 
+BLS 400 - Senior Seminar in the Humanities 
+BUS 115 - Blueprint for Personal Development 
+BUS 130 - Entrepreneurship in a Sustainable Global Environment 
+BUS 201 - Creativity, Innovation, and Vision 
+BUS 216 - Blueprint for Personal and Professional Development 
+BUS 240 - Introduction to the Entrepreneurial Experience 
+BUS 300 - Ideas to Opportunities: Feasibility Analysis 
+BUS 315 - Global and Cultural Development 
+BUS 328 - Organizational Leadership 
+BUS 336 - Opportunities to Action: Business Plan 
+BUS 339 - Entrepreneurial Leadership 
+BUS 342 - International Entrepreneurship 
+BUS 440 - Social Entrepreneurship: Justice and a Green Environment 
+BUS 450 - Directed Business Practice 
+BUS 606 - International Entrepreneurship 
+BUS 617 - International Strategy 
+BUS 618 - International Collaboration Project I 
+BUS 623 - International Marketing 
+BUS 702 - Doctoral Research Methods II (Qualitative Research Methods) 
+BUS 721 - Seminar in Organization Behavior 
+CCI 201 - Introduction to Greek Civilization 
+CCI 202 - Introduction to Roman Civilization 
+CCI 205 - Mythology 
+CCI 212 - Introduction to Roman Archaeology 
+CCI 240 - Ancient Warfare 
+CCI 305 - Classical Tragedy 
+CCI 313 - Archaeology of the Aegean 
+CCI 350 - Roman Law and Society 
+CED 310 - Helping Skills 
+CED 392 - Love, Sex, and Relationships: Skills for Building Satisfying, Healthy Relationships 
+CED 611 - The Counselor as Scientist-Practitioner 
+CED 612 - Developmental Counseling 
+CED 642 - Substance Abuse Counseling 
+CED 645 - Genetic Couns.-Mental Health I 
+CED 653 - Prac in Couns- Diagnosis & Tre 
+CED 653 - Pract in Couns.-Child & Adoles 
+CED 653 - Practicum in Couns- Families 
+CED 653 - Practicum in Couns-Sexuality 
+CED 653B - Pract in Couns: Career 
+CED 653F - Pract in Couns-Developmental 
+CED 653G - Prac in Couns:Sub Abuse 
+CED 653G - Practicum in Counseling: Couples 
+CED 653Q - Prac Coun:Scientist Practition 
+CED 669 - Career Development and Career Counseling 
+CED 679 - Advanced Counseling Practicum 
+CED 680B - Counseling Internship 
+CED 687 - Diagnosis and Treatment Planning in Counseling 
+CED 688 - Couns.Children & Adolescents 
+CED 688A - Contemporary Problems Seminar: Pfr Sem Teaching 
+CED 690 - Counselors Working with Families 
+CED 691 - Couples Counseling 
+CED 691 - Sexuality 
+CED 692 - Ind Study: Fam & Int Violence 
+CED 692 - Independent Study 
+CED 692 - Independent Study- Polyvagal 
+CED 692 - Independent Study-Neuroscience 
+CED 692 - Independent Study-Somatic 
+CED 698 - Implementing and Evaluating School Counseling Programs 
+CED 720B - Research Apprenticeship 
+CED 740 - Research Practicum in Counseling 
+CED 757 - Internship in University Teaching in Counseling 
+CED 760B - Leadership in Counseling and Counselor Education 
+CED 775 - Directed Doctoral Research 
+CED 777B - Sem in Couns Research 
+CED 780A - Advanced Counseling Internship 
+CED 781B - Clinical Supervision 
+CED 781D - Clinical Supervision 
+CED 799 - Dissertation 
+CHE 101 - Introductory Chemistry 
+CHE 103 - General Descriptive Chemistry I 
+CHE 104 - General Descriptive Chemistry II 
+CHE 110 - Introductory Chemistry Laboratory 
+CHE 111 - General Chemistry I 
+CHE 112 - General Chemistry I Laboratory 
+CHE 114 - General Chemistry II 
+CHE 115 - General Chemistry II Laboratory 
+CHE 191 - Introduction to Research 
+CHE 252 - Chemistry and the Human Environment 
+CHE 292 - Sophomore Research 
+CHE 351 - Organic Chemistry I 
+CHE 352 - Organic Chemistry II 
+CHE 354 - Organic Chemistry Laboratory 
+CHE 355 - Intermediate Organic Chemistry Lab 
+CHE 392 - Junior Research 
+CHE 401 - Chemistry Seminar Introduction 
+CHE 402 - Chemistry Seminar 
+CHE 431 - Instrumental Analysis 
+CHE 433 - Instrumental Analysis Laboratory 
+CHE 442 - Advanced Inorganic Chemistry I 
+CHE 453 - Advanced Organic Chemistry I 
+CHE 457 - Biochemistry II 
+CHE 458 - Biochemistry Laboratory 
+CHE 462 - Physical Chemistry II 
+CHE 464 - Physical Chemistry II Laboratory 
+CHE 470B - Special Topics in Chemistry: Biochemistry 
+CHE 470E - Special Topics in Chemistry: Physical 
+CHE 492 - Senior Research 
+CHE 499 - Senior Thesis 
+CHE 531 - Instrumental Analysis 
+CHE 557 - Biochemistry II 
+CHE 570D - Special Topics in Chemistry: Organic 
+CHE 601 - Graduate Seminar I 
+CHE 602 - Graduate Seminar II 
+CHE 652 - Synthetic Organic Chemistry 
+CHE 659 - Receptor Biochemistry 
+CHE 661 - Advanced Physical Chemistry I 
+CHE 670B - Adv Special Topic Biochemistry 
+CHE 680 - Research Problems in Chemistry and Biochemistry 
+CHE 699 - Thesis 
+CHE 752 - Dissertation Seminar 
+CHE 780 - Research Problems in Medicinal Biochemistry 
+CHE 799 - Dissertation Research in Medicinal Biochemistry 
+CHI 101 - Elementary Chinese I 
+CHI 102 - Elementary Chinese II 
+CHI 203 - Intermediate Chinese I 
+CHI 204 - Intermediate Chinese II 
+CHI 302 - Third-Year Chinese Conversation and Composition 
+CHI 305 - Topics in Chinese Culture 
+CHI 492 - Chinese Tutorial 
+CRS 211 - Textile Science: From Fiber to Finish 
+CRS 231 - Introduction to Apparel and Related Industries: From Concept to Consumer 
+CRS 242 - Design Principles and Technology 
+CRS 255 - Consumer Behavior in Apparel and Related Industries 
+CRS 312 - Technical Apparel Analysis 
+CRS 312L - Technical Apparel Analysis Lab 
+CRS 321 - Social Psychology of Dress 
+CRS 363 - Global Sourcing of Apparel and Related Consumer Products 
+CRS 400 - Special Problems in Consumer Apparel and Retail Studies 
+CRS 405 - Retail Data Analytics 
+CRS 470 - Apparel Brand Management 
+CRS 481 - Contemporary Professional Issues in Consumer, Apparel, and Retail Studies 
+CRS 570 - Apparel Brand Management 
+CRS 605 - Retail Data Analytics 
+CRS 632 - Supervised Industry Practicum in Consumer, Apparel, and Retail Studies 
+CRS 685 - Problems in Retail and Consumer Studies 
+CRS 690 - Minor Research 
+CRS 699 - Thesis 
+CRS 713 - Qualitative Methodology in Consumer, Apparel, and Retail Studies 
+CRS 714 - Advanced Quantitative Methods in Consumer, Apparel, and Retail Studies 
+CRS 721 - Consumer Behavior in Apparel and Retailing 
+CRS 781 - Directed Independent Study in Consumer, Apparel, and Retail Studies 
+CRS 790 - Independent Doctoral Research 
+CRS 799 - Dissertation 
+CRS 802 - Dissertation Extension 
+CRS 803 - Research Extension 
+CSC 120 - Introduction to Computer Programming for Non-Majors 
+CSC 130 - Introduction to Computer Science 
+CSC 230 - Elementary Data Structures and Algorithms 
+CSC 250 - Foundations of Computer Science I 
+CSC 261 - Computer Organization and Assembly Language 
+CSC 330 - Advanced Data Structures 
+CSC 339 - Concepts of Programming Languages 
+CSC 340 - Software Engineering 
+CSC 350 - Foundations of Computer Science II 
+CSC 410 - Big Data and Machine Learning 
+CSC 416 - Digital Image Processing 
+CSC 425 - Bioinformatics 
+CSC 427 - Numerical Analysis and Computing 
+CSC 429 - Artificial Intelligence 
+CSC 452 - Theory of Computation 
+CSC 454 - Algorithm Analysis and Design 
+CSC 461 - Principles of Computer Architecture 
+CSC 462 - Principles of Operating Systems 
+CSC 471 - Principles of Database Systems 
+CSC 490 - Senior Capstone 
+CSC 492 - Directed Study in Computer Science 
+CSC 495 - Artificial Intelligence Ethics 
+CSC 495 - Data Mining 
+CSC 495 - Virtual Reality 
+CSC 610 - Big Data and Machine Learning 
+CSC 616 - Digital Image Processing 
+CSC 625 - Bioinformatics 
+CSC 629 - Artificial Intelligence 
+CSC 652 - Theory of Computation 
+CSC 654 - Algorithm Analysis and Design 
+CSC 661 - Principles of Computer Architecture 
+CSC 662 - Principles of Operating Systems 
+CSC 693 - Artificial Intelligence Ethics 
+CSC 693 - Data Mining 
+CSC 693 - Virtual Reality 
+CSC 694 - Directed Study in Computer Science 
+CSC 698 - Project in Computer Science 
+CSC 699 - Thesis 
+CSC 803 - Research Extension 
+CSD 150 - Communication Disabilities in Film 
+CSD 219 - Communication Disorders Laboratory 
+CSD 333 - Independent Study 
+CSD 336 - Speech Sound Disorders 
+CSD 337 - Language Disorders 
+CSD 338 - Voice and Fluency Disorders 
+CSD 456 - Aural Rehabilitation 
+CSD 457 - Pediatric Aural Rehabilitation 
+CSD 476 - Structured Clinic Observations 
+CSD 488 - Neurology of Speech, Language and Hearing 
+CSD 557 - Pediatric Aural Rehabilitation 
+CSD 604 - Fluency Disorders 
+CSD 616 - Motor Speech Disorders 
+CSD 632 - Introduction to Research in Communication Sciences and Disorders 
+CSD 633 - Special Projects in Communication Sciences and Disorders 
+CSD 637 - Prevention, Assessment, and Intervention of Communication Disorders: School Age 
+CSD 650 - Independent Study 
+CSD 677 - Internship in Communication Disorders 
+CSD 678 - Advanced Clinical Practice in Speech-Language Pathology 
+CSD 760 - Advanced Seminar in Communication Sciences and Disorders 
+CSD 780 - Independent Study 
+CSD 790 - Directed Research 
+CSD 799 - Dissertation 
+CSD 802 - Dissertation Extension 
+CST 105 - Introduction to Communication Studies 
+CST 200 - Communication and Community 
+CST 207 - Relational Communication 
+CST 210 - Communicating Ethically 
+CST 300 - Communication Theory 
+CST 315 - Persuasion and Social Influence 
+CST 333 - Special Problems 
+CST 341 - Communication and Workplace Relationships 
+CST 342 - Communication and Public Relations: Strategies and Innovations 
+CST 343 - Crisis Communication 
+CST 344 - Conflict Communication 
+CST 390 - Speaking Center Theory and Practice 
+CST 399 - Communication Research Methods 
+CST 400X - Exp Crse: Battling Bigotry 
+CST 400X - ExpCrse:SpkngOutAgnstCmpsVlnce 
+CST 406 - Speaking Out for Community Change 
+CST 407 - Gender and Communication 
+CST 412 - Communication Internship 
+CST 460 - Sp Tpcs: DIY Culture 
+CST 460 - Sp Tpcs: Storytelling 
+CST 460 - SpTpc: Climate Change Comm 
+CST 460 - SpTpc:Communicating Leadership 
+CST 460 - SpTpc:Cvc Enggmnt in Dgtl Age 
+CST 460 - SpTpcs: Health Care Narratives 
+CST 499 - Senior Capstone 
+CST 600X - Exp Crse: Battling Bigotry 
+CST 600X - ExpCrse:SpkngOutAgnstCmpsVlnce 
+CST 602 - Engaging Communication Scholarship II 
+CST 612 - Sem:InterpersonalRelationships 
+CST 698 - Capstone Experience in Communication (Final Research Project) 
+CST 803 - Research Extension 
+CTP 111 - Academic Success Planning 
+CTP 124 - Human Rights 
+CTP 158 - Introduction to Dimensions of Campus and Community 
+CTP 190 - First Year Practicum 
+CTP 204 - Self-Determination and Community Engagement 
+CTP 258 - Comprehensive Transition and Postsecondary Education 
+CTP 290 - Sophomore Practicum 
+CTP 324 - Directing Your Resources 
+CTP 326 - Personal Financial Planning Seminar 
+CTP 390 - Junior Practicum 
+CTP 391 - Advanced Independent Study 
+CTP 393 - Internship 
+CTP 404 - Senior Seminar 
+CTP 459 - Senior Practicum 
+CTP 490 - Senior Capstone Portfolio 
+CTP 492 - Internship and Job Development 
+CTR 101 - Leisure and American Lifestyles 
+CTR 102 - Creating a Meaningful Life 
+CTR 111 - Introduction to Recreation and Parks 
+CTR 212 - Leadership in Recreation and Parks 
+CTR 213 - Program Planning in Recreation and Parks 
+CTR 251 - Professional Preparation in Recreation and Parks 
+CTR 314 - Recreation Services with Underrepresented Groups 
+CTR 332 - Clinical Procedures in Therapeutic Recreation 
+CTR 338 - Client Assessment in Therapeutic Recreation 
+CTR 346 - Campus Recreation Management 
+CTR 415 - Financing and Budgeting in Recreation and Parks 
+CTR 416 - Management in Recreation and Parks 
+CTR 417 - Internship in Recreation and Parks 
+CTR 418 - Research and Evaluation in Recreation and Parks 
+CTR 419 - Directed Research in Recreation, Parks, and Tourism 
+CTR 429 - Special Event Management 
+CTR 437 - Interventions and Facilitation Techniques in Therapeutic Recreation 
+CTR 444 - Recreation, Parks, and Health 
+CTR 613 - Recreation and Parks Management 
+CTR 615 - Financing and Budgeting in Recreation and Parks 
+CTR 634 - Advanced Procedures in Therapeutic Recreation 
+CTR 637 - Advanced Interventions and Facilitation Techniques in Therapeutic Recreation 
+CTR 644 - Recreation, Parks, and Health 
+CTR 646 - Community Development 
+CTR 695 - Independent Study 
+CTR 696 - Directed Readings 
+CTR 697 - Internship in Recreation and Parks 
+CTR 698 - Field Project in Recreation and Parks 
+DCE 101 - Introduction to Dance 
+DCE 111 - Introduction to Contemporary Dance 
+DCE 112 - Contemporary Dance I 
+DCE 113 - Introduction to Ballet 
+DCE 114 - Ballet I 
+DCE 116 - Jazz Dance I 
+DCE 132 - African Dance I 
+DCE 143 - Dance Performance Workshop 
+DCE 200 - Dance Appreciation 
+DCE 207 - Dance History: Modernism and Postmodernism 
+DCE 212 - Contemporary Dance II 
+DCE 214 - Ballet II 
+DCE 231 - Global Dance Forms 
+DCE 243 - Dance Repertory II 
+DCE 250 - Dance Performance Practicum 
+DCE 253 - Choreography I: Craft 
+DCE 255 - Dance Production Practicum I 
+DCE 312 - Contemporary Dance III 
+DCE 314 - Ballet III 
+DCE 316 - Jazz Dance III 
+DCE 330 - Iyengar Yoga: Somatic Practice 
+DCE 331 - Musical Theatre Dance Styles 
+DCE 343 - Repertory III 
+DCE 355 - Dance Production Practicum II 
+DCE 360 - Dance Production 
+DCE 405 - Choreographies and Choreographers 
+DCE 432 - Pilates: Movement Fundamentals for Dancers 
+DCE 443 - Advanced Dance Repertory 
+DCE 446 - Choreographic Explorations Since 1953 
+DCE 453 - Choreography III: Group Forms 
+DCE 459 - Dance Education Methods and Field Experience 
+DCE 461 - Student Teaching in Dance Education 
+DCE 463 - Seminar in Dance Education 
+DCE 470 - Creative Synthesis in Dance 
+DCE 475 - Independent Study 
+DCE 487 - Performance Theory and Practice 
+DCE 493 - Honors Work 
+DCE 605 - Choreographies and Choreographers 
+DCE 611 - Dance Studies II: Research Projects 
+DCE 621 - Administration of Dance 
+DCE 624 - Movement for Dance 
+DCE 632 - Pilates: Movement Fundamentals for Dancers 
+DCE 645 - Foundations for Assessment in Dance 
+DCE 650 - Dance Design Practicum 
+DCE 651 - Choreographic Practice 
+DCE 662 - Practicum in Teaching Dance 
+DCE 663 - PreK-12 Dance Education Practicum 
+DCE 695 - Independent Study 
+DCE 697 - Masters Production Project 
+DCE 698 - Field Project in Dance 
+ECO 100 - Economics of a Global Sustainable Society 
+ECO 101 - Introduction to Economics 
+ECO 201 - Principles of Microeconomics 
+ECO 201R - Principles of Microeconomics Recitation 
+ECO 202 - Principles of Macroeconomics 
+ECO 250 - Economic and Business Statistics I 
+ECO 250R - Econ/Bus Stats I Recitation 
+ECO 300 - The International Economy 
+ECO 301 - Intermediate Microeconomic Theory 
+ECO 302 - Intermediate Macroeconomic Theory 
+ECO 312 - Economics of Technology 
+ECO 319 - Quantitative Analysis 
+ECO 350 - Economic and Business Statistics II 
+ECO 380 - Environmental and Natural Resource Economics 
+ECO 413 - Directed Studies in Economics I 
+ECO 426 - Internship: Experiential Learning in Economics 
+ECO 498 - Seminar in Economics 
+ECO 642 - Microeconomics II 
+ECO 644 - Econometric Theory 
+ECO 646 - Macroeconomics 
+ECO 731 - Applied Policy Methods 
+ECO 736 - Public Economics 
+ECO 737 - Health Economics 
+ECO 739 - Int'l Perspective on Innovati 
+ECO 746 - Advanced Econometric Theory II 
+ECO 797 - Seminar in Empirical Economics 
+ECO 798 - Seminar in Economic Research 
+ECO 799 - Dissertation 
+ECO 802 - Dissertation Extension 
+ELC 201 - Introduction to Community Leadership 
+ELC 375 - Philosophy of Education 
+ELC 381 - Cultural Foundations of Education 
+ELC 400X - Participa arts-based rsch tchg 
+ELC 401 - Schooling in a Democratic Society 
+ELC 615 - Foundations of Curriculum 
+ELC 671 - Principal Fellows Seminar 
+ELC 684 - Teacher Rights, Recruitment, Retention, and Evaluation 
+ELC 685 - Passionate Pedagogies 
+ELC 688 - Educational Policy 
+ELC 688 - Family Engagemt in Urban Sch 
+ELC 688 - Film/Phenomenology Education 
+ELC 688 - Leadership for Social Justice 
+ELC 688 - Tpcs:Leding a Sch in High stak 
+ELC 690 - Practicum in Educational Administration 
+ELC 692 - Independent Study 
+ELC 694 - Cultural and Political Dimensions of Schooling 
+ELC 705 - Foundations of Critical Theory 
+ELC 708 - Educational Sociology: Race, Class, and Gender Power Dynamics 
+ELC 730 - Democracy and Education 
+ELC 749 - Doctoral Dissertation Seminar 
+ELC 767 - Advanced Qualitative Studies 
+ELC 775 - Directed Doctoral Research 
+ELC 790 - Internship in Educational Leadership 
+ELC 799 - Dissertation 
+ELC 802 - Dissertation Extension 
+ELC 803 - Research Extension 
+ENG 101 - College Writing I 
+ENG 102 - College Writing II 
+ENG 103 - Essentials of Professional and Business Writing 
+ENG 104 - Approach to Literature 
+ENG 105 - Intro to Narrative 
+ENG 105 - Introduction to Narrative 
+ENG 106 - Introduction to Poetry 
+ENG 107 - Introduction to Drama 
+ENG 108 - Topics: American Gothic Women 
+ENG 108 - Topics: Expatriates in Paris 
+ENG 108 - Topics: From Murphy to Manteo 
+ENG 108 - Topics: History of the Book 
+ENG 108 - Topics: Literary Alienation 
+ENG 108 - Topics: Nature's Haunted House 
+ENG 109 - Introduction to Shakespeare 
+ENG 110 - World Literature in English 
+ENG 208 - Topics in Global Literature 
+ENG 208 - Topics: Global Environment Lit 
+ENG 208 - Topics: Global Yng Adlt Novel 
+ENG 208 - Topics: The Supernatural 
+ENG 209 - Topics in Non-Western Literature 
+ENG 209 - Topics: Lit of South Asia 
+ENG 210 - Literature and the Arts 
+ENG 211 - Major British Authors: Medieval to Eighteenth Century 
+ENG 212 - Major British Authors: Romantic to Modern 
+ENG 215 - Literature and Film 
+ENG 219 - Journalism I: Fundamentals of Newswriting 
+ENG 221 - Writing of Poetry: Introductory 
+ENG 225 - Writing of Fiction: Introductory 
+ENG 230 - Writing for the Workplace and Public Audiences 
+ENG 251 - Major American Authors: Colonial to Romantic 
+ENG 252 - Major American Authors: Realist to Modern 
+ENG 262 - Language and Society 
+ENG 303 - Critical Approaches to the Study of Literature 
+ENG 304 - History and Theory of Rhetoric 
+ENG 305 - Contemporary Rhetoric 
+ENG 306 - Digital Rhetoric 
+ENG 315 - Postcolonial Literatures 
+ENG 316 - Hmn Rights: Black Lives Matter 
+ENG 325 - Writing of Fiction: Intermediate 
+ENG 326 - Writing of Poetry: Intermediate 
+ENG 327 - Writing for Professionals and Entrepreneurs 
+ENG 331 - Women in Literature 
+ENG 333 - Southern Writers 
+ENG 337 - Medieval Loser/Lepers/Lunatics 
+ENG 342 - The Seventeenth Century 
+ENG 347 - The American Short Story 
+ENG 347 - The World of Toni Morrison 
+ENG 350 - The Twentieth-Century English Novel 
+ENG 360 - 18th C- Search for Happiness 
+ENG 363 - Theory/Environmental Rhetoric 
+ENG 372 - Early American Literature 
+ENG 381 - English Drama to 1800 
+ENG 390 - Studies in Writing Center Theory and Practice 
+ENG 391 - Studies in Digital Studio Theory and Practice 
+ENG 401 - Internship in Journalism and Editing 
+ENG 402 - Internship in English Studies 
+ENG 425 - Writing of Fiction: Advanced 
+ENG 426 - Writing of Poetry: Advanced 
+ENG 622 - Internship in English 
+ENG 623 - Writing-Advanced: Nonfiction 
+ENG 626 - MFA Fiction Workshop 
+ENG 628 - MFA Poetry Workshop 
+ENG 642 - Medieval Love/Marriage/Gender 
+ENG 650 - Modern Literary and Cultural Theory 
+ENG 659 - Digital Literacies and Online Rhetorics 
+ENG 664 - 19th C Brit Lit: Country&City 
+ENG 672 - Graduate Tutorial in Writing: Fiction 
+ENG 674 - Graduate Tutorial in Writing: Poetry 
+ENG 678 - Special Problems in Writing 
+ENG 680 - Teaching Internships in English 
+ENG 682 - The Structure of Verse 
+ENG 688 - Women's Rhetoric and Feminist Pedagogy 
+ENG 699 - Thesis 
+ENG 725 - Studies in Modernism 
+ENG 742 - Studies in Rhetorical Theory and Practice 
+ENG 778 - Directed Reading 
+ENG 780 - Independent Doctoral Study 
+ENG 799 - Dissertation 
+ENT 130 - Entrepreneurship in a Sustainable Global Environment 
+ENT 200 - Introduction to Entrepreneurial Finance 
+ENT 201 - Creativity, Innovation, and Vision 
+ENT 202 - Arts Admin and Entrepreneurship 
+ENT 240 - Introduction to the Entrepreneurial Experience 
+ENT 250 - Purpose-Driven Entrepreneurship 
+ENT 275 - Entrepreneurial Personal Branding 
+ENT 276 - Creative Space: The Meeting of Art and Entrepreneurship 
+ENT 300 - Ideas to Opportunities: Feasibility Analysis 
+ENT 307 - Global Health 
+ENT 312 - Economics of Technology 
+ENT 324 - Professional Selling 
+ENT 327 - Writing for Professionals and Entrepreneurs 
+ENT 328 - Sales Leadership 
+ENT 335 - Entrepreneurial Finance 
+ENT 336 - Opportunities to Action: Business Plan 
+ENT 339 - Entrepreneurial Leadership 
+ENT 342 - International Entrepreneurship 
+ENT 362 - Ethical Issues in Entrepreneurship 
+ENT 394 - Advanced Studio Practicum: Art and Entrepreneurship 
+ENT 396 - Transition Planning and School-Based Entrepreneurship 
+ENT 402 - Entrepreneurship in the Performing Arts 
+ENT 427 - Personal Selling Internship 
+ENT 430 - Researching Opportunities in Entrepreneurship and Economic Development 
+ENT 440 - Social Entrepreneurship: Justice and a Green Environment 
+ENT 450 - Directed Business Practice 
+ENT 451 - Service Management 
+ENT 530 - Researching Opportunities in Entrepreneurship and Economic Development 
+ENT 540 - Social Entrepreneurship: Justice and a Green Environment 
+ENT 606 - International Entrepreneurship 
+ERM 402 - Assessment II: Standardized Tests 
+ERM 405 - Measurement and Assessment in Teaching 
+ERM 604 - Methods of Educational Research 
+ERM 633 - Second Language Assessment and Testing 
+ERM 643 - Applied Educational Evaluation 
+ERM 667 - Foundations of Educational Measurement Theory 
+ERM 675 - Data Presentation and Reporting 
+ERM 681 - Design and Analysis of Educational Experiments 
+ERM 692 - Independent Study 
+ERM 729 - Advanced Item Response Theory 
+ERM 731 - Structural Equation Modeling in Education 
+ERM 799 - Dissertation 
+ERM 802 - Dissertation Extension 
+ERM 803 - Research Extension 
+ESL 601 - Culture and Community for Graduate Studies II 
+ESL 610 - Academic Listening I 
+ESL 611 - Communication and Presentation I 
+ESL 612 - Academic Reading and Vocabulary Development I 
+ESL 613 - Writing and Grammar I 
+ESL 620 - Academic Listening II 
+ESL 621 - Communication and Presentation II 
+ESL 622 - Academic Reading and Vocabulary Development II 
+ESL 623 - Writing and Grammar II 
+ESL 630 - Academic Listening III 
+ESL 631 - Communication and Presentation III 
+ESL 632 - Academic Reading and Vocabulary Development III 
+ESL 633 - Writing and Grammar III 
+FIN 200 - Introduction to Entrepreneurial Finance 
+FIN 300 - The Management of Personal Finance 
+FIN 315 - Business Finance I 
+FIN 330 - Financial Institutions and Markets 
+FIN 335 - Entrepreneurial Finance 
+FIN 360 - Internship in Finance 
+FIN 410 - Business Finance II 
+FIN 442 - Investments 
+FIN 449 - Seminar in Finance 
+FIN 450 - Derivatives 
+FIN 499 - Problems in Finance 
+FMS 115 - Lies the Internet Told Me 
+FMS 115 - The Rhetoric of Remembering 
+FMS 115 - The Struggle for Space 
+FMS 115 - Walking with Wilderness:Writin 
+FMS 120 - Narratives of Identity and Mad 
+FMS 120 - Write for Your Life! 
+FMS 121 - Global Young Adult & Child Lit 
+FMS 121 - Monsters and the Monstrous 
+FMS 141 - Holy Horribles Rel Sacred Mons 
+FMS 160 - His Roots Contemporary South 
+FMS 160 - Hist Roots Contemporary South 
+FMS 160 - History of American Capitalism 
+FMS 160 - The Cold War in Fact and Film 
+FMS 170 - Can We All Get Along? Race US 
+FMS 170 - Fans, Fandom & Fan Practices 
+FMS 170 - God and the Constitution 
+FMS 170 - Understanding Autism Sci Cul 
+FMS 170 - War and Conflict 
+FMS 170 - When the River Caught Fire 
+FMS 184 - Advances in Genetics 
+FMS 184 - Freshman Seminar in Life Science 
+FMS 195 - Shall We Play a Game? 
+FRE 101 - Beginning French I 
+FRE 102 - Beginning French II 
+FRE 203 - Intermediate French I 
+FRE 204 - Intermediate French II 
+FRE 210 - Intermediate French Conversation 
+FRE 241 - Intermediate French: Culture and Business 
+FRE 303 - Francophone Cultures: An Introduction 
+FRE 332 - Introduction to French Civilization and Culture 
+FRE 353 - Survey of French Literature 
+FRE 455 - Monsters and Superheroes... 
+FRE 693 - Monsters and Superheroes... 
+FYE 101 - Succeed at the G 
+GEN 602 - Principles of Genetic Counseling II 
+GEN 618 - Psychosocial Seminar 
+GEN 630 - Medical/Clinical Genetics I 
+GEN 648 - Capstone Preparation Seminar 
+GEN 688 - Genetics Journal Club 
+GEN 719 - Clinical Rotations II 
+GEN 749 - Research Project 
+GER 101 - Beginning German I 
+GER 102 - Beginning German II 
+GER 203 - Intermediate German 
+GER 204 - Intermediate German Topics 
+GER 217 - Masterworks of German Literature Read in English 
+GER 218 - Masterworks of German Literature Read in English 
+GER 221 - Sagas, Legends, Fairy Tales: Readings in English 
+GER 310 - German Culture: Advanced Intermediate-Topics in German Film 
+GER 311 - German Conversation Topics 
+GER 405 - German Orientalisms 
+GES 103 - Introduction to Earth Science 
+GES 103L - Earth Science Laboratory 
+GES 104 - World Regional Geography 
+GES 105 - Introduction to Human Geography 
+GES 121 - Introduction to Geographic Information Science 
+GES 121L - Intro to Geographic Information Science Laboratory 
+GES 164 - Introduction to Environment 
+GES 301 - Urban Geography: Global Patterns 
+GES 305 - Environmental Hazards Assessment 
+GES 306 - World Economic Geography 
+GES 314 - Physical Geography: Landscape Processes 
+GES 314L - Physical Geography Laboratory 
+GES 325 - Introduction to Spatial Analysis 
+GES 331 - Sustainable Tourism and Transportation 
+GES 357 - Principles of Cartography 
+GES 359 - Remote Sensing of Environment 
+GES 362 - Seminar in Sustainability 
+GES 368 - Individual Study 
+GES 370 - E&E: NC Outerbanks 
+GES 370 - E&E: S. Appalachia 
+GES 382 - A&E: Env'l Aesthetics 
+GES 384 - E&D: Decarbonizing the Economy 
+GES 400 - Capstone Seminar 
+GES 419 - Advanced Weather and Climate-Synoptic Climatology 
+GES 421 - Geographic Information Science 
+GES 458 - Advanced Geographic Information Systems 
+GES 490 - Special Problems in Geography 
+GES 495 - Internship in Geography 
+GES 619 - Advanced Weather and Climate-Synoptic Climatology 
+GES 620 - Spatial Analysis 
+GES 621 - Seminar in Geographic Information Science 
+GES 630 - Researching Opportunities in Entrepreneurship and Economic Development 
+GES 631 - Transportation Planning 
+GES 658 - Advanced Geographic Information Systems 
+GES 684 - E&D: Decarbonizing the Economy 
+GES 690 - Research Problems in Applied Geography 
+GES 695 - Internship 
+GES 699 - Thesis 
+GES 701 - History of Geographic Thought 
+GES 702 - Research Design 
+GES 730 - Seminar in Earth Science/Natural Resources 
+GES 790 - Independent Geographic Research 
+GES 799 - Doctoral Dissertation Research 
+GRK 202 - Elementary Ancient Greek II 
+GRK 204 - Intermediate Ancient Greek II 
+GRK 341 - Homer 
+GRO 201 - Envisioning Your Old Age 
+GRO 621 - Health and Aging 
+GRO 634 - Diversity, Inclusion, and Aging 
+GRO 676 - Administrator inTraining 
+GRO 676 - Aging, Memory and Dementia 
+GRO 676 - Sp. Topics: Advance Directives 
+GRO 676 - Sp. Topics: Estate Planning 
+GRO 676 - SpTpcs: Phys Activ & Cognition 
+HDF 211 - Human Development Across the Life Span 
+HDF 212 - Families and Close Relationships 
+HDF 250 - Introduction to Birth through Kindergarten Education and Programs 
+HDF 301 - Development of School-Age Children 
+HDF 302 - Infant and Child Development 
+HDF 303 - Adolescent Development: From Puberty to Young Adulthood 
+HDF 304 - Adult Development 
+HDF 315 - Assessment and Planning for Inclusive B-K Programs 
+HDF 321 - Issues in Parenting 
+HDF 341 - Social Emotional Competence in Inclusive Settings 
+HDF 390 - Families and Children in Global Perspective 
+HDF 401 - Special Problems in Human Development and Family Studies 
+HDF 409 - Family Diversity 
+HDF 415 - Research Methods in Human Development and Family Studies 
+HDF 435 - Preschool: Development, Learning, and Curriculum 
+HDF 436 - Kindergarten: Development, Learning, and Curriculum 
+HDF 440 - Birth to Kindergarten Teaching Practicum II 
+HDF 445 - Current Family Theory and Research 
+HDF 450 - Professional Experience in Early Childhood 
+HDF 455 - Current Developmental Theory and Research 
+HDF 464 - Advanced Family and Developmental Studies Seminar 
+HDF 468 - Diversity in Inclusive Early Care and Education 
+HDF 470 - Leadership in Early Education 
+HDF 477 - Professional Development in HDFS 
+HDF 482 - Administration of Dependent Care Programs 
+HDF 499 - Supervised Professional Experience 
+HDF 602 - Special Topics in Human Development and Family Studies 
+HDF 606 - Preschool-Kindergarten Learning in Inclusive Settings 
+HDF 651 - Contemporary Research in Human Development 
+HDF 652 - Theories of Human Development 
+HDF 661 - Professional Seminar II 
+HDF 699 - Thesis 
+HDF 703 - Contemporary Topics in Human Development and Family Studies 
+HDF 745 - College Teaching in Human Development and Family Studies 
+HDF 765 - College Teaching Practicum in Human Development and Family Studies II 
+HDF 790 - Independent Doctoral Research 
+HDF 799 - Dissertation Problem 
+HDF 801 - Thesis Extension 
+HED 603 - Effects of College on Students 
+HED 606 - Organization and Administration of Student Affair in Higher Education 
+HED 608 - Leadership in Higher Education 
+HED 609 - Student Development Theory II 
+HED 612 - Current Issues in Higher Education 
+HED 688 - LGBTQ+ Issues Higher Education 
+HED 688 - Life Design & Coaching 
+HED 692 - Independent Study 
+HED 748 - The Law of Higher Education 
+HED 775 - Directed Doctoral Research 
+HED 799 - Dissertation 
+HED 802 - Dissertation Extension 
+HHS 120 - College, Career & Life (Part I) 
+HHS 125 - Design Your Life I: What Could I Do With My Life? 
+HHS 135 - Design Your Life II: Redesign a Life You'll Love 
+HHS 140 - College, Career & Life (Part III) 
+HHS 250 - Purpose-Driven Entrepreneurship 
+HHS 275 - Entrepreneurial Personal Branding 
+HHS 650 - Applied Multiple Regression 
+HHS 654 - Ethics in Practice, Teaching, and Research 
+HHS 746 - Applied Longitudinal Analysis 
+HHS 750 - Professional Development Seminar 
+HIS 204 - History of Africa since 1870 
+HIS 206 - Tpcs: AfroEurasia to 1650 
+HIS 206 - Tpcs: Premodern Global History 
+HIS 207 - Tpcs: Cultures in Contact 
+HIS 207 - Tpcs: Mediterranean World 
+HIS 208 - Tpcs: Soviet Union 1917-1991 
+HIS 208 - Tpcs: The Great War 
+HIS 208 - Tpcs:Revolutions Mod Wrld Hist 
+HIS 209 - Tpcs: Islamic Civ 1200-present 
+HIS 209 - Tpcs:Social Mvmnts in Mod Wrld 
+HIS 211 - The United States: A General Survey to 1865 
+HIS 212 - The United States: A General Survey Since 1865 
+HIS 213 - Tpcs: Southern Women's History 
+HIS 217 - The World in the Twentieth Century 
+HIS 217 - World in the 20th C 1900-1945 
+HIS 218 - The World since 1945 
+HIS 221 - Medieval Legacy 
+HIS 223 - European Revolutions, 1789-1989 
+HIS 239 - The First America: Latin America, 1492-1830 
+HIS 240 - (Dis)order and Progress: Latin America since 1810 
+HIS 313 - The Viking Age 
+HIS 315 - Witchcraft and Magic in European History 
+HIS 322 - American Indian History: 1840 to the Present 
+HIS 341 - Pirates of the Caribbean: The Real Story 
+HIS 344 - The New South 
+HIS 347 - History of North Carolina 
+HIS 349 - The World at War, 1939-1945 
+HIS 350 - American Immigration 
+HIS 378 - Russian History since 1900 
+HIS 391 - Historical Skills and Methods 
+HIS 392 - The Holocaust: History and Meaning 
+HIS 402 - Individual Study 
+HIS 403 - Tpcs: Black Pop Culture in 70s 
+HIS 411B - Sem Tpc:Rise&Fall Nazi Germany 
+HIS 411C - Sem Tpc: Medieval Islamc Wrld 
+HIS 414 - Tpcs: The Global Cold War 
+HIS 422 - Tpcs: Race in Native America 
+HIS 430 - Historical Methods for Social Studies Teachers 
+HIS 446 - Tpcs:Thinkng Visually Amer His 
+HIS 469 - African History and Cultures through Film 
+HIS 514 - Tpcs: The Global Cold War 
+HIS 522 - Tpcs: Race in Native America 
+HIS 568 - African History and Cultures through Film 
+HIS 624 - History of American Landscapes and Architecture 
+HIS 625 - Preservation Planning and Law 
+HIS 626 - The Practice of Public History 
+HIS 631 - Digital History 
+HIS 697 - Directed Reading 
+HIS 702 - Colloquium in American History after 1865 
+HIS 704 - M.A. Research Project II 
+HIS 706 - Colloquium in European History since 1789 
+HIS 709 - Introductory Research Seminar 
+HIS 716 - Graduate Colloquium in World History 
+HIS 721 - Public History Capstone II 
+HIS 723 - Tpcs: American Nationalisms 
+HIS 751 - PhD Dissertation Proposal Course 
+HIS 799 - Dissertation 
+HIS 802 - Dissertation Extension 
+HIS 803 - Research Extension 
+IAF 604 - Machine Learning and Predictive Analytics 
+IAF 605 - Data Visualization 
+IAF 606 - Solving Problems with Data Analytics 
+IAR 102 - Environmental Design II 
+IAR 112 - Design Visualization II 
+IAR 202 - Basic Environmental Design IV 
+IAR 212 - Visual Communication II 
+IAR 221 - History and Theory of Design I 
+IAR 302 - Interior Architecture II 
+IAR 331 - Social and Behavioral Aspects of Interior Architecture 
+IAR 332 - Interior Architecture Materials 
+IAR 333 - Interior Architecture Construction and Building Systems 
+IAR 412 - Interior Architecture IV 
+IAR 427 - Problems in Interior Architecture 
+IAR 432 - Special Problems in Interior Architecture 
+IAR 451 - Professional Practice in Interior Architecture 
+IAR 452 - Internship in Interior Architecture 
+IAR 465 - Materials and Methodologies Seminar 
+IAR 502 - Advanced Interior Architecture II 
+IAR 527 - Problems in Interior Architecture 
+IAR 565 - Materials and Methodologies Seminar 
+IAR 600 - Supervised Professional Experience 
+IAR 601 - Directed Self-Study in Interior Architecture 
+IAR 602 - Advanced Interior Architecture III 
+IAR 624 - History of American Landscapes and Architecture 
+IAR 625 - Preservation Planning and Law 
+IAR 631 - Environmental Design Research 
+IAR 665 - Problems in Interior Architecture 
+IAR 690 - Internship 
+IAR 699 - Thesis 
+IAR 801 - Thesis Extension 
+IGS 200 - Introduction to International and Global Studies 
+IGS 223 - Kor Lang Contemp Cult 2 
+IGS 223 - Kor Lang Contemp Culture 4 
+IGS 297 - Study Abroad for Global Engagement: Re-Entry Reflections and Applications 
+IGS 400 - Capstone Seminar in International and Global Studies 
+IGS 495 - Individual Study 
+IPS 301 - Design Thinking 
+IPS 302 - Systems Thinking 
+IPS 303 - Understanding Data 
+IPS 304 - Contemporary Media Literacies 
+IPS 305 - Global Awareness and Intercultural Competence 
+IPS 306 - Self-Awareness 
+IPS 401 - Selected Topics in Health and Wellness Occupations 
+IPS 402 - Selected Topics in the Changing Workplace 
+IPS 405 - Tpcs: Working in Virtual Teams 
+IPS 405 - Tpcs:Ethical Leadership 
+IPS 405 - Tpcs:Science,Envrmnt,and Media 
+IPS 405 - Tpcs:Working in Virtual Teams 
+IPS 405 - Tpcs:Your Body of Work 
+IPS 410 - Capstone 
+ISM 110 - Business Computing I 
+ISM 116 - Web Design and Development 
+ISM 201 - Essentials of Cyber Security 
+ISM 210 - Business Computing II 
+ISM 218 - Database Systems 
+ISM 280 - Information Systems in Organizations 
+ISM 310 - Business Programming II 
+ISM 324 - Secure Networked Systems 
+ISM 411 - Undergraduate Internship in Information Systems 
+ISM 425 - Business Analytics 
+ISM 452 - Design of Management Information Systems 
+ISM 646 - Visualizing Data to Design Strategy 
+ISM 647 - Cognitive Computing and Artificial Intelligence Applications for Business 
+ISM 666 - Blockchains and Cryptography 
+ISM 667 - Global Cyber Threat Analysis 
+ISM 670 - IT Driven Disruptive Innovation Management 
+ISM 671 - Organizing Data for Analytics 
+ISM 678 - Project Management for Dynamic Environments 
+ISM 696 - Organizational Internship 
+ISM 698 - Project in Information Technology 
+ISM 755 - Sem:Currnt / Emerg Info Tech 
+ISM 782 - Practicum in IS Teaching 
+ISM 788 - Seminar in IS Research Methods 
+ISM 789 - Research Seminar in Information Systems 
+ISM 799 - Dissertation 
+ISM 802 - Dissertation Extension 
+IST 200X - Exp: Intro to Info Science 
+IST 300X - Exp: Human Info Behvr 
+IST 300X - Exp: Information Organization 
+JNS 102 - Elementary Japanese II 
+JNS 204 - Intermediate Japanese II 
+JNS 210 - Current Topics Conversation 
+JNS 302 - Third-year Japanese Language Conversation and Composition 
+JNS 305 - Topics in Japanese Culture 
+KIN 101 - Beginning Volleyball 
+KIN 104 - Beginning Basketball 
+KIN 106 - Beginning Soccer 
+KIN 110 - Ultimate 
+KIN 130 - Weight Training 
+KIN 131 - Fitness Walking and Jogging 
+KIN 135 - Fitness Running 
+KIN 140 - Flag Football 
+KIN 150 - Swimming for Non-Swimmers 
+KIN 151 - Beginning Swimming 
+KIN 171 - Beginning Badminton 
+KIN 180 - Rock Climbing 
+KIN 203 - Fitness Swim 
+KIN 206 - Intermediate Soccer 
+KIN 214 - Sports Performance: Racquet Sports 
+KIN 220 - Lifetime Wellness 
+KIN 231 - Recreational Games 
+KIN 250 - Introduction to Kinesiology 
+KIN 263 - Basic SCUBA 
+KIN 263L - Skin and SCUBA Diving Lab 
+KIN 264 - Advanced SCUBA 
+KIN 265 - Strength Training and/or Conditioning 
+KIN 265L - Strength Training and/or Conditioning Laboratory 
+KIN 272 - Tae Kwon Do 
+KIN 291 - Clinical Human Anatomy 
+KIN 291L - Clinical Human Anatomy Laboratory 
+KIN 292 - Clinical Human Physiology 
+KIN 292L - Clinical Human Physiology Laboratory 
+KIN 307 - Observation and Analysis of Fundamental Movement 
+KIN 330 - Critical Analyses for a Physically Active Society 
+KIN 340 - Healthful Living Pedagogy for Elementary School Teaching 
+KIN 353 - Injuries and Illnesses in Physical Activity 
+KIN 354 - Curriculum and Teaching: Children’s Physical Education 
+KIN 370 - Assessment and Evaluation in Kinesiology 
+KIN 375 - Physiology of Sport and Physical Activity 
+KIN 375L - Physiology of Sport and Physical Activity Laboratory 
+KIN 376 - Biomechanics of Sport and Physical Activity 
+KIN 379 - Instructional Methods of Physical Activity 
+KIN 386 - Motor Development and Learning 
+KIN 388 - Psychology of Physical Activity 
+KIN 419 - Mentoring in Community Youth Development Programs 
+KIN 420 - Physical Activity Programs for Underserved Youth 
+KIN 441 - Foundational Skills in Sports Medicine 
+KIN 461 - Student Teaching and Seminar in Physical Education 
+KIN 466 - Practicum in Fitness Leadership 
+KIN 471 - Internship Preparation in Kinesiology 
+KIN 475 - Independent Study 
+KIN 477 - Coaching Practicum in a Selected Sport 
+KIN 496 - Kinesiology Internship 
+KIN 520 - Physical Activity Programs for Underserved Youth 
+KIN 601 - Applying Research to Professional Practice 
+KIN 620 - Athletic Training Clinical Experience 
+KIN 640 - Rehabilitation Techniques for Athletic Injuries 
+KIN 645 - Exercise Psychology 
+KIN 649 - Principles of Physical Activity Behavior Change 
+KIN 669 - Advanced Exercise Prescription 
+KIN 695 - Independent Study 
+KIN 699 - Thesis 
+KIN 700 - Special Topics in Kinesiology 
+KIN 701 - Research Topics in Kinesiology 
+KIN 704 - Athletic Training Seminar 
+KIN 705 - Applied Rehabilitation Concepts 
+KIN 709 - Mentored Teaching in Kinesiology 
+KIN 713 - Internship in Kinesiology 
+KIN 714 - Field Practicum in Kinesiology 
+KIN 718 - Cardiovascular Aspects of Exercise Physiology 
+KIN 720 - Pathophysiology and Pharmacology 
+KIN 721 - General Medical Conditions 
+KIN 723 - Statistical Methods for Kinesiology 
+KIN 724 - Physical Activity and Health 
+KIN 729 - Learning and Performance of Physical Skills 
+KIN 735 - Program Evaluation and Evidence-Based Practice in Physical Activity Programs 
+KIN 744 - Applied Sport Psychology 
+KIN 745 - Seminar: Social Psychology and Physical Activity 
+KIN 746 - Practicum in Applied Sport and Exercise Psychology 
+KIN 778 - Professional Seminar in Grant Writing 
+KIN 795 - Independent Doctoral Research 
+KIN 799 - Dissertation 
+KIN 801 - Thesis Extension 
+KIN 802 - Dissertation Extension 
+LAT 102 - Elementary Latin II 
+LAT 203 - Intermediate Latin I 
+LAT 204 - Intermediate Latin II 
+LAT 430 - Latin Grammar and Composition 
+LIS 120 - Introduction to Instructional Technology for Educational Settings 
+LIS 200 - Information Use in a Digital World 
+LIS 600 - Foundations of Library and Information Studies 
+LIS 610 - Collection Management 
+LIS 617 - Materials for Children 
+LIS 618 - Materials for Adolescents 
+LIS 619 - Storytelling 
+LIS 620 - Information Sources and Services 
+LIS 630 - Computer-Related Technologies for Information Management 
+LIS 635 - Media Production Services for Library Programs 
+LIS 636 - Website Production and Usability for Librarians 
+LIS 640 - Information Organization and Access 
+LIS 643 - Metadata 
+LIS 649 - Music Librarianship 
+LIS 650 - Leadership and Management in Information Organizations 
+LIS 653 - The School Library 
+LIS 654 - School Library Media Specialist and the Curriculum 
+LIS 655 - The Public Library 
+LIS 656 - The Academic Library 
+LIS 658 - Archival Management 
+LIS 662 - Information Services to Diverse Client Groups 
+LIS 664 - Reading, Literacy, and the Library 
+LIS 665 - Information Literacy 
+LIS 672 - Instructional Design 
+LIS 688 - Seminar: Data Visualization 
+LIS 690 - Independent Study 
+LIS 691 - Practicum 
+LIS 692 - Field Experience in School Library Media 
+LIS 693 - Practicum/Capstone Experience in School Library Media 
+LIS 698 - Capstone Experience in Library and Information Studies 
+LLC 130 - Global Green: Cultures of Production and/or Consumption 
+LLC 130R - Global Green Recitation 
+LLC 222 - East Asian Fantasies 
+LLC 222 - EvolvEnviron:GlobDivCultEco 
+LLC 250 - Global Cultures Through Film: Angles of Vision 
+LLC 340 - Topics: Languages for Professions 
+LLC 389 - LLC Service Learning 
+LLC 455 - Advanced Topics: Rebels and Revolutionaries in Languages, Literatures, and Cultures 
+LLC 465 - Student Teaching and Seminar in World Languages 
+LLC 468 - African History and Cultures through Film 
+LLC 601 - Rsrch Mthds/Critical Analysis 
+LLC 665 - Clinical Practice/Seminar in Teaching World Languages 
+MAS 610A - Tpcs:Windw into Hearts of Cltr 
+MAS 610B - Tpcs:Design Thinking 
+MAS 610C - Tpcs:Contmptry Media Litercies 
+MAS 610D - Tpcs:The Reel World 
+MAS 620A - Tpcs Global Human Rights 
+MAS 620B - Tpcs:Glbl and Intrcltrl Engmnt 
+MAS 620C - Tpcs:The Global Economy 
+MAS 630A - Tpcs:Sci Thrgh Nobel Laureates 
+MAS 630A - Tpcs:Sci, Environmet and Media 
+MAT 112 - Contemporary Topics in Mathematics 
+MAT 115 - College Algebra 
+MAT 120 - Calculus with Business Applications 
+MAT 150 - Precalculus I 
+MAT 151 - Precalculus II 
+MAT 181 - Experimental Course: Foundations of Calculus I 
+MAT 190 - Precalculus 
+MAT 191 - Calculus I 
+MAT 253 - Discrete Mathematical Structures 
+MAT 292 - Calculus II 
+MAT 293 - Calculus III 
+MAT 310 - Elementary Linear Algebra 
+MAT 322 - Linear Programming 
+MAT 390 - Ordinary Differential Equations 
+MAT 394 - Calculus IV 
+MAT 395 - Introduction to Mathematical Analysis 
+MAT 405 - Foundations of Mathematics for Teaching I 
+MAT 414 - Theory of Numbers 
+MAT 427 - Numerical Methods 
+MAT 465 - Student Teaching and Seminar-Secondary Mathematics 
+MAT 486 - Financial Mathematics for Actuaries 
+MAT 490 - Senior Seminar in Mathematics 
+MAT 493 - Honors Work 
+MAT 602 - Seminar in Mathematical Software 
+MAT 627 - Numerical Methods 
+MAT 686 - Financial Mathematics for Actuaries 
+MAT 687 - Project in Mathematics 
+MAT 696 - Mathematical Analysis 
+MAT 701 - Graduate Seminar in Computational Mathematics 
+MAT 701 - Modular Forms Seminar 
+MAT 709 - Combinatorics 
+MAT 709 - Linear Operator Theory 
+MAT 728 - Linear Algebra and Matrix Theory 
+MAT 741 - Modern Abstract Algebra 
+MAT 790 - Directed Doctoral Research 
+MAT 799 - Dissertation 
+MAT 801 - Thesis Extension 
+MAT 802 - Dissertation Extension 
+MBA 701 - Quantitative Analysis for Decision Making 
+MBA 703 - Economic Policies and Impact on Global Outcomes 
+MBA 707 - Financial Management 
+MBA 708 - Operations for Competitive Advantage 
+MBA 712 - Strategic Management 
+MBA 717 - Technology and Innovation 
+MBA 718 - Global Business in Practice 
+MBA 721 - Financial Statement Analysis and Valuation 
+MBA 732 - Consumer Behavior 
+MBA 741 - Creating and Sustaining Competitive Advantage 
+MBA 742 - Organizational Internship 
+MBA 743 - Directed Studies 
+MGT 300 - Management of Organizations 
+MGT 301 - Introduction to International Business 
+MGT 302 - International Business: Operations and Environments in Foreign Jurisdictions 
+MGT 304 - Current Issues in International Business 
+MGT 312 - Organizational Behavior 
+MGT 313 - Human Resource Management 
+MGT 314 - Industrial and Organizational Psychology 
+MGT 315 - Selection and Compensation 
+MGT 317 - Training and Development in Organizations 
+MGT 318 - Organizational Change and Development 
+MGT 330 - The Legal Environment of Business 
+MGT 354 - Diversity and Inclusion in Organizations 
+MGT 375 - Management Process Skills 
+MGT 400 - Cybersecurity Management 
+MGT 403 - Decision Making in Organizations 
+MGT 414 - Human Resource Information Systems 
+MGT 475 - Employment and Human Resource Law 
+MGT 491 - Business Policy and Strategy 
+MGT 493 - Honors Work 
+MKT 309 - Business Communications 
+MKT 320 - Principles of Marketing 
+MKT 324 - Professional Selling 
+MKT 326 - Introduction to Retailing 
+MKT 328 - Sales Leadership 
+MKT 330 - Social Media: A Marketing Perspective 
+MKT 407 - Sports Marketing 
+MKT 422 - Fundamentals of Marketing Research 
+MKT 424 - Consumer Behavior 
+MKT 426 - International Marketing 
+MKT 427 - Personal Selling Internship 
+MKT 429 - Advanced Marketing Management 
+MKT 444 - Effective Selling 
+MKT 450 - Marketing Internship 
+MST 100 - Understanding Media 
+MST 190 - WUAG Workshop 
+MST 204 - Media Writing 
+MST 205 - Media Literacy 

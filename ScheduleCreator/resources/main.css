@@ -1,0 +1,11 @@
+.combo-box, .text-field, .button{
+    -fx-border-radius: 5;
+    -fx-padding: 3 6 6 6;
+    -fx-alignment: center;
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 1000px;
+}
+
+

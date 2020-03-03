@@ -7,16 +7,16 @@ import java.util.HashMap;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 2/17/2020
+ * Last Updated:3/30/2020
  */
 
 public class Section {
 
     protected String location;
     protected String instructor;
-    protected HashMap daysAndTimes;
+    protected String daysAndTimes;
     protected String CRN;
-    protected int sectionNumber;
+    protected String sectionNumber;
 
     public Section() {
 
@@ -24,7 +24,7 @@ public class Section {
 
 //=================  GETTERS ===============
 
-    public HashMap getDaysAndTimes() {
+    public String getDaysAndTimes() {
         return daysAndTimes;
     }
 
@@ -40,13 +40,13 @@ public class Section {
         return location;
     }
 
-    public int getSectionNumber() {
+    public String getSectionNumber() {
         return sectionNumber;
     }
 
 //=================  SETTERS ===============
 
-    public void setSectionNumber(int _sectionNumber) {
+    public void setSectionNumber(String _sectionNumber) {
         this.sectionNumber = _sectionNumber;
     }
 
@@ -58,7 +58,7 @@ public class Section {
         this.instructor = _instructor;
     }
 
-    public void setDaysAndTimes(HashMap _daysAndTimes) {
+    public void setDaysAndTimes(String _daysAndTimes) {
         this.daysAndTimes = _daysAndTimes;
     }
 
