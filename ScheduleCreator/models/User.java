@@ -24,7 +24,7 @@ public class User {
 
     public static void selectCourse(String _course) throws Exception {
         selectedCourses.add(_course);
-        DBAdapter.saveCourse(_course);
+//        DBAdapter.saveCourse(_course);
     }
     
     public static ArrayList<String> getCourses() {

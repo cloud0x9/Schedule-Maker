@@ -1,7 +1,14 @@
 package ScheduleCreator;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -19,27 +26,26 @@ import java.util.regex.Pattern;
  * 
  * Last Updated: 3/3/2020
  */
-public class DBAdapter {
-
-    protected static File selectedCourseFile = new File("src/ScheduleCreator/resources/raw/user_selected_courses.txt");
-
-    ;
+public class DBAdapter { 
 
     /**
      * Saves the selected course (abbreviation and number) and saves to database.
      * @param _course
      * @throws Exception
      */
+    
+    public DBAdapter() {
+    }
 
-    public static void saveCourse(String _course) throws Exception {
-
-        //Open file to add new classes.
-        FileWriter output = new FileWriter(selectedCourseFile, true);
-
-        //Adds new selected course to new line.
-        output.append(_course + "\n");
-
-        output.close();
+    public  void saveCourse(String _course) throws Exception {
+//
+//        String file = getClass().getResource("resources/raw/spring2020").getFile();
+//        PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+//
+//        //Adds new selected course to new line.
+//        output.append(_course + "\n");
+//
+//        output.close();
     }
     
     /**
@@ -48,44 +54,50 @@ public class DBAdapter {
      * @throws Exception 
      */
     
-    public static void removeCourse(String _course) throws Exception {
-        
-            Scanner input = new Scanner(selectedCourseFile);
-            StringBuffer newContents = new StringBuffer();
-            String line = "";
-            
-            /**
-             * Gets all of the courses except the selected one 
-             * and appends to a new file to be saved.              * 
-             */
-            while (input.hasNext()) {
-                   line = input.nextLine();
-
-            if (!line.contains(_course))
-                newContents.append(_course + '\n');                   
-
-            }
-
-        FileWriter writer = new FileWriter(selectedCourseFile);
-        writer.append(newContents.toString());
-        writer.close();
-
-    }
+//    public static void removeCourse(String _course) throws Exception {
+//        
+//            Scanner input = new Scanner(selectedCourseFile);
+//            StringBuffer newContents = new StringBuffer();
+//            String line = "";
+//            
+//            /**
+//             * Gets all of the courses except the selected one 
+//             * and appends to a new file to be saved.              * 
+//             */
+//            while (input.hasNext()) {
+//                   line = input.nextLine();
+//
+//            if (!line.contains(_course))
+//                newContents.append(_course + '\n');                   
+//
+//            }
+//
+//        FileWriter writer = new FileWriter(selectedCourseFile);
+//        writer.append(newContents.toString());
+//        writer.close();
+//
+//    }
 
     	// get a list of semesters (which can be used as an argument to DBAdapter.getCourses)
-	public static List<String> getSemesters() {
-		List<String> semesters = new ArrayList();
+	public  List<String> getSemesters() throws Exception {
 
-		File dir = ScheduleCreator.Boilerplate.GetResourceFile("raw/semesters");
-		String[] pathnames;
-		pathnames = dir.list();
+            List<String> semesters = new ArrayList();
 
-		for (String pathname : pathnames) {
-			System.out.println(pathname);
-			File f = new File(pathname);
-			semesters.add(f.getName());
-		}
-                return semesters;
+            InputStream stream = getClass().getResourceAsStream("resources/raw/available_semesters.txt");
+            InputStreamReader streamReader = new InputStreamReader(stream);
+            BufferedReader reader = new BufferedReader(streamReader);
+
+            String line = reader.readLine();
+            while (line != null) {
+                semesters.add(line);
+                line = reader.readLine();
+            }
+
+            reader.close();
+
+            System.out.println(semesters.toString());
+            return semesters;
+                
 	}
     
     /**
@@ -94,30 +106,37 @@ public class DBAdapter {
      * @throws Exception 
      */
 
-    public static List<String> getSelectedCourses() throws Exception {
+    public List<String> getSelectedCourses() throws Exception {
 
-        Scanner input = new Scanner(selectedCourseFile);
-
-        //Load courses from text file to be returned as a list.
+        InputStream stream = getClass().getResourceAsStream("resources/raw/user_selected_courses.txt");
+        InputStreamReader streamReader = new InputStreamReader(stream);
+        BufferedReader reader = new BufferedReader(streamReader);
+        
         ArrayList<String> selectedCourses = new ArrayList();
-        String line = "";
-        while (input.hasNext()) {
-            line = input.nextLine();
-            selectedCourses.add(line.trim());
+        
+        String line = reader.readLine();
+        while (line != null) {
+            selectedCourses.add(line);
+            line = reader.readLine();
         }
 
-        input.close();
+        reader.close();      
+
         return selectedCourses;
     }
 
-    public static List<String> getCourses(String _semester) throws Exception {
+    public List<String> getCourses(String _semester) throws Exception {
 
-        File file = new File("src/ScheduleCreator/resources/raw/" + _semester + "courses.txt");
-        Scanner input = new Scanner(file);
-        input.useDelimiter("\\Z");
-        String contents = input.next();
+        InputStream stream = getClass().getResourceAsStream("resources/raw/" + _semester + "courses.txt");
+        InputStreamReader isr = new InputStreamReader(stream);
+        BufferedReader reader = new BufferedReader(isr);
+        ArrayList<String> courses = new ArrayList();
         
-        List<String> courses = Arrays.asList(contents.split("\n"));
+        String line = reader.readLine();
+        while (line != null) {
+            courses.add(line);
+            line = reader.readLine();
+        }
         return courses;
     }
 

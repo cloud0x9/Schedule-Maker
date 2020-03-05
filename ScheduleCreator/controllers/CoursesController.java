@@ -2,6 +2,7 @@ package ScheduleCreator.controllers;
 
 import ScheduleCreator.DBAdapter;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import javafx.scene.control.ListView;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  * 
- * Last Updated: 2/21/2020
+ * Last Updated: 3/4/2020
  */
 
 public class CoursesController implements Initializable {
@@ -34,11 +35,13 @@ public class CoursesController implements Initializable {
     
 	@FXML private Button courseButton;
 	@FXML private Button removeCourseButton;
+        DBAdapter adapter = new DBAdapter();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		try {
-			loadSemesters();
+                        loadSemesters();
+			loadSelectedCourses();
 		}
 		catch (Exception e) {};
         
@@ -49,13 +52,13 @@ public class CoursesController implements Initializable {
 		List<String> courseList = new ArrayList();
 		courseList.add(choice);
 		selectedCourses.getItems().add(choice);
-		DBAdapter.saveCourse(choice);
+		adapter.saveCourse(choice);
 	}
 	public void switchSemester(ActionEvent _event) throws Exception {
 		clearCalendar();
 		clearSectionList();
                 String[] temp = semesterComboBox.getValue().split(" ");
-                String semester = temp[0].toLowerCase() + temp[1];
+                String semester = temp[0].toLowerCase() + "_" + temp[1] + "_";
                 loadAllCourses(semester);
                 
 	}
@@ -70,26 +73,25 @@ public class CoursesController implements Initializable {
 
 	
 	public void removeSelectedCourse(ActionEvent _event) throws Exception {
-		Object itemToRemove = selectedCourses.getSelectionModel().getSelectedItem();
-		String courseToDelete = (String)itemToRemove;
-		selectedCourses.getItems().remove(itemToRemove);
-		DBAdapter.removeCourse(courseToDelete);
+//		Object itemToRemove = selectedCourses.getSelectionModel().getSelectedItem();
+//		String courseToDelete = (String)itemToRemove;
+//		selectedCourses.getItems().remove(itemToRemove);
+//		DBAdapter.removeCourse(courseToDelete);
 	}
     
 	public void loadAllCourses(String _semester) throws Exception {
-                List<String> courses = DBAdapter.getCourses(_semester);
-                System.out.println(courses.toString());
+                List<String> courses = adapter.getCourses(_semester);
 		courseComboBox.setItems(FXCollections.observableList(courses));
 	}
 
-	public void loadSemesters() {
-		List<String> semesters = DBAdapter.getSemesters();
+	public void loadSemesters() throws Exception {
+		List<String> semesters = adapter.getSemesters();
 		semesterComboBox.setItems(FXCollections.observableList(semesters));
 	}
 
     
 	public void loadSelectedCourses() throws Exception {
-		List<String> courses = DBAdapter.getSelectedCourses();
+		List<String> courses = adapter.getSelectedCourses();
 		selectedCourses.setItems(FXCollections.observableList(courses));
 	}
 }
