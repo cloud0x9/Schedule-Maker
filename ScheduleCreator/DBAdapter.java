@@ -3,6 +3,11 @@ package ScheduleCreator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,17 +49,49 @@ public class DBAdapter {
 		List<String> semesters = new ArrayList();
 
 		// "raw" directory in .jar contains raw data files for each semester
-		File dir = new File(DBAdapter.class.getResource("raw").getFile());
+		File dir = new File(DBAdapter.class.getResource("resources/raw").getFile());
 
 		// get path of each file
 		String[] pathnames = dir.list();
 
-		for (String pathname : pathnames) {
+                for (int i = 0; i < pathnames.length - 1; i++) {
+                    String pathname = pathnames[i];                  
 			// add filename to list of semesters
 			semesters.add(Paths.get(pathname).getFileName().toString());
-		}
+ 		}
 		return semesters;
+                
 	}        
+
+        // DUMMY
+        public static List<String> getSections(String _course, String _semesterName) {
+            ArrayList<String> sections = new ArrayList<>();
+            sections.add("CSC 250 - 01");
+            return sections;
+        }
+     /**
+     * utility method to return the full text of the file using classpath resource inside the jar. 
+     * 
+     * @param _resourceName name of the file in the resources directory (without a leading /)
+     * @return the fulltext as a String
+     */
+        protected static String getFullText(String _resourceName) {
+            String path = "resources/" + _resourceName;
+
+            File file = null;
+            try {
+                file = new File(DBAdapter.class.getResource(path).toURI()); // workaround for spaces bug in .class.getResource; see https://stackoverflow.com/questions/7700020/getpath-and-spaces-in-java
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(DBAdapter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {                
+                return new Scanner(file).useDelimiter("\\Z").next();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(DBAdapter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return "Error";
+	}        
+        
     /**
      *
      * @param _semesterName
@@ -63,7 +100,6 @@ public class DBAdapter {
     public static List<String> getCourses(String _semesterName) {
 		String contents = DBAdapter.getFullText("DB/" + _semesterName + "/" + "courses");
 		List<String> courses = Arrays.asList(contents.split("\n"));
-		
 		return courses;
 	}          
     
@@ -76,7 +112,7 @@ public class DBAdapter {
      * @return requested info as a String
      */
     protected static String getSectionInfo(DBAdapter.choice _choice, String _semesterName, String _section) {
-		String regex;
+		String regex = null;
 		String dataFileType = "all_info";
 
 		switch (_choice) {
@@ -135,13 +171,12 @@ public class DBAdapter {
 	 * @throws Exception
 	 */
 	public static void saveCourse(String _course) throws Exception {
-		//Open file to add new classes.
-		FileWriter output = new FileWriter(selectedCourseFile, true);
-
-		//Adds new selected course to new line.
-		output.append(_course + "\n");
-
-		output.close();
+            //Adds new selected course to new line.
+            try ( //Open file to add new classes.
+                    FileWriter output = new FileWriter(selectedCourseFile, true)) {
+                //Adds new selected course to new line.
+                output.append(_course + "\n");
+            }
 	}
 
 	/**
@@ -153,7 +188,7 @@ public class DBAdapter {
 	public static void removeCourse(String _course) throws Exception {
 
 		Scanner input = new Scanner(selectedCourseFile);
-		StringBuffer newContents = new StringBuffer();
+		StringBuilder newContents = new StringBuilder();
 		String line = "";
 
 		/**
@@ -164,14 +199,14 @@ public class DBAdapter {
 			line = input.nextLine();
 
 			if (!line.contains(_course)) {
-				newContents.append(_course + '\n');
+				newContents.append(_course).append('\n');
 			}
 
 		}
 
-		FileWriter writer = new FileWriter(selectedCourseFile);
-		writer.append(newContents.toString());
-		writer.close();
+            try (FileWriter writer = new FileWriter(selectedCourseFile)) {
+                writer.append(newContents.toString());
+            }
 
 	}
 
@@ -183,30 +218,44 @@ public class DBAdapter {
 	 */
 	public static List<String> getSelectedCourses() throws Exception {
 
-		Scanner input = new Scanner(selectedCourseFile);
-
-		//Load courses from text file to be returned as a list.
-		ArrayList<String> selectedCourses = new ArrayList();
-		String line;
-		while (input.hasNext()) {
-			line = input.nextLine();
-			selectedCourses.add(line.trim());
-		}
-
-		input.close();
+            ArrayList<String> selectedCourses;
+            //Load courses from text file to be returned as a list.
+            try (Scanner input = new Scanner(selectedCourseFile)) {
+                //Load courses from text file to be returned as a list.
+                selectedCourses = new ArrayList();
+                String line;
+                while (input.hasNext()) {
+                    line = input.nextLine();
+                    selectedCourses.add(line.trim());
+                }
+            }
 		return selectedCourses;
 	}
+        
+    /**
+     * Regenerate database files in DB/ (not for use during runtime)
+     * @throws IOException
+     */
+    public static void regenDB() throws IOException {
 
-	// utility method to return the full text of the file using classpath resource inside the jar. 
-	// _resourceName is the name of the file in the resources directory (without a leading /)
-        protected static String getFullText(String _resourceName) {
-		_resourceName = "resources/" + _resourceName;
-        	File file = new File(DBAdapter.class.getResource(_resourceName).getFile());
-		try {                
-			return new Scanner(file).useDelimiter("\\Z").next();
-		} catch (FileNotFoundException ex) {
-			Logger.getLogger(DBAdapter.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		return "Error";
-	}
+            List<String> semesters = getSemesters();
+            
+            String DBPrefix = "src/ScheduleCreator/resources/DB/";
+            String rawPrefix = "src/ScheduleCreator/resources/raw/";
+            
+            File db = new File("");
+                    for (int i = 0; i < semesters.size(); i++) {
+                        
+                        String semester = semesters.get(i);
+                        // generate day and time
+                        ParseData.applyRegex(rawPrefix + semester, DBPrefix + semester + "/times_and_dates", ParseData.outputType.USEFULINFO);
+                
+                        // generate all info
+                        ParseData.applyRegex(rawPrefix + semester, DBPrefix + semester + "/all_info", ParseData.outputType.ALLDATA);
+                
+                        //TODO: generate courselist
+            }
+        }
+
+
 }
