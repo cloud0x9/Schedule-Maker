@@ -10,6 +10,7 @@ package ScheduleCreator;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 import java.util.regex.*;
 import java.util.function.Function;
 
@@ -33,13 +34,15 @@ public class ParseData {
     protected static void applyRegex(String _semesterFile, String _outputFile, ParseData.outputType _outputType) throws IOException {
         {
             // initial regex 
-            String regex; 
+            String regex = null; 
             
             // function used to format text after the initial regex
             Function<String,String> formatFunction = null;
             
             // get fulltext of the semester text file.
-            String content = DBAdapter.getFullText(_semesterFile);
+            System.out.println(_semesterFile);
+            String content = new Scanner(new File(_semesterFile)).useDelimiter("\\Z").next();
+//            String content = DBAdapter.getFullText(_semesterFile);
             
             switch (_outputType) {
                 // abbreviated class name, time, and day
@@ -71,10 +74,11 @@ public class ParseData {
             File file = new File(_outputFile);
             file.getParentFile().mkdirs();
 
-            FileWriter outputFile = new FileWriter(file, true);
             // write file
-            output.append(output.toString());
-            outputFile.close();
+            try (FileWriter outputFile = new FileWriter(file, true)) {
+                // write file
+                output.append(output.toString());
+            }
         }
     }
 

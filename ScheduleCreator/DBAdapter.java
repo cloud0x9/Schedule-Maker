@@ -45,16 +45,19 @@ public class DBAdapter {
 		List<String> semesters = new ArrayList();
 
 		// "raw" directory in .jar contains raw data files for each semester
-		File dir = new File(DBAdapter.class.getResource("raw").getFile());
+		File dir = new File(DBAdapter.class.getResource("resources/raw").getFile());
 
 		// get path of each file
 		String[] pathnames = dir.list();
 
-		for (String pathname : pathnames) {
+                for (int i = 0; i < pathnames.length - 1; i++) {
+                    String pathname = pathnames[i];                  
 			// add filename to list of semesters
 			semesters.add(Paths.get(pathname).getFileName().toString());
+                        System.out.println(pathname);
 		}
 		return semesters;
+                
 	}        
 
      /**
@@ -95,7 +98,7 @@ public class DBAdapter {
      * @return requested info as a String
      */
     protected static String getSectionInfo(DBAdapter.choice _choice, String _semesterName, String _section) {
-		String regex;
+		String regex = null;
 		String dataFileType = "all_info";
 
 		switch (_choice) {
