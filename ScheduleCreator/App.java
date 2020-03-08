@@ -9,6 +9,8 @@ package ScheduleCreator;
  */
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -44,7 +46,9 @@ public class App extends Application {
         }
 
     public static void main(String[] args) {
-        launch(args);
+   
+            launch(args);
+
     }
     
 }
