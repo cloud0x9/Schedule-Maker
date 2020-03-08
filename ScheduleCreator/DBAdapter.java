@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,12 +58,17 @@ public class DBAdapter {
                     String pathname = pathnames[i];                  
 			// add filename to list of semesters
 			semesters.add(Paths.get(pathname).getFileName().toString());
-                        System.out.println(pathname);
-		}
+ 		}
 		return semesters;
                 
 	}        
 
+        // DUMMY
+        public static List<String> getSections(String _course, String _semesterName) {
+            ArrayList<String> sections = new ArrayList<>();
+            sections.add("CSC 250 - 01");
+            return sections;
+        }
      /**
      * utility method to return the full text of the file using classpath resource inside the jar. 
      * 
@@ -67,14 +76,20 @@ public class DBAdapter {
      * @return the fulltext as a String
      */
         protected static String getFullText(String _resourceName) {
-		_resourceName = "resources/" + _resourceName;
-        	File file = new File(DBAdapter.class.getResource(_resourceName).getFile());
-		try {                
-			return new Scanner(file).useDelimiter("\\Z").next();
-		} catch (FileNotFoundException ex) {
-			Logger.getLogger(DBAdapter.class.getName()).log(Level.SEVERE, null, ex);
-		}
-		return "Error";
+            String path = "resources/" + _resourceName;
+
+            File file = null;
+            try {
+                file = new File(DBAdapter.class.getResource(path).toURI()); // workaround for spaces bug in .class.getResource; see https://stackoverflow.com/questions/7700020/getpath-and-spaces-in-java
+            } catch (URISyntaxException ex) {
+                Logger.getLogger(DBAdapter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {                
+                return new Scanner(file).useDelimiter("\\Z").next();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(DBAdapter.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return "Error";
 	}        
         
     /**
@@ -85,7 +100,6 @@ public class DBAdapter {
     public static List<String> getCourses(String _semesterName) {
 		String contents = DBAdapter.getFullText("DB/" + _semesterName + "/" + "courses");
 		List<String> courses = Arrays.asList(contents.split("\n"));
-		
 		return courses;
 	}          
     
