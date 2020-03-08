@@ -40,7 +40,7 @@ public class ParseData {
             Function<String,String> formatFunction = null;
             
             // get fulltext of the semester text file.
-            System.out.println(_semesterFile);
+//            System.out.println(_semesterFile);
             String content = new Scanner(new File(_semesterFile)).useDelimiter("\\Z").next();
 //            String content = DBAdapter.getFullText(_semesterFile);
             
