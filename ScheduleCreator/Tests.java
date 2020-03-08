@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,6 +19,11 @@ public class Tests {
 
     public static void main(String[] args) {
 
+        try {
+            DBAdapter.regenDB();
+        } catch (IOException ex) {
+            Logger.getLogger(Tests.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // test how DBAdapter works with current semesters
         testSemester();
         
