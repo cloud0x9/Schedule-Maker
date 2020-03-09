@@ -40,9 +40,7 @@ public class ParseData {
             Function<String,String> formatFunction = null;
             
             // get fulltext of the semester text file.
-//            System.out.println(_semesterFile);
-            String content = new Scanner(new File(_semesterFile)).useDelimiter("\\Z").next();
-//            String content = DBAdapter.getFullText(_semesterFile);
+            String content = DBAdapter.getFullText(_semesterFile);
             
             switch (_outputType) {
                 // abbreviated class name, time, and day
@@ -66,27 +64,33 @@ public class ParseData {
                 //put all matching results to new string
                 String input = (match.group(0));
 
+                output.append(input);
                 // append the formated output to the final StringBuilder
-                output.append(formatFunction.apply(input));
+//                output.append(formatFunction.apply(input));
             }
+            
+            StringBuilder finalOutput = new StringBuilder("");
+            finalOutput.append(formatFunction.apply(output.toString()));
 
             // Open file and make parent directories
             File file = new File(_outputFile);
             file.getParentFile().mkdirs();
 
             // write file
-            try (FileWriter outputFile = new FileWriter(file, true)) {
+            try (FileWriter outputFileWriter = new FileWriter(file, true)) {
                 // write file
-                output.append(output.toString());
+                outputFileWriter.append(finalOutput.toString());
             }
         }
+        
+        
     }
 
     //Format the reults from the regexUsefulInfo regex output to some degree so it can be worked with
     protected static String formatUsefulInfo(String _input) {
         //Puts every class on a line of its own with time and day following
         //replaceAll is used to break to a new line where needed
-        return _input.replaceAll("\\b((TR\\b|MW\\b|MWF\\b|WF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA.*TBA\\b)))\\b", "$1 \n");
+        return _input.replaceAll("\\b((TR\\b|MW\\b|MWF\\b|WF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA.*TBA\\b)))\\b", "\n");
     }
 
     protected static String formatAllData(String _input) {

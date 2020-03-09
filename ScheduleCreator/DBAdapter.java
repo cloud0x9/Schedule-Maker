@@ -2,20 +2,17 @@ package ScheduleCreator;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 /**
  * This class is used to retrieve and modify persistent data for the
@@ -45,8 +42,9 @@ public class DBAdapter {
      *
      * @return a list of semester names (Strings) that can be used as arguments
      * in all other DBAdapter methods
+     * @throws java.io.FileNotFoundException
      */
-    public static List<String> getSemesters() {
+    public static List<String> getSemesters() throws FileNotFoundException, IOException {
         String path = "DB/semester_list";
 
         String contents = DBAdapter.getFullText(path);
@@ -71,20 +69,33 @@ public class DBAdapter {
      * a leading /)
      * @return the fulltext as a String
      */
-    protected static String getFullText(String _resourceName) {
+    protected static String getFullText(String _resourceName) throws FileNotFoundException, IOException {
         String path = "resources/" + _resourceName;
-
-        InputStream in = DBAdapter.class.getResourceAsStream(path);
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-        return reader.lines().collect(Collectors.joining());
+        InputStream stream = DBAdapter.class.getResourceAsStream(path);
+        
+        InputStreamReader reader = new InputStreamReader(stream);
+        
+        BufferedReader bufreader = new BufferedReader(reader);
+        StringBuilder sb = new StringBuilder();
+        String str;
+        while((str = bufreader.readLine())!= null){
+            sb.append(str);
+            sb.append("\n");
+        }
+        String content = sb.toString();
+        reader.close();
+        stream.close();
+        return content;
+        
     }
 
     /**
      *
      * @param _semesterName
      * @return a List of courses (as Strings) available for the semester
+     * @throws java.io.FileNotFoundException
      */
-    public static List<String> getCourses(String _semesterName) {
+    public static List<String> getCourses(String _semesterName) throws FileNotFoundException, IOException {
         String contents = DBAdapter.getFullText("DB/" + _semesterName + "/" + "courses");
         List<String> courses = Arrays.asList(contents.split("\n"));
         return courses;
@@ -97,8 +108,9 @@ public class DBAdapter {
      * @param _semesterName semester name from getSemesters()
      * @param _section section name e.g. "CSC 250 - 01"
      * @return requested info as a String
+     * @throws java.io.FileNotFoundException
      */
-    protected static String getSectionInfo(DBAdapter.choice _choice, String _semesterName, String _section) {
+    protected static String getSectionInfo(DBAdapter.choice _choice, String _semesterName, String _section) throws FileNotFoundException, IOException {
         String regex = null;
         String dataFileType = "all_info";
 
@@ -231,13 +243,13 @@ public class DBAdapter {
      */
     public static void regenDB() throws IOException {
 
-        // first generate and retrieve the list of semesters
+        // first generate the list of semesters
         regenSemesterList();
                 
         List<String> semesters = getSemesters();
 
         String DBPrefix = "src/ScheduleCreator/resources/DB/";
-        String rawPrefix = "src/ScheduleCreator/resources/raw/";
+        String rawPrefix = "raw/";
 
         File db = new File("");
         for (int i = 0; i < semesters.size(); i++) {
@@ -254,33 +266,33 @@ public class DBAdapter {
         }
     }
 
-    public static void regenSemesterList() {
+    /**
+     * Regenerate a list of semesters based on the resources/raw dir
+     * NOTE: not for use during runtime
+     * @throws java.io.IOException
+     */
+    public static void regenSemesterList() throws IOException {
 
         // ("raw" directory contains raw data files for each semester)
-        // TODO rewrite these lines using normal filepaths
-        File dir = new File("src/ScheduleCreator/resources/raw");
+        File rawDir = new File("src/ScheduleCreator/resources/raw");
 
+        // clear old semester list
         File semesterListFile = new File("src/ScheduleCreator/resources/DB/semester_list");
         semesterListFile.delete();
         semesterListFile.getParentFile().mkdirs();
 
-        StringBuilder semesterList = new StringBuilder();
-
-        // get path of each file
-        String[] pathnames = dir.list();
-
-        for (int i = 0; i < pathnames.length - 1; i++) {
-            String pathname = pathnames[i];
-            // add filename to list of semesters
-            semesterList.append(Paths.get(pathname).getFileName().toString()).append("\n");
-        }
-
-        // write semester List
-        try (FileWriter outputFile = new FileWriter(semesterListFile, true)) {
-            // write file
-            outputFile.append(semesterList.toString());
-        } catch (IOException ex) {
-            Logger.getLogger(DBAdapter.class.getName()).log(Level.SEVERE, null, ex);
+        // get path of each semester file
+        String[] pathnames = rawDir.list();
+        
+        // 'pathnames.length - 1' so we don't count the raw directory itself
+        try (FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
+            for (String pathname : pathnames) {
+                // add filename to list of semesters
+                outputFile.append(pathname);
+                outputFile.append("\n");
+            }
+            outputFile.flush();
+            outputFile.close();
         }
     }
 }

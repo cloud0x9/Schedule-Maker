@@ -17,8 +17,9 @@ import java.util.logging.Logger;
  */
 public class Tests {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+        // regenerate the database
         try {
             DBAdapter.regenDB();
         } catch (IOException ex) {
@@ -27,34 +28,9 @@ public class Tests {
         // test how DBAdapter works with current semesters
         testSemester();
         
-        // now something different - a fake new semester (copy of Spring 2020)
-        Path source = Paths.get("src/ScheduleCreator/resources/raw/Spring 2020");
-        Path destination = Paths.get("src/ScheduleCreator/resources/raw/fall 2018");
-        try {
-            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ex) {
-            Logger.getLogger(Tests.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            DBAdapter.regenDB();
-        } catch (IOException ex) {
-            Logger.getLogger(Tests.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        System.out.println("Testing DBAdapter with fake semester");
-        testSemester();
-        
-        // delete the BS file we created for tests
-        File file = new File("src/ScheduleCreator/resources/raw/fall 2018");
-        if(file.delete()) { 
-            System.out.println("File deleted successfully"); 
-        } else { 
-            System.out.println("Failed to delete the file"); 
-        }         
     }
 
-    public static void testSemester() {
+    public static void testSemester() throws IOException {
         // Example usage of DBAdapter
         List<String> semesters = DBAdapter.getSemesters();
 
@@ -70,7 +46,7 @@ public class Tests {
         List<String> courses = DBAdapter.getCourses(semester);
 
         // example course from the semester
-        String exampleCourse = courses.get(0);
+        String exampleCourse = courses.get(20);
 
         System.out.println("Example course is: " + exampleCourse);
 
@@ -87,3 +63,4 @@ public class Tests {
 
     }
 }
+   

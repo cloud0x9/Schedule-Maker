@@ -1,15 +1,15 @@
 package ScheduleCreator.controllers;
 
 import ScheduleCreator.DBAdapter;
-import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -37,11 +37,11 @@ public class CoursesController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		try {
-			loadSemesters();
-		}
-		catch (Exception e) {};
-        
+            try {
+                loadSemesters();
+            } catch (IOException ex) {
+                Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 	}
     
 	public void addSelectedCourse(ActionEvent _event) throws Exception {
@@ -82,7 +82,7 @@ public class CoursesController implements Initializable {
 		courseComboBox.setItems(FXCollections.observableList(courses));
 	}
 
-	public void loadSemesters() {
+	public void loadSemesters() throws IOException {
 		List<String> semesters = DBAdapter.getSemesters();
 		semesterComboBox.setItems(FXCollections.observableList(semesters));
 	}
