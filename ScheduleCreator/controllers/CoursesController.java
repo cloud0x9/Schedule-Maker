@@ -54,9 +54,10 @@ public class CoursesController implements Initializable {
 	public void switchSemester(ActionEvent _event) throws Exception {
 		clearCalendar();
 		clearSectionList();
-                String[] temp = semesterComboBox.getValue().split(" ");
-                String semester = temp[0].toLowerCase() + temp[1];
-                loadAllCourses(semester);
+               // String[] temp = 
+                //String semester = temp[0].toLowerCase() + temp[1];
+//                System.out.println(semester);                
+                loadAllCourses(semesterComboBox.getValue());
                 
 	}
 
@@ -77,6 +78,7 @@ public class CoursesController implements Initializable {
 	}
     
 	public void loadAllCourses(String _semester) throws Exception {
+            
                 List<String> courses = DBAdapter.getCourses(_semester);
                 System.out.println(courses.toString());
 		courseComboBox.setItems(FXCollections.observableList(courses));
