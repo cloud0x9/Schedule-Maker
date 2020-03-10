@@ -71,20 +71,16 @@ public class DBAdapter {
      */
     protected static String getFullText(String _resourceName) throws FileNotFoundException, IOException {
         String path = "resources/" + _resourceName;
-        InputStream stream = DBAdapter.class.getResourceAsStream(path);
-        
-        InputStreamReader reader = new InputStreamReader(stream);
-        
-        BufferedReader bufreader = new BufferedReader(reader);
-        StringBuilder sb = new StringBuilder();
-        String str;
-        while((str = bufreader.readLine())!= null){
-            sb.append(str);
-            sb.append("\n");
+        String content;
+        try (InputStream stream = DBAdapter.class.getResourceAsStream(path); InputStreamReader reader = new InputStreamReader(stream)) {
+            BufferedReader bufreader = new BufferedReader(reader);
+            StringBuilder sb = new StringBuilder();
+            String str;
+            while((str = bufreader.readLine())!= null){
+                sb.append(str);
+                sb.append("\n");
+            }   content = sb.toString();
         }
-        String content = sb.toString();
-        reader.close();
-        stream.close();
         return content;
         
     }
@@ -96,7 +92,7 @@ public class DBAdapter {
      * @throws java.io.FileNotFoundException
      */
     public static List<String> getCourses(String _semesterName) throws FileNotFoundException, IOException {
-        String contents = DBAdapter.getFullText("DB/" + _semesterName + "/" + "courses");
+        String contents = DBAdapter.getFullText("DB/" + _semesterName + "/courses");
         List<String> courses = Arrays.asList(contents.split("\n"));
         return courses;
     }
