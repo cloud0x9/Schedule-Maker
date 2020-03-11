@@ -8,7 +8,7 @@ package ScheduleCreator.models;
  * Last Updated: 2/17/2020
  */
 
-import ScheduleCreator.DBAdapter;
+import ScheduleCreator.Translator;
 import java.util.ArrayList;
 
 public class User {
@@ -24,7 +24,7 @@ public class User {
 
     public static void selectCourse(String _course) throws Exception {
         selectedCourses.add(_course);
-        DBAdapter.saveCourse(_course);
+        Translator.saveCourse(_course);
     }
     
     public static ArrayList<String> getCourses() {
