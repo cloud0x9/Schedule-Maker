@@ -1,13 +1,7 @@
 package ScheduleCreator;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.List;
-import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,20 +13,19 @@ public class Tests {
 
     public static void main(String[] args) throws IOException {
 
+        Admin.regenDB();
+        // TODO: add courselist regex;
+        // fix regenDB() so that it doesn't rely on classpath resources (so tests always work the first time)
+        // getSections()
         // regenerate the database
-        try {
-            DBAdapter.regenDB();
-        } catch (IOException ex) {
-            Logger.getLogger(Tests.class.getName()).log(Level.SEVERE, null, ex);
-        }
         // test how DBAdapter works with current semesters
-        testSemester();
-        
+  //      testSemester();
+
     }
 
     public static void testSemester() throws IOException {
         // Example usage of DBAdapter
-        List<String> semesters = DBAdapter.getSemesters();
+        List<String> semesters = Translator.getSemesters();
 
         System.out.println("Current Semesters are:");
         for (int i = 0; i < semesters.size(); i++) {
@@ -43,7 +36,7 @@ public class Tests {
         String semester = semesters.get(0);
 
         // get courses
-        List<String> courses = DBAdapter.getCourses(semester);
+        List<String> courses = Translator.getCourses(semester);
 
         // example course from the semester
         String exampleCourse = courses.get(20);
@@ -51,16 +44,15 @@ public class Tests {
         System.out.println("Example course is: " + exampleCourse);
 
         // dummy method - we still need to implement this (I think?)
-        List<String> sections = DBAdapter.getSections(exampleCourse, semester);
+        List<String> sections = Translator.getSections(exampleCourse, semester);
         String section = sections.get(0);
 
         //should return real info for CSC 250 - 01
         System.out.println("Building for " + section + " is: ");
-        System.out.println(DBAdapter.getSectionInfo(DBAdapter.choice.BUILDING, semester, section));
+        System.out.println(Translator.getSectionInfo(Translator.choice.BUILDING, semester, section));
 
         System.out.println("CRN for " + section + " is: ");
-        System.out.println(DBAdapter.getSectionInfo(DBAdapter.choice.CRN, semester, section));
+        System.out.println(Translator.getSectionInfo(Translator.choice.CRN, semester, section));
 
     }
 }
-   

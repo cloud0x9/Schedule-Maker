@@ -232,63 +232,7 @@ public class Translator {
         return selectedCourses;
     }
 
-    /**
-     * Regenerate database files in DB/ (not for use during runtime)
-     *
-     * @throws IOException
-     */
-    public static void regenDB() throws IOException {
 
-        // first generate the list of semesters
-        regenSemesterList();
-                
-        List<String> semesters = getSemesters();
 
-        String DBPrefix = "src/ScheduleCreator/resources/DB/";
-        String rawPrefix = "raw/";
 
-        File db = new File("");
-        for (int i = 0; i < semesters.size(); i++) {
-
-            String semester = semesters.get(i);
-
-            // generate day and time
-            ParseData.applyRegex(rawPrefix + semester, DBPrefix + semester + "/times_and_dates", ParseData.outputType.USEFULINFO);
-
-            // generate all info
-            ParseData.applyRegex(rawPrefix + semester, DBPrefix + semester + "/all_info", ParseData.outputType.ALLDATA);
-
-            //TODO: generate courselist
-        }
-    }
-
-    /**
-     * Regenerate a list of semesters based on the resources/raw dir
-     * NOTE: not for use during runtime
-     * @throws java.io.IOException
-     */
-    public static void regenSemesterList() throws IOException {
-
-        // ("raw" directory contains raw data files for each semester)
-        File rawDir = new File("src/ScheduleCreator/resources/raw");
-
-        // clear old semester list
-        File semesterListFile = new File("src/ScheduleCreator/resources/DB/semester_list");
-        semesterListFile.delete();
-        semesterListFile.getParentFile().mkdirs();
-
-        // get path of each semester file
-        String[] pathnames = rawDir.list();
-        
-        // 'pathnames.length - 1' so we don't count the raw directory itself
-        try (FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
-            for (String pathname : pathnames) {
-                // add filename to list of semesters
-                outputFile.append(pathname);
-                outputFile.append("\n");
-            }
-            outputFile.flush();
-            outputFile.close();
-        }
-    }
 }

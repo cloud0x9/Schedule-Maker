@@ -1,6 +1,6 @@
 package ScheduleCreator.controllers;
 
-import ScheduleCreator.DBAdapter;
+import ScheduleCreator.Translator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class CoursesController implements Initializable {
 		List<String> courseList = new ArrayList();
 		courseList.add(choice);
 		selectedCourses.getItems().add(choice);
-		DBAdapter.saveCourse(choice);
+		Translator.saveCourse(choice);
 	}
 	public void switchSemester(ActionEvent _event) throws Exception {
 		clearCalendar();
@@ -74,24 +74,24 @@ public class CoursesController implements Initializable {
 		Object itemToRemove = selectedCourses.getSelectionModel().getSelectedItem();
 		String courseToDelete = (String)itemToRemove;
 		selectedCourses.getItems().remove(itemToRemove);
-		DBAdapter.removeCourse(courseToDelete);
+		Translator.removeCourse(courseToDelete);
 	}
     
 	public void loadAllCourses(String _semester) throws Exception {
             
-                List<String> courses = DBAdapter.getCourses(_semester);
+                List<String> courses = Translator.getCourses(_semester);
                 System.out.println(courses.toString());
 		courseComboBox.setItems(FXCollections.observableList(courses));
 	}
 
 	public void loadSemesters() throws IOException {
-		List<String> semesters = DBAdapter.getSemesters();
+		List<String> semesters = Translator.getSemesters();
 		semesterComboBox.setItems(FXCollections.observableList(semesters));
 	}
 
     
 	public void loadSelectedCourses() throws Exception {
-		List<String> courses = DBAdapter.getSelectedCourses();
+		List<String> courses = Translator.getSelectedCourses();
 		selectedCourses.setItems(FXCollections.observableList(courses));
 	}
 }
