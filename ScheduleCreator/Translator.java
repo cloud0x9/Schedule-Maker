@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
  *
  * Last Updated: 3/6/2020
  */
-public class DBAdapter {
+public class Translator {
 
     // this is in the working directory, not the .jar
     protected static File selectedCourseFile = new File("user_selected_courses.txt");
@@ -47,7 +47,7 @@ public class DBAdapter {
     public static List<String> getSemesters() throws FileNotFoundException, IOException {
         String path = "DB/semester_list";
 
-        String contents = DBAdapter.getFullText(path);
+        String contents = Translator.getFullText(path);
 
         List<String> semesters = Arrays.asList(contents.split("\n"));
 
@@ -72,7 +72,7 @@ public class DBAdapter {
     protected static String getFullText(String _resourceName) throws FileNotFoundException, IOException {
         String path = "resources/" + _resourceName;
         String content;
-        try (InputStream stream = DBAdapter.class.getResourceAsStream(path); InputStreamReader reader = new InputStreamReader(stream)) {
+        try (InputStream stream = Translator.class.getResourceAsStream(path); InputStreamReader reader = new InputStreamReader(stream)) {
             BufferedReader bufreader = new BufferedReader(reader);
             StringBuilder sb = new StringBuilder();
             String str;
@@ -92,7 +92,7 @@ public class DBAdapter {
      * @throws java.io.FileNotFoundException
      */
     public static List<String> getCourses(String _semesterName) throws FileNotFoundException, IOException {
-        String contents = DBAdapter.getFullText("DB/" + _semesterName + "/courses");
+        String contents = Translator.getFullText("DB/" + _semesterName + "/courses");
         List<String> courses = Arrays.asList(contents.split("\n"));
         return courses;
     }
@@ -106,7 +106,7 @@ public class DBAdapter {
      * @return requested info as a String
      * @throws java.io.FileNotFoundException
      */
-    protected static String getSectionInfo(DBAdapter.choice _choice, String _semesterName, String _section) throws FileNotFoundException, IOException {
+    protected static String getSectionInfo(Translator.choice _choice, String _semesterName, String _section) throws FileNotFoundException, IOException {
         String regex = null;
         String dataFileType = "all_info";
 
@@ -132,7 +132,7 @@ public class DBAdapter {
         }
 
         // get fulltext of the data we need
-        String text = DBAdapter.getFullText("DB/" + _semesterName + "/" + dataFileType);
+        String text = Translator.getFullText("DB/" + _semesterName + "/" + dataFileType);
 
         // create a List<String> of the lines
         List<String> lines = Arrays.asList(text.split("\n"));
