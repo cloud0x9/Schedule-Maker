@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  *
  * Last Updated: 3/6/2020
  */
-public class DBAdapter {
+public class Translator {
 
     protected static File selectedCourseFile = new File("src/ScheduleCreator/resources/raw/user_selected_courses.txt");
     //Regex expression to get day from the current format.
@@ -84,7 +84,7 @@ public class DBAdapter {
 
     }
 
-    // get a list of semesters (which can be used as an argument to DBAdapter.getCourses)
+    // get a list of semesters (which can be used as an argument to Translator.getCourses)
     public static List<String> getSemesters() {
         List<String> semesters = new ArrayList();
 
