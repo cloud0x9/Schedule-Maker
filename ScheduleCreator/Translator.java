@@ -72,17 +72,18 @@ public class Translator {
     protected static String getFullText(String _resourceName) throws FileNotFoundException, IOException {
         String path = "resources/" + _resourceName;
         String content;
-        try (InputStream stream = Translator.class.getResourceAsStream(path); InputStreamReader reader = new InputStreamReader(stream)) {
+        try ( InputStream stream = Translator.class.getResourceAsStream(path);  InputStreamReader reader = new InputStreamReader(stream)) {
             BufferedReader bufreader = new BufferedReader(reader);
             StringBuilder sb = new StringBuilder();
             String str;
-            while((str = bufreader.readLine())!= null){
+            while ((str = bufreader.readLine()) != null) {
                 sb.append(str);
                 sb.append("\n");
-            }   content = sb.toString();
+            }
+            content = sb.toString();
         }
         return content;
-        
+
     }
 
     /**
@@ -111,7 +112,7 @@ public class Translator {
         String dataFileType = "all_info";
 
         switch (_choice) {
-            // this still needs to be finished, we need to account for different times on different days			
+            // this still needs to be finished, we need to account for different times on different days
             case TIME:
                 regex = "(?<=([ ]\\b[A-Z]{3}\\b.\\b[0-9]{3}\\b.+ [0-9]{2}\\b)).+?(?=\\b((TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(	 	TBA\\b))))";
                 dataFileType = "times_and_dates";
@@ -173,7 +174,7 @@ public class Translator {
     public static void saveCourse(String _course) throws Exception {
         //Adds new selected course to new line.
         try ( //Open file to add new classes.
-                FileWriter output = new FileWriter(selectedCourseFile, true)) {
+                 FileWriter output = new FileWriter(selectedCourseFile, true)) {
             //Adds new selected course to new line.
             output.append(_course + "\n");
         }
@@ -204,7 +205,7 @@ public class Translator {
 
         }
 
-        try (FileWriter writer = new FileWriter(selectedCourseFile)) {
+        try ( FileWriter writer = new FileWriter(selectedCourseFile)) {
             writer.append(newContents.toString());
         }
 
@@ -220,7 +221,7 @@ public class Translator {
 
         ArrayList<String> selectedCourses;
         //Load courses from text file to be returned as a list.
-        try (Scanner input = new Scanner(selectedCourseFile)) {
+        try ( Scanner input = new Scanner(selectedCourseFile)) {
             //Load courses from text file to be returned as a list.
             selectedCourses = new ArrayList();
             String line;
@@ -231,8 +232,5 @@ public class Translator {
         }
         return selectedCourses;
     }
-
-
-
 
 }

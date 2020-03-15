@@ -54,7 +54,7 @@ public class Admin {
         String[] pathnames = rawDir.list();
 
         // 'pathnames.length - 1' so we don't count the raw directory itself
-        try (FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
+        try ( FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
             for (String pathname : pathnames) {
                 // add filename to list of semesters
                 outputFile.append(pathname);
@@ -90,8 +90,7 @@ public class Admin {
             String inputFilepath = rawPrefix + semester;
 
             // generate day and time files
-            generateDayTime(inputFilepath, DBPrefix + semester + "/times_and_dates");
-
+            //generateDayTime(inputFilepath, DBPrefix + semester + "/times_and_dates");
             // generate "all info" files
             generateAllInfo(inputFilepath, DBPrefix + semester + "/all_info");
 
@@ -102,15 +101,14 @@ public class Admin {
 
     protected static void generateDayTime(String _inputFilepath, String _outputFilepath) throws IOException {
         // initial regex
-        String regex = "[ ](\\b[A-Z]{3}\\b.((\\b[0-9]{3}\\b)|(\\b[0-9]{3}\\w)).+ (([0-9]{2}\\b)|([0-9]{2}(\\w)|([A-Z][0-9])(\\w))))|([\t]((?:(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b).-.(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b))|\\b([\t](TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA.*TBA\\b)))\\b";
+        String regex = "(\\b[A-Z]{3}\\b.((\\b[0-9]{3}\\b)|(\\b[0-9]{3}\\w)).+ (([0-9]{2}\\b)))|[	](((?:(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b).-.(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b))|[	](\\b((TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA.*TBA\\b)))\\b)[	]";
 
         String output = Admin.runRegexOnFile(regex, _inputFilepath);
 
         // second pass through to better format the results,
         //Puts every class on a line of its own with time and day following
         //replaceAll is used to break to a new line where needed
-        String finalOutput = output.replaceAll("\\b((TR\\b|MW\\b|MWF\\b|WF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA.*TBA\\b)))\\b", "\n");
-
+        String finalOutput = output.replaceAll("(\\b((TR\\b|MW\\b|MWF\\b|WF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA	 	TBA\\b)))\\b)", "$1 \n");
         // write the file
         Admin.writeNewFile(_outputFilepath, finalOutput);
 
@@ -159,7 +157,7 @@ public class Admin {
             }
         }
         File outputFile = new File(_outputFilepath);
-        try (FileWriter output = new FileWriter(outputFile)) {
+        try ( FileWriter output = new FileWriter(outputFile)) {
             for (String s : allCourses) {
                 output.append(s + '\n');
             }

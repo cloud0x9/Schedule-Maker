@@ -19,11 +19,11 @@ public class Tests {
         // getSections()
         // regenerate the database
         // test how DBAdapter works with current semesters
-  //      testSemester();
-
+        //      testSemester();
     }
 
     public static void testSemester() throws IOException {
+
         // Example usage of DBAdapter
         List<String> semesters = Translator.getSemesters();
 
