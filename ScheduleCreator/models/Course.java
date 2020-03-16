@@ -3,9 +3,9 @@ package ScheduleCreator.models;
 /**
  * This class stores various course information.
  *
- * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
+ * @author Jamison Valentine
  *
- * Last Updated: 2/17/2020
+ * Last Updated: 3/16/2020
  */
 
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Course {
 
 protected String abbreviation;
-protected int courseNumber;
+protected String courseNumber;
 protected ArrayList<String> sections;
 
     public Course() {
@@ -30,7 +30,7 @@ protected ArrayList<String> sections;
 
     //=================  GETTERS ===============
 
-    public int getCourseNumber() {
+    public String getCourseNumber() {
         return courseNumber;
     }
 
@@ -40,7 +40,7 @@ protected ArrayList<String> sections;
 
     //=================  SETTERS ===============
 
-    public void setCourseNumber(int _courseNumber) {
+    public void setCourseNumber(String _courseNumber) {
         this.courseNumber = _courseNumber;
     }
 

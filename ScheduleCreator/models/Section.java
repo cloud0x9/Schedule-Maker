@@ -5,9 +5,9 @@ import java.util.HashMap;
 /**
  * This class models information for course sections.
  *
- * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
+ * @author Jamison Valentine
  *
- * Last Updated:3/30/2020
+ * Last Updated: 3/16/2020
  */
 
 public class Section {

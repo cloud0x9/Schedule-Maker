@@ -3,7 +3,7 @@ package ScheduleCreator;
 /**
  * This class is used to start and initialize the application
  *
- * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
+ * @author Jamison Valentine
  *
  * Last Updated: 2/17/2020
  */

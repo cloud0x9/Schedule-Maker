@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 3/6/2020
+ * Last Updated: 3/16/2020
  */
 public class Translator {
 
