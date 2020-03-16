@@ -12,14 +12,19 @@ import java.util.ArrayList;
 
 public class Course {
 
-protected String abbreviation;
-protected String courseNumber;
-protected ArrayList<String> sections;
+    protected final String name;
+    protected String abbreviation;
+    protected String courseNumber;
+    protected ArrayList<String> sections;
 
-    public Course() {
-
+    public Course(String _name) {
+        this.name = _name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+    
     public String getabbreviation() {
         return abbreviation;
     }
