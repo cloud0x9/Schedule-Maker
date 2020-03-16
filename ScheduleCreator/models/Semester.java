@@ -22,8 +22,8 @@ public class Semester {
     protected TreeMap<String,Semester> courseList;
     protected Schedule schedule;
 
-    public Semester(String _sectionNumber) {
-        this.sectionNumber = _sectionNumber;
+    public Semester(String _name) {
+        this.name = _name;
     }
 
     public void addSelectedSection(Section _section) {
