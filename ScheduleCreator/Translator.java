@@ -172,10 +172,10 @@ public class Translator {
      * @param _course
      * @throws Exception
      */
-    public static void saveCourse(String _course) throws Exception {
+    public static void saveCourse(String _course, String _semester) throws Exception {
         //Adds new selected course to new line.
         try ( //Open file to add new classes.
-                 FileWriter output = new FileWriter(selectedCourseFile, true)) {
+                 FileWriter output = new FileWriter(new File(_semester + "_selected_courses.txt"), true)) {
             //Adds new selected course to new line.
             output.append(_course + "\n");
         }
@@ -218,11 +218,11 @@ public class Translator {
      * @return
      * @throws Exception
      */
-    public static List<String> getSelectedCourses() {
+    public static List<String> getSelectedCourses(String _semester) {
 
         ArrayList<String> selectedCourses = new ArrayList();
         //Load courses from text file to be returned as a list.
-        try ( Scanner input = new Scanner(selectedCourseFile)) {
+        try ( Scanner input = new Scanner(new File(_semester + "_selected_courses.txt"))) {
             //Load courses from text file to be returned as a list.
             String line;
             while (input.hasNext()) {
@@ -231,7 +231,7 @@ public class Translator {
             }
         }
         catch (FileNotFoundException ex) {
-            System.out.println("user_selected_courses.txt file does not exist:");
+            System.out.println(_semester + "user_selected_courses.txt file does not exist:");
         }
         finally {
             return selectedCourses;

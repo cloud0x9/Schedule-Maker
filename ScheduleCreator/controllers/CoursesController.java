@@ -16,86 +16,95 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 
-
-/** This class controls interactions in the Courses View.
+/**
+ * This class controls interactions in the Courses View.
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
  * Last Updated: 3/16/2020
  */
-
 public class CoursesController implements Initializable {
-	@FXML private Button semesterButton;
-	@FXML private ComboBox<String> semesterComboBox;
 
-	@FXML private ComboBox<String> courseComboBox;
+    @FXML
+    protected Button semesterButton;
+    @FXML
+    protected ComboBox<String> semesterComboBox;
+    @FXML
+    protected ComboBox<String> courseComboBox;
+    @FXML
+    protected ListView selectedCourses;
+    @FXML
+    protected Button courseButton;
+    @FXML
+    protected Button removeCourseButton;
+    protected String currentSemester;
 
-	@FXML private ListView selectedCourses;
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            loadSemesters();
+        } catch (IOException ex) {
+            Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
-	@FXML private Button courseButton;
-	@FXML private Button removeCourseButton;
+    public void addSelectedCourse(ActionEvent _event) throws Exception {
+        String choice = this.courseComboBox.getValue();
 
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-            try {
-                loadSemesters();
-            } catch (IOException ex) {
-                Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-	}
+        //Displays course to be added in console
+        System.out.println("Course selected: " + choice);
+        List<String> courseList = new ArrayList();
+        courseList.add(choice);
+        this.selectedCourses.getItems().add(choice);
+        Translator.saveCourse(choice, formatSemester(this.currentSemester));
+    }
 
-	public void addSelectedCourse(ActionEvent _event) throws Exception {
-		String choice = courseComboBox.getValue();
+    public void switchSemester(ActionEvent _event) throws Exception {
+        this.currentSemester = semesterComboBox.getValue();
+        clearCalendar();
+        clearSectionList();
 
-                //Displays course to be added in console
-                System.out.println("Course selected: " + choice);
-		List<String> courseList = new ArrayList();
-		courseList.add(choice);
-		selectedCourses.getItems().add(choice);
-		Translator.saveCourse(choice);
-	}
-	public void switchSemester(ActionEvent _event) throws Exception {
-		clearCalendar();
-		clearSectionList();
-               // String[] temp =
-                //String semester = temp[0].toLowerCase() + temp[1];
-//                System.out.println(semester);
-                loadAllCourses(semesterComboBox.getValue());
-                loadSelectedCourses();
+        loadAllCourses(this.currentSemester);
+        loadSelectedCourses(formatSemester(this.currentSemester));
 
-	}
+    }
 
-	public void clearCalendar() {
-		System.out.println("Dummy function to clear the calendar for when we switch semesters");
-	}
+    public void clearCalendar() {
+        System.out.println("Dummy function to clear the calendar for when we switch semesters");
+    }
 
-	protected void clearSectionList() {
-		System.out.println("Dummy function to clear the list of available sections for when we switch semesters");
-	}
+    protected void clearSectionList() {
+        System.out.println("Dummy function to clear the list of available sections for when we switch semesters");
+    }
 
+    public void removeSelectedCourse(ActionEvent _event) throws Exception {
+        Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
+        String courseToDelete = (String) itemToRemove;
+        this.selectedCourses.getItems().remove(itemToRemove);
+        Translator.removeCourse(courseToDelete);
+    }
 
-	public void removeSelectedCourse(ActionEvent _event) throws Exception {
-		Object itemToRemove = selectedCourses.getSelectionModel().getSelectedItem();
-		String courseToDelete = (String)itemToRemove;
-		selectedCourses.getItems().remove(itemToRemove);
-		Translator.removeCourse(courseToDelete);
-	}
+    public void loadAllCourses(String _semester) throws Exception {
 
-	public void loadAllCourses(String _semester) throws Exception {
+        List<String> courses = Translator.getCourses(_semester);
+        this.courseComboBox.setItems(FXCollections.observableList(courses));
+    }
 
-                List<String> courses = Translator.getCourses(_semester);
-		courseComboBox.setItems(FXCollections.observableList(courses));
-	}
+    public void loadSemesters() throws IOException {
+        List<String> semesters = Translator.getSemesters();
+        this.semesterComboBox.setItems(FXCollections.observableList(semesters));
+    }
 
-	public void loadSemesters() throws IOException {
-		List<String> semesters = Translator.getSemesters();
-		semesterComboBox.setItems(FXCollections.observableList(semesters));
-	}
+    public void loadSelectedCourses(String _semester) throws Exception {
+        List<String> courses = Translator.getSelectedCourses(_semester);
+        this.selectedCourses.setItems(FXCollections.observableList(courses));
+    }
 
+    public String formatSemester(String _semester) {
+        //Format current semester to pass as argument in appropriate Translator methods
+        String[] temp = this.currentSemester.split(" ");
+        String formattedSemester = temp[0].toLowerCase() + temp[1];
 
-	public void loadSelectedCourses() throws Exception {
-		List<String> courses = Translator.getSelectedCourses();
-		selectedCourses.setItems(FXCollections.observableList(courses));
-	}
+        return formattedSemester;
+    }
 }
-
