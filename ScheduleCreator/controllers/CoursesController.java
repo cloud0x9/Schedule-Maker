@@ -17,21 +17,21 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 
 
-/** This class controls interactions in the Courses View.  
+/** This class controls interactions in the Courses View.
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
- * 
- * Last Updated: 2/21/2020
+ *
+ * Last Updated: 3/16/2020
  */
 
 public class CoursesController implements Initializable {
 	@FXML private Button semesterButton;
-	@FXML private ComboBox<String> semesterComboBox;    
-  
-	@FXML private ComboBox<String> courseComboBox;    
+	@FXML private ComboBox<String> semesterComboBox;
+
+	@FXML private ComboBox<String> courseComboBox;
 
 	@FXML private ListView selectedCourses;
-    
+
 	@FXML private Button courseButton;
 	@FXML private Button removeCourseButton;
 
@@ -43,9 +43,12 @@ public class CoursesController implements Initializable {
                 Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
             }
 	}
-    
+
 	public void addSelectedCourse(ActionEvent _event) throws Exception {
 		String choice = courseComboBox.getValue();
+
+                //Displays course to be added in console
+                System.out.println("Course selected: " + choice);
 		List<String> courseList = new ArrayList();
 		courseList.add(choice);
 		selectedCourses.getItems().add(choice);
@@ -54,11 +57,12 @@ public class CoursesController implements Initializable {
 	public void switchSemester(ActionEvent _event) throws Exception {
 		clearCalendar();
 		clearSectionList();
-               // String[] temp = 
+               // String[] temp =
                 //String semester = temp[0].toLowerCase() + temp[1];
-//                System.out.println(semester);                
+//                System.out.println(semester);
                 loadAllCourses(semesterComboBox.getValue());
-                
+                loadSelectedCourses();
+
 	}
 
 	public void clearCalendar() {
@@ -69,18 +73,17 @@ public class CoursesController implements Initializable {
 		System.out.println("Dummy function to clear the list of available sections for when we switch semesters");
 	}
 
-	
+
 	public void removeSelectedCourse(ActionEvent _event) throws Exception {
 		Object itemToRemove = selectedCourses.getSelectionModel().getSelectedItem();
 		String courseToDelete = (String)itemToRemove;
 		selectedCourses.getItems().remove(itemToRemove);
 		Translator.removeCourse(courseToDelete);
 	}
-    
+
 	public void loadAllCourses(String _semester) throws Exception {
-            
+
                 List<String> courses = Translator.getCourses(_semester);
-                System.out.println(courses.toString());
 		courseComboBox.setItems(FXCollections.observableList(courses));
 	}
 
@@ -89,7 +92,7 @@ public class CoursesController implements Initializable {
 		semesterComboBox.setItems(FXCollections.observableList(semesters));
 	}
 
-    
+
 	public void loadSelectedCourses() throws Exception {
 		List<String> courses = Translator.getSelectedCourses();
 		selectedCourses.setItems(FXCollections.observableList(courses));

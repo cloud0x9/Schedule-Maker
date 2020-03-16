@@ -69,6 +69,7 @@ public class Translator {
      * a leading /)
      * @return the fulltext as a String
      */
+    
     protected static String getFullText(String _resourceName) throws FileNotFoundException, IOException {
         String path = "resources/" + _resourceName;
         String content;
@@ -217,20 +218,24 @@ public class Translator {
      * @return
      * @throws Exception
      */
-    public static List<String> getSelectedCourses() throws Exception {
+    public static List<String> getSelectedCourses() {
 
-        ArrayList<String> selectedCourses;
+        ArrayList<String> selectedCourses = new ArrayList();
         //Load courses from text file to be returned as a list.
         try ( Scanner input = new Scanner(selectedCourseFile)) {
             //Load courses from text file to be returned as a list.
-            selectedCourses = new ArrayList();
             String line;
             while (input.hasNext()) {
                 line = input.nextLine();
                 selectedCourses.add(line.trim());
             }
         }
-        return selectedCourses;
+        catch (FileNotFoundException ex) {
+            System.out.println("user_selected_courses.txt file does not exist:");
+        }
+        finally {
+            return selectedCourses;
+        }
     }
 
 }
