@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -195,31 +196,25 @@ public class Translator {
 
         selectedCourseFile = new File(_semester + "_selected_courses.txt");
 
-        try (Scanner input = new Scanner(selectedCourseFile)) {
-            StringBuilder newContents = new StringBuilder();
-            String line = "";
-
-            /**
-             * Gets all of the courses except the selected one and appends to a new
-             * file to be saved. *
-             */
-            while (input.hasNext()) {
-                line = input.nextLine();
-
-                if (!line.contains(_course)) {
-                    newContents.append(_course).append('\n');
+        try {
+            List<String> courses = Files.readAllLines(selectedCourseFile.toPath());
+            for (String course : courses) {
+                if (course.equals(_course)) {
+                    courses.remove(course);
+                    break;
                 }
+            }
 
-            }
-            input.close();
             try ( FileWriter writer = new FileWriter(selectedCourseFile)) {
-                writer.append(newContents.toString());
+                for (String course : courses) {
+                    writer.append(course + "\n");
+                }
+                writer.close();
             }
-            catch (Exception ex) {
-            }
+            catch (Exception ex) {}
         }
-        catch (Exception ex) {
-            System.out.println("Could not remove course successfully");
+
+        catch (IOException ex) {
         }
 
     }
@@ -239,7 +234,7 @@ public class Translator {
             String line;
             while (input.hasNext()) {
                 line = input.nextLine();
-                selectedCourses.add(line.trim());
+                selectedCourses.add(line);
             }
         }
         catch (FileNotFoundException ex) {

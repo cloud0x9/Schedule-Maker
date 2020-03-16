@@ -58,7 +58,7 @@ public class CoursesController implements Initializable {
         String selectedCourse = this.courseComboBox.getValue();
         this.courseComboBox.setValue("-");
 
-        if (selectedCourse != null) {
+        if (selectedCourse != null && selectedCourse != "-") {
 
             if (currentSemester.addCourse(selectedCourse)) this.selectedCourses.getItems().add(selectedCourse);
         }
@@ -100,7 +100,7 @@ public class CoursesController implements Initializable {
         this.selectedCourses.getItems().remove(itemToRemove);
 
         String courseToDelete = (String) itemToRemove;
-        this.currentSemester.removeCourse(courseToDelete);
+        this.currentSemester.removeCourse(courseToDelete.trim());
 
     }
 

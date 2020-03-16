@@ -30,6 +30,11 @@ public class Semester {
      * clearSelectedSection();
      */
 
+
+    /**
+     *
+     * @param _name
+     */
     public Semester(String _name) {
         this.name = _name;
         setSelectedCourses();
@@ -48,7 +53,6 @@ public class Semester {
 
     public Boolean addCourse(String _course) {
         Boolean contains = false;
-        _course = _course.trim();
 
         for (Course course: this.selectedCourses) {
             if (course.getName().equalsIgnoreCase(_course)) {
@@ -95,7 +99,11 @@ public class Semester {
     public void removeCourse(String _course) throws Exception {
         Course courseToRemove;
 
+        System.out.println("Courses in list: " + this.selectedCourses.size());
+        System.out.println("Course to delete: " + _course);
         for (Course course: this.selectedCourses) {
+            System.out.println("Selected Course: " + course.getName());
+
             if (_course.equalsIgnoreCase(course.getName())) {
                 courseToRemove = course;
                 this.selectedCourses.remove(courseToRemove);
