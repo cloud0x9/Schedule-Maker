@@ -24,7 +24,7 @@ public class Course {
     public String getName() {
         return this.name;
     }
-    
+
     public String getabbreviation() {
         return abbreviation;
     }

@@ -173,11 +173,13 @@ public class Translator {
      * @param _course
      * @throws Exception
      */
+
     public static void saveCourse(String _course, String _semester) {
+
         //Adds new selected course to new line.
         selectedCourseFile = new File(_semester + "_selected_courses.txt");
         try ( //Open file to add new classes.
-                 FileWriter output = new FileWriter(selectedCourseFile, true)) {
+                 FileWriter output = new FileWriter(new File(_semester + "_selected_courses.txt"), true)) {
             //Adds new selected course to new line.
             output.append(_course + "\n");
         }
@@ -238,7 +240,9 @@ public class Translator {
             }
         }
         catch (FileNotFoundException ex) {
+
             System.out.println(_semester + "user_selected_courses.txt file does not exist yet (no selected courses for semester)");
+
         }
         finally {
             return selectedCourses;

@@ -5,7 +5,6 @@ import ScheduleCreator.models.Semester;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -45,6 +44,7 @@ public class CoursesController implements Initializable {
     protected Semester summer2020 = new Semester("summer2020");
     protected Semester fall2020 = new Semester("fall2020");
 
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -55,6 +55,7 @@ public class CoursesController implements Initializable {
     }
 
     public void addSelectedCourse(ActionEvent _event) throws Exception {
+
         String selectedCourse = this.courseComboBox.getValue();
         this.courseComboBox.setValue("-");
 
@@ -67,7 +68,7 @@ public class CoursesController implements Initializable {
     public void switchSemester(ActionEvent _event) throws Exception {
         String currentSemesterString = semesterComboBox.getValue();
         this.courseComboBox.setValue("-");
-        
+
         switch (formatSemester(currentSemesterString)) {
 
             case "spring2020":
@@ -97,6 +98,7 @@ public class CoursesController implements Initializable {
 
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
         Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
+
         this.selectedCourses.getItems().remove(itemToRemove);
 
         String courseToDelete = (String) itemToRemove;
@@ -122,7 +124,9 @@ public class CoursesController implements Initializable {
 
     public String formatSemester(String _semester) {
         //Format current semester to pass as argument in appropriate Translator methods
+
         String[] temp = _semester.split(" ");
+
         String formattedSemester = temp[0].toLowerCase() + temp[1];
 
         return formattedSemester;
