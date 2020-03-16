@@ -4,6 +4,7 @@ import ScheduleCreator.Translator;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -49,14 +50,10 @@ public class CoursesController implements Initializable {
     }
 
     public void addSelectedCourse(ActionEvent _event) throws Exception {
-        String choice = this.courseComboBox.getValue();
+        String selectedCourse = this.courseComboBox.getValue();
 
-        //Displays course to be added in console
-        System.out.println("Course selected: " + choice);
-        List<String> courseList = new ArrayList();
-        courseList.add(choice);
-        this.selectedCourses.getItems().add(choice);
-        Translator.saveCourse(choice, formatSemester(this.currentSemester));
+        this.selectedCourses.getItems().add(selectedCourse);
+        Translator.saveCourse(selectedCourse, formatSemester(this.currentSemester));
     }
 
     public void switchSemester(ActionEvent _event) throws Exception {
@@ -79,8 +76,9 @@ public class CoursesController implements Initializable {
 
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
         Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
-        String courseToDelete = (String) itemToRemove;
         this.selectedCourses.getItems().remove(itemToRemove);
+
+        String courseToDelete = (String) itemToRemove;
         Translator.removeCourse(courseToDelete);
     }
 
