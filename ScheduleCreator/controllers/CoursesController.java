@@ -56,16 +56,18 @@ public class CoursesController implements Initializable {
 
     public void addSelectedCourse(ActionEvent _event) throws Exception {
         String selectedCourse = this.courseComboBox.getValue();
+        this.courseComboBox.setValue("-");
 
         if (selectedCourse != null) {
-           
+
             if (currentSemester.addCourse(selectedCourse)) this.selectedCourses.getItems().add(selectedCourse);
         }
     }
 
     public void switchSemester(ActionEvent _event) throws Exception {
         String currentSemesterString = semesterComboBox.getValue();
-
+        this.courseComboBox.setValue("-");
+        
         switch (formatSemester(currentSemesterString)) {
 
             case "spring2020":
