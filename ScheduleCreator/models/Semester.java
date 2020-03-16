@@ -16,7 +16,7 @@ import ScheduleCreator.models.Section;
 
 public class Semester {
 
-    protected final String sectionNumber;
+    protected final String name;
     protected ArrayList<Course> selectedCourses;
     protected ArrayList<Section> selectedSections;
     protected TreeMap<String,Semester> courseList;
