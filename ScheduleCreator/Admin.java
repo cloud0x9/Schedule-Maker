@@ -152,7 +152,7 @@ public class Admin {
             if (m.matches()) {
                 course = m.group(1);
                 if (!allCourses.contains(m.group(1))) {
-                    allCourses.add(m.group(3) + " - " + m.group(1));
+                    allCourses.add(m.group(3) + " - " + m.group(1).trim());
                 }
             }
         }
