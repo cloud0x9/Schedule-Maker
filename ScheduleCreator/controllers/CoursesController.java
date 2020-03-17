@@ -21,6 +21,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -82,12 +83,21 @@ public class CoursesController implements Initializable {
             this.sectionContainer.getPanes().add(newPane);
 
             Pane pane = new Pane();
+            pane.setMaxWidth(100);
             pane.getChildren().add(new Label(_courseName));
             Button btn = new Button("Remove");
             BorderPane borderPane = new BorderPane(btn);
             HBox graphicHBox = new HBox();
-            graphicHBox.getChildren().addAll(pane, borderPane);
-            newPane.setGraphic(graphicHBox);
+            HBox removeButtonBox = new HBox();
+            removeButtonBox.getChildren().add(borderPane);
+            graphicHBox.getChildren().addAll(pane);
+            GridPane title = new GridPane();
+           
+            GridPane.setConstraints(pane, 0, 0);
+            GridPane.setConstraints(borderPane, 1, 0);
+ 
+            title.getChildren().addAll(pane, borderPane);
+            newPane.setGraphic(title);
         }
     }
 
