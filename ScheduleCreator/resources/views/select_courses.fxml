@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560" prefWidth="1112.0" stylesheets="@../main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleCreator.controllers.CoursesController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560" prefWidth="1112.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleCreator.controllers.CoursesController">
    <children>
       <SplitPane prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -46,63 +46,17 @@
                         <Label text="Selected Courses" GridPane.rowIndex="3" />
                         <Button fx:id="searchButton" maxHeight="50.0" mnemonicParsing="false" text="Search Classes" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         <TextField prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.rowIndex="1" />
-                        <GridPane GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
+                        <GridPane maxWidth="350.0" style="-fx-border-color: black;" GridPane.columnSpan="2147483647" GridPane.rowIndex="4">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="259.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="196.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="268.0" minWidth="10.0" prefWidth="259.0" />
                           </columnConstraints>
                           <rowConstraints>
                             <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="160.0" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="200.0" minHeight="0.0" prefHeight="160.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Accordion>
-                                <panes>
-                                  <TitledPane animated="false">
-                                       <content>
-                                          <ScrollPane fitToWidth="true">
-                                             <content>
-                                                <VBox prefHeight="25.0" prefWidth="263.0" />
-                                             </content>
-                                          </ScrollPane>
-                                       </content>
-                                       <graphic>
-                                          <HBox alignment="TOP_RIGHT" pickOnBounds="false" prefHeight="43.0" prefWidth="227.0">
-                                             <children>
-                                                <Pane prefHeight="200.0" prefWidth="200.0">
-                                                   <children>
-                                                      <Label layoutX="29.0" layoutY="13.0" text="Section 01" />
-                                                   </children>
-                                                </Pane>
-                                                <BorderPane prefHeight="200.0" prefWidth="200.0">
-                                                   <center>
-                                                      <Button mnemonicParsing="false" text="Remove" BorderPane.alignment="CENTER" />
-                                                   </center>
-                                                </BorderPane>
-                                             </children>
-                                          </HBox>
-                                       </graphic>
-                                  </TitledPane>
-                                  <TitledPane animated="false" text="untitled 2">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                             <children>
-                                                <ListView layoutX="-29.0" layoutY="7.0" prefHeight="114.0" prefWidth="258.0" />
-                                             </children>
-                                          </AnchorPane>
-                                    </content>
-                                  </TitledPane>
-                                  <TitledPane animated="false" text="untitled 3">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                             <children>
-                                                <ListView layoutX="-1.0" layoutY="-38.0" prefHeight="124.0" prefWidth="259.0" />
-                                             </children>
-                                          </AnchorPane>
-                                    </content>
-                                  </TitledPane>
-                                </panes>
-                              </Accordion>
+                              <Accordion fx:id="sectionContainer" maxWidth="350.0" prefHeight="125.0" prefWidth="263.0" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.rowIndex="2">
@@ -117,7 +71,7 @@
                               <ComboBox fx:id="courseComboBox" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="760.0" promptText="-" />
                            </children>
                         </GridPane>
-                        <ComboBox fx:id="semesterComboBox" maxHeight="50.0" onAction="#switchSemester" prefHeight="28.0" prefWidth="906.0" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="semesterComboBox" maxHeight="50.0" onAction="#switchSemester" prefHeight="30.0" prefWidth="93.0" GridPane.columnIndex="1" />
                         <Label text="Switch Semester:" />
                         <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <children>
@@ -163,7 +117,7 @@
                         <Label text="Friday" GridPane.columnIndex="5" />
                         <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: lightblue;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <children>
-                              <Label prefHeight="58.0" prefWidth="130.0" text="CSC 130" />
+                              <Label prefHeight="58.0" prefWidth="130.0" text="CSC 130 - 01" />
                            </children>
                         </HBox>
                         <Label text="8:00 AM" GridPane.rowIndex="1" GridPane.valignment="TOP" />
@@ -174,7 +128,7 @@
                         <Label text="1:00 PM" GridPane.rowIndex="6" GridPane.valignment="TOP" />
                         <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: lightblue;" GridPane.columnIndex="4" GridPane.rowIndex="2">
                            <children>
-                              <Label prefHeight="58.0" prefWidth="130.0" text="CSC 130" />
+                              <Label prefHeight="58.0" prefWidth="130.0" text="CSC 130 - 01" />
                            </children>
                         </HBox>
                         <Label text="2:00 PM" GridPane.rowIndex="7" GridPane.valignment="TOP" />

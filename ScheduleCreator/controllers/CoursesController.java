@@ -13,9 +13,17 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TitledPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * This class controls interactions in the Courses View.
@@ -38,6 +46,8 @@ public class CoursesController implements Initializable {
     protected Button courseButton;
     @FXML
     protected Button removeCourseButton;
+    @FXML
+    protected Accordion sectionContainer;
 
     protected Semester currentSemester;
     protected Semester spring2020 = new Semester("spring2020");
@@ -49,8 +59,35 @@ public class CoursesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             loadSemesters();
+            
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void refreshTitlePane(List<String> _courseNames) {
+        
+        this.sectionContainer.getPanes().clear();
+        for (String _courseName : _courseNames) {
+            TitledPane newPane = new TitledPane();
+            ScrollPane scrollPane = new ScrollPane();
+            VBox vbox = new VBox();
+            HBox sectionTitleBox = new HBox();
+            sectionTitleBox.getChildren().add(new Label("section #"));
+
+            vbox.getChildren().addAll(sectionTitleBox);
+            scrollPane.setContent(vbox);
+            newPane.setContent(scrollPane);
+
+            this.sectionContainer.getPanes().add(newPane);
+
+            Pane pane = new Pane();
+            pane.getChildren().add(new Label(_courseName));
+            Button btn = new Button("Remove");
+            BorderPane borderPane = new BorderPane(btn);
+            HBox graphicHBox = new HBox();
+            graphicHBox.getChildren().addAll(pane, borderPane);
+            newPane.setGraphic(graphicHBox);
         }
     }
 
@@ -61,7 +98,11 @@ public class CoursesController implements Initializable {
 
         if (selectedCourse != null && selectedCourse != "-") {
 
-            if (currentSemester.addCourse(selectedCourse)) this.selectedCourses.getItems().add(selectedCourse);
+            //if course added successfully
+            if (currentSemester.addCourse(selectedCourse)) {
+                loadSelectedCourses(this.currentSemester.getName());
+            }
+            
         }
     }
 
@@ -119,7 +160,7 @@ public class CoursesController implements Initializable {
 
     public void loadSelectedCourses(String _semester) throws Exception {
         List<String> courses = Translator.getSelectedCourses(_semester);
-        this.selectedCourses.setItems(FXCollections.observableList(courses));
+        refreshTitlePane(courses);
     }
 
     public String formatSemester(String _semester) {
