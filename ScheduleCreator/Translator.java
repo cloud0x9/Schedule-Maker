@@ -108,7 +108,7 @@ public class Translator {
      *
      * @param _semesterName
      * @return a List of courses (as Strings) available for the semester
-     * 
+     *
      */
     public static List<String> getCourses(String _semesterName)  {
 

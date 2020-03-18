@@ -68,7 +68,7 @@ public  class Semester {
 
             Translator.saveCourse(_course, this.name);
             return true;
-            
+
         } else {
             return false;
         }
