@@ -62,7 +62,6 @@ public class CoursesController implements Initializable {
     protected Semester summer2020 = new Semester("summer2020");
     protected Semester fall2020 = new Semester("fall2020");
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -71,9 +70,9 @@ public class CoursesController implements Initializable {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void displaySchedule(ActionEvent _event) {
-        
+
         double blockHeight = scheduleGrid.getHeight() / 13;
         HBox block = new HBox();
         block.setPrefHeight(blockHeight);
@@ -87,7 +86,9 @@ public class CoursesController implements Initializable {
 
         if (selectedCourse != null && selectedCourse != "-") {
 
-            if (currentSemester.addCourse(selectedCourse)) this.selectedCourses.getItems().add(selectedCourse);
+            if (currentSemester.addCourse(selectedCourse)) {
+                this.selectedCourses.getItems().add(selectedCourse);
+            }
         }
     }
 
@@ -126,9 +127,9 @@ public class CoursesController implements Initializable {
         String searchString = this.searchField.getText();
         List<String> filteredList = new ArrayList();
 
-        if (this.currentSemester.getAllCourses() != null) {
+        if (this.currentSemester != null) {
 
-            for (String course: this.currentSemester.getAllCourses()) {
+            for (String course : this.currentSemester.getAllCourses()) {
                 if (course.toLowerCase().contains(searchString.toLowerCase())) {
                     filteredList.add(course);
                 }
@@ -139,7 +140,7 @@ public class CoursesController implements Initializable {
     }
 
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
-        
+
         Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
         this.selectedCourses.getItems().remove(itemToRemove);
 
@@ -181,10 +182,12 @@ public class CoursesController implements Initializable {
         Matcher m;
 
         String formattedSemester = "";
-        for (String semester: semesters) {
+        for (String semester : semesters) {
             m = p.matcher(semester);
 
-            if (m.matches()) formattedSemester = m.group(1).substring(0, 1).toUpperCase() + m.group(1).substring(1) + " " + m.group(2);
+            if (m.matches()) {
+                formattedSemester = m.group(1).substring(0, 1).toUpperCase() + m.group(1).substring(1) + " " + m.group(2);
+            }
             newList.add(formattedSemester);
         }
 
