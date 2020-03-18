@@ -21,6 +21,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.RowConstraints;
 
 /**
  * This class controls interactions in the Courses View.
@@ -49,6 +52,10 @@ public class CoursesController implements Initializable {
     protected Button searchButton;
     @FXML
     protected TextField searchField;
+    @FXML
+    protected RowConstraints topRow;
+    @FXML
+    protected GridPane scheduleGrid;
 
     protected Semester currentSemester;
     protected Semester spring2020 = new Semester("spring2020");
@@ -63,6 +70,14 @@ public class CoursesController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void displaySchedule(ActionEvent _event) {
+        
+        double blockHeight = scheduleGrid.getHeight() / 13;
+        HBox block = new HBox();
+        block.setPrefHeight(blockHeight);
+        GridPane.setConstraints(block, 0, 0, 0, 2);
     }
 
     public void addSelectedCourse(ActionEvent _event) throws Exception {
