@@ -1,25 +1,29 @@
 package ScheduleCreator.models;
 
-import java.util.HashMap;
-
 /**
  * This class models information for course sections.
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/16/2020
+ * Last Updated: 3/17/2020
  */
 
 public class Section {
 
-    protected String location;
-    protected String instructor;
-    protected String daysAndTimes;
-    protected String CRN;
-    protected String sectionNumber;
+    protected final String location;
+    protected final String instructor;
+    protected final String daysAndTimes;
+    protected final String CRN;
+    protected final String sectionNumber;
+    protected final Boolean isOnline;
 
-    public Section() {
-
+    public Section(String _sectionNumber, String _daysAndTimes, String _location, String _instructor, String _CRN, Boolean _isOnline) {
+        this.location = _location;
+        this.instructor = _instructor;
+        this.daysAndTimes = _daysAndTimes;
+        this.CRN = _CRN;
+        this.sectionNumber = _sectionNumber;
+        this.isOnline = _isOnline;
     }
 
 //=================  GETTERS ===============
@@ -44,25 +48,17 @@ public class Section {
         return sectionNumber;
     }
 
-//=================  SETTERS ===============
+    @Override
+    public String toString() {
+        String string = "";
 
-    public void setSectionNumber(String _sectionNumber) {
-        this.sectionNumber = _sectionNumber;
+        if (!this.isOnline) {
+            string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.location + " | "+ this.instructor + " | " + this.CRN;
+        }
+        else {
+            string = this.sectionNumber + " | Online | " + this.instructor + " " + this.CRN;
+        }
+        return string;
     }
 
-    public void setLocation(String _location) {
-        this.location = _location;
-    }
-
-    public void setInstructor(String _instructor) {
-        this.instructor = _instructor;
-    }
-
-    public void setDaysAndTimes(String _daysAndTimes) {
-        this.daysAndTimes = _daysAndTimes;
-    }
-
-    public void setCRN(String _CRN) {
-        this.CRN = _CRN;
-    }
 }

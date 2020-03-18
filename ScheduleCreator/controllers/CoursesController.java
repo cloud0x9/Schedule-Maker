@@ -1,6 +1,8 @@
 package ScheduleCreator.controllers;
 
 import ScheduleCreator.Translator;
+import ScheduleCreator.models.Course;
+import ScheduleCreator.models.Section;
 import ScheduleCreator.models.Semester;
 import java.io.IOException;
 import java.net.URL;
@@ -9,6 +11,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,6 +38,8 @@ public class CoursesController implements Initializable {
     protected ComboBox<String> courseComboBox;
     @FXML
     protected ListView selectedCourses;
+    @FXML
+    protected ListView sectionListView;
     @FXML
     protected Button courseButton;
     @FXML
@@ -83,7 +89,7 @@ public class CoursesController implements Initializable {
                 break;
         }
 
-        loadAllCourses(currentSemesterString);
+        loadAllCourses(this.currentSemester.getName());
         loadSelectedCourses(this.currentSemester.getName());
 
     }
@@ -106,6 +112,26 @@ public class CoursesController implements Initializable {
 
     }
 
+    public void loadCourseSections(ActionEvent _event) {
+
+        List<Section> courseSections = new ArrayList();
+        String currentSelection = this.selectedCourses.getFocusModel().getFocusedItem().toString();
+
+        for (Course course : this.currentSemester.getSelectedCourses()) {
+            if (course.getFullText().equals(currentSelection)) {
+                courseSections = course.getSections();
+            }
+        }
+
+        List<String> listCellLabels = new ArrayList();
+
+        for (Section section : courseSections) {
+            listCellLabels.add(section.toString());
+        }
+
+        this.sectionListView.setItems(FXCollections.observableList(listCellLabels));
+    }
+
     public void loadAllCourses(String _semester) throws Exception {
 
         List<String> courses = Translator.getCourses(_semester);
@@ -114,7 +140,20 @@ public class CoursesController implements Initializable {
 
     public void loadSemesters() throws IOException {
         List<String> semesters = Translator.getSemesters();
-        this.semesterComboBox.setItems(FXCollections.observableList(semesters));
+
+        List<String> newList = new ArrayList();
+        Pattern p = Pattern.compile("([a-z]*)([0-9]{4})");
+        Matcher m;
+
+        String formattedSemester = "";
+        for (String semester: semesters) {
+            m = p.matcher(semester);
+
+            if (m.matches()) formattedSemester = m.group(1).substring(0, 1).toUpperCase() + m.group(1).substring(1) + " " + m.group(2);
+            newList.add(formattedSemester);
+        }
+
+        this.semesterComboBox.setItems(FXCollections.observableList(newList));
     }
 
     public void loadSelectedCourses(String _semester) throws Exception {

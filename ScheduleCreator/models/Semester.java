@@ -3,7 +3,6 @@ package ScheduleCreator.models;
 import ScheduleCreator.Translator;
 import java.util.ArrayList;
 import java.util.TreeMap;
-import ScheduleCreator.models.Section;
 import java.util.List;
 
 /**
@@ -13,7 +12,7 @@ import java.util.List;
  *
  * @author Nick Econopouly, Jamison Valentine
  *
- * Last Updated: 3/16/2020
+ * Last Updated: 3/17/2020
  */
 
 public class Semester {
@@ -37,7 +36,7 @@ public class Semester {
      */
     public Semester(String _name) {
         this.name = _name;
-        setSelectedCourses();
+        loadSelectedCoursesFromFile();
     }
 
     //WORK IN PROGRESS
@@ -55,14 +54,14 @@ public class Semester {
         Boolean contains = false;
 
         for (Course course: this.selectedCourses) {
-            if (course.getName().equalsIgnoreCase(_course)) {
+            if (course.getFullText().equalsIgnoreCase(_course)) {
                 contains = true;
                 break;
             }
         }
 
         if (!contains) {
-            this.selectedCourses.add(new Course(_course));
+            this.selectedCourses.add(new Course(_course, this.name));
             Translator.saveCourse(_course, this.name);
             printCourseNames();
             return true;
@@ -84,13 +83,13 @@ public class Semester {
         return list;
     }
 
-    public void setSelectedCourses() {
+    public void loadSelectedCoursesFromFile() {
         List<String> list = Translator.getSelectedCourses(this.name);
 
         this.selectedCourses = new ArrayList();
         if (!list.isEmpty()) {
             for (String courseName: list) {
-                this.selectedCourses.add(new Course(courseName));
+                this.selectedCourses.add(new Course(courseName, this.name));
             }
         }
 
@@ -101,7 +100,7 @@ public class Semester {
 
         for (Course course: this.selectedCourses) {
 
-            if (_course.equalsIgnoreCase(course.getName())) {
+            if (_course.equalsIgnoreCase(course.getFullText())) {
                 courseToRemove = course;
                 this.selectedCourses.remove(courseToRemove);
                 break;
@@ -126,7 +125,7 @@ public class Semester {
         StringBuilder content = new StringBuilder();
 
         for (Course course: this.selectedCourses) {
-            System.out.println(course.getName());
+            System.out.println(course.getFullText());
         }
         System.out.println("\n\n");
 
