@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 /**
  * This class controls interactions in the Courses View.
@@ -44,6 +45,10 @@ public class CoursesController implements Initializable {
     protected Button courseButton;
     @FXML
     protected Button removeCourseButton;
+    @FXML
+    protected Button searchButton;
+    @FXML
+    protected TextField searchField;
 
     protected Semester currentSemester;
     protected Semester spring2020 = new Semester("spring2020");
@@ -102,6 +107,22 @@ public class CoursesController implements Initializable {
         System.out.println("Dummy function to clear the list of available sections for when we switch semesters");
     }
 
+    public void search(ActionEvent _event) {
+        String searchString = this.searchField.getText();
+        List<String> filteredList = new ArrayList();
+
+        if (this.currentSemester.getAllCourses() != null) {
+
+            for (String course: this.currentSemester.getAllCourses()) {
+                if (course.toLowerCase().contains(searchString.toLowerCase())) {
+                    filteredList.add(course);
+                }
+            }
+
+        }
+        this.courseComboBox.setItems(FXCollections.observableList(filteredList));
+    }
+
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
         Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
 
@@ -134,9 +155,7 @@ public class CoursesController implements Initializable {
     }
 
     public void loadAllCourses(String _semester) throws Exception {
-
-        List<String> courses = Translator.getCourses(_semester);
-        this.courseComboBox.setItems(FXCollections.observableList(courses));
+        this.courseComboBox.setItems(FXCollections.observableList(this.currentSemester.getAllCourses()));
     }
 
     public void loadSemesters() throws IOException {

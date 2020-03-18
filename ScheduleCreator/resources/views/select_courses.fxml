@@ -43,7 +43,7 @@
                   <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="31.0" vgrow="NEVER" />
               </rowConstraints>
                <children>
-                  <TextField prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.rowIndex="1" />
+                  <TextField fx:id="searchField" prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.rowIndex="1" />
                   <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <Button fx:id="courseButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addSelectedCourse" prefHeight="40.0" prefWidth="177.0" text="Add Course" HBox.hgrow="NEVER" />
@@ -55,7 +55,7 @@
                      </children>
                   </HBox>
                   <ComboBox fx:id="semesterComboBox" onAction="#switchSemester" prefHeight="62.0" prefWidth="226.0" promptText="Choose Semester" GridPane.columnIndex="1" GridPane.hgrow="NEVER" />
-                  <Button mnemonicParsing="false" prefHeight="81.0" prefWidth="214.0" text="Search Classes" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
+                  <Button fx:id="searchButton" onAction="#search" mnemonicParsing="false" prefHeight="81.0" prefWidth="214.0" text="Search Classes" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
                   <ListView fx:id="selectedCourses" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                   <Button fx:id="getSectionsButton" onAction="#loadCourseSections" mnemonicParsing="false" prefHeight="70.0" prefWidth="357.0" text="Get Sections" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
                   <Button onAction="#removeSelectedCourse" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />

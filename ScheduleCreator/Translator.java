@@ -108,11 +108,17 @@ public class Translator {
      *
      * @param _semesterName
      * @return a List of courses (as Strings) available for the semester
-     * @throws java.io.FileNotFoundException
+     * 
      */
-    public static List<String> getCourses(String _semesterName) throws FileNotFoundException, IOException {
+    public static List<String> getCourses(String _semesterName)  {
+
+        List<String> courses = new ArrayList();
+        try {
         String contents = Translator.getFullText("DB/" + _semesterName + "/courses");
-        List<String> courses = Arrays.asList(contents.split("\n"));
+        courses = Arrays.asList(contents.split("\n"));
+        }
+        catch (Exception ex) {}
+
         return courses;
     }
 

@@ -11,16 +11,13 @@ import java.util.List;
  *
  * @author Nick Econopouly, Jamison Valentine
  *
-<<<<<<< HEAD
  * Last Updated: 3/17/2020
-=======
- * Last Updated: 3/16/2020
->>>>>>> master
  */
 
-public class Semester {
+public  class Semester {
 
     protected final String name;
+    protected final List<String> allCourses;
     protected ArrayList<Course> selectedCourses;
     protected ArrayList<Section> selectedSections;
     protected Schedule schedule;
@@ -39,7 +36,7 @@ public class Semester {
     public Semester(String _name) {
         this.name = _name;
         loadSelectedCoursesFromFile();
-
+        this.allCourses = Translator.getCourses(this.name);
     }
 
     //WORK IN PROGRESS
@@ -82,6 +79,10 @@ public class Semester {
 
     public String getName() {
         return this.name;
+    }
+
+    public List<String> getAllCourses() {
+        return this.allCourses;
     }
 
     //WORK IN PROGRESS
