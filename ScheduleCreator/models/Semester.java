@@ -67,8 +67,8 @@ public  class Semester {
             this.selectedCourses.add(new Course(_course, this.name));
 
             Translator.saveCourse(_course, this.name);
-            printCourseNames();
             return true;
+            
         } else {
             return false;
         }
@@ -118,22 +118,10 @@ public  class Semester {
         }
 
         Translator.removeCourse(_course, this.name);
-        printCourseNames();
-
     }
 
     public List<Course> getSelectedCourses() {
         return this.selectedCourses;
     }
 
-    public void printCourseNames() {
-        System.out.println(this.name);
-        StringBuilder content = new StringBuilder();
-
-        for (Course course: this.selectedCourses) {
-            System.out.println(course.getFullText());
-        }
-        System.out.println("\n\n");
-
-    }
 }

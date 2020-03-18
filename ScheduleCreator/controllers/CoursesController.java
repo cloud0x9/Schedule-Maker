@@ -124,8 +124,8 @@ public class CoursesController implements Initializable {
     }
 
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
+        
         Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
-
         this.selectedCourses.getItems().remove(itemToRemove);
 
         String courseToDelete = (String) itemToRemove;
