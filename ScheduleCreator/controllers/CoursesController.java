@@ -21,8 +21,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 
 /**
@@ -66,17 +68,10 @@ public class CoursesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             loadSemesters();
+            drawGrid();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    public void displaySchedule(ActionEvent _event) {
-
-        double blockHeight = scheduleGrid.getHeight() / 13;
-        HBox block = new HBox();
-        block.setPrefHeight(blockHeight);
-        GridPane.setConstraints(block, 0, 0, 0, 2);
     }
 
     public void addSelectedCourse(ActionEvent _event) throws Exception {
@@ -207,5 +202,16 @@ public class CoursesController implements Initializable {
         String formattedSemester = temp[0].toLowerCase() + temp[1];
 
         return formattedSemester;
+    }
+
+    public void drawGrid() {
+
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= 13; j++) {
+                Region region = new Region();
+                region.setStyle(("-fx-border-color: black;"));
+                scheduleGrid.add(region, i, j);
+            }
+        }
     }
 }
