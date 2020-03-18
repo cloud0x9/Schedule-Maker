@@ -2,7 +2,6 @@ package ScheduleCreator.models;
 
 import ScheduleCreator.Translator;
 import java.util.ArrayList;
-import java.util.TreeMap;
 import java.util.List;
 
 /**
@@ -12,7 +11,11 @@ import java.util.List;
  *
  * @author Nick Econopouly, Jamison Valentine
  *
+<<<<<<< HEAD
  * Last Updated: 3/17/2020
+=======
+ * Last Updated: 3/16/2020
+>>>>>>> master
  */
 
 public class Semester {
@@ -20,7 +23,6 @@ public class Semester {
     protected final String name;
     protected ArrayList<Course> selectedCourses;
     protected ArrayList<Section> selectedSections;
-    protected TreeMap<String,Semester> courseList;
     protected Schedule schedule;
 
     /**
@@ -37,6 +39,7 @@ public class Semester {
     public Semester(String _name) {
         this.name = _name;
         loadSelectedCoursesFromFile();
+
     }
 
     //WORK IN PROGRESS
@@ -54,14 +57,18 @@ public class Semester {
         Boolean contains = false;
 
         for (Course course: this.selectedCourses) {
+
             if (course.getFullText().equalsIgnoreCase(_course)) {
+
                 contains = true;
                 break;
             }
         }
 
         if (!contains) {
+
             this.selectedCourses.add(new Course(_course, this.name));
+
             Translator.saveCourse(_course, this.name);
             printCourseNames();
             return true;
@@ -84,6 +91,7 @@ public class Semester {
     }
 
     public void loadSelectedCoursesFromFile() {
+
         List<String> list = Translator.getSelectedCourses(this.name);
 
         this.selectedCourses = new ArrayList();
@@ -101,6 +109,7 @@ public class Semester {
         for (Course course: this.selectedCourses) {
 
             if (_course.equalsIgnoreCase(course.getFullText())) {
+
                 courseToRemove = course;
                 this.selectedCourses.remove(courseToRemove);
                 break;
@@ -114,10 +123,6 @@ public class Semester {
 
     public List<Course> getSelectedCourses() {
         return this.selectedCourses;
-    }
-
-    public TreeMap<String, Semester> getCourseList() {
-        return this.courseList;
     }
 
     public void printCourseNames() {

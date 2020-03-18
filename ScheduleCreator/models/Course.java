@@ -32,6 +32,7 @@ public class Course {
 
     public String getFullText() {
         return this.fullText;
+
     }
 
     public String getabbreviation() {

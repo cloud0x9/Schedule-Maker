@@ -130,6 +130,7 @@ public class CoursesController implements Initializable {
         }
 
         this.sectionListView.setItems(FXCollections.observableList(listCellLabels));
+
     }
 
     public void loadAllCourses(String _semester) throws Exception {
