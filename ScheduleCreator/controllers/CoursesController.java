@@ -24,8 +24,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
+import javafx.scene.shape.Rectangle;
 
 /**
  * This class controls interactions in the Courses View.
@@ -208,10 +210,17 @@ public class CoursesController implements Initializable {
 
         for (int i = 1; i <= 5; i++) {
             for (int j = 1; j <= 13; j++) {
-                Region region = new Region();
+                Pane region = new Pane();
+
                 region.setStyle(("-fx-border-color: black;"));
                 scheduleGrid.add(region, i, j);
             }
         }
+        
+        Rectangle rect = new Rectangle();
+        rect.setHeight(30);
+        rect.setWidth(49);
+        rect.setStyle("-fx-background-color: black");        
+        scheduleGrid.add(rect, 1, 1);
     }
 }
