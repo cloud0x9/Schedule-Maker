@@ -32,6 +32,13 @@ public class Section {
         if (!this.isOnline) setTimes();
     }
 
+/**
+ *
+ * @param _daysAndTimes is a string similar to 11:00 am - 12:15 pm
+ */
+
+//=================  GETTERS ===============
+
     public double getDurationHours() {
 
         double difference = this.endTime - this.startTime;
@@ -40,28 +47,6 @@ public class Section {
         hours += (minutes / 60);
         return hours;
     }
-/**
- *
- * @param _daysAndTimes is a string similar to 11:00 am - 12:15 pm
- */
-    public void setTimes() {
-        Scanner input = new Scanner(this.daysAndTimes);
-        this.days = input.next();
-        int start = Integer.parseInt(input.next().replace(":", ""));
-        if (input.next().equals("pm")) {
-            if (start < 1200) start += 1200;
-        }
-        input.next();
-        int end = Integer.parseInt(input.next().replace(":", ""));
-        if (input.next().equals("pm")) {
-            if (end < 1200) end += 1200;
-        }
-        this.startTime = start;
-        this.endTime = end;
-
-    }
-
-//=================  GETTERS ===============
 
     public String getDaysAndTimes() {
         return daysAndTimes;
@@ -106,6 +91,24 @@ public class Section {
             string = this.sectionNumber + " | Online | " + this.instructor + " | " + this.CRN;
         }
         return string;
+    }
+
+//========================= SETTERS =============================
+
+        public void setTimes() {
+        Scanner input = new Scanner(this.daysAndTimes);
+        this.days = input.next();
+        int start = Integer.parseInt(input.next().replace(":", ""));
+        if (input.next().equals("pm")) {
+            if (start < 1200) start += 1200;
+        }
+        input.next();
+        int end = Integer.parseInt(input.next().replace(":", ""));
+        if (input.next().equals("pm")) {
+            if (end < 1200) end += 1200;
+        }
+        this.startTime = start;
+        this.endTime = end;
     }
 
 }

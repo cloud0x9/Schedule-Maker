@@ -25,8 +25,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Rectangle;
+
 
 /**
  * This class controls interactions in the Courses View.
@@ -35,6 +35,7 @@ import javafx.scene.shape.Rectangle;
  *
  * Last Updated: 3/18/2020
  */
+
 public class CoursesController implements Initializable {
 
     @FXML
@@ -55,8 +56,6 @@ public class CoursesController implements Initializable {
     protected Button searchButton;
     @FXML
     protected TextField searchField;
-    @FXML
-    protected RowConstraints topRow;
     @FXML
     protected GridPane scheduleGrid;
 
@@ -83,8 +82,6 @@ public class CoursesController implements Initializable {
             ROW_HEIGHT = scheduleGrid.getRowConstraints().get(0).getPrefHeight() - .5;
             COL_WIDTH = scheduleGrid.getColumnConstraints().get(0).getPrefWidth() - .75;
             grid = new Pane[NUM_ROWS][NUM_COLS];
-            System.out.println("Number of rows: " + NUM_ROWS);
-            System.out.println("Number of columns: " + NUM_COLS);
             drawGrid();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -170,7 +167,7 @@ public class CoursesController implements Initializable {
     public void loadCourseSections(ActionEvent _event) {
 
         List<Section> courseSections = new ArrayList();
-        
+
         if (this.selectedCourses.getFocusModel().getFocusedItem() != null) {
             String currentSelection = this.selectedCourses.getFocusModel().getFocusedItem().toString();
 
@@ -189,7 +186,8 @@ public class CoursesController implements Initializable {
             }
 
             this.sectionListView.setItems(FXCollections.observableList(listCellLabels));
-    }
+        }
+
     }
 
     public void loadAllCourses(String _semester) throws Exception {
@@ -273,18 +271,18 @@ public class CoursesController implements Initializable {
 
             }
 
-        double entryHeight = section.getDurationHours() * this.ROW_HEIGHT;
-        Rectangle rect = new Rectangle();
-        rect.setHeight(entryHeight);
-        rect.setWidth(this.COL_WIDTH);
-        GridPane.setHalignment(rect, HPos.LEFT);
-        GridPane.setValignment(rect, VPos.TOP);
-        rect.setStyle("-fx-fill: lightblue");
+            double entryHeight = section.getDurationHours() * this.ROW_HEIGHT;
+            Rectangle rect = new Rectangle();
+            rect.setHeight(entryHeight);
+            rect.setWidth(this.COL_WIDTH);
+            GridPane.setHalignment(rect, HPos.LEFT);
+            GridPane.setValignment(rect, VPos.TOP);
+            rect.setStyle("-fx-fill: lightblue");
 
-        int row = (int)section.getStartTime() / 100 - 7;
-        for (Integer col : days) {
-            grid[row][col].getChildren().add(rect);
-        }
+            int row = (int) section.getStartTime() / 100 - 7;
+            for (Integer col : days) {
+                grid[row][col].getChildren().add(rect);
+            }
 
         }
     }
