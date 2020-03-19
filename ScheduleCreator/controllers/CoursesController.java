@@ -82,9 +82,7 @@ public class CoursesController implements Initializable {
             NUM_ROWS = scheduleGrid.getRowConstraints().size();
             NUM_COLS = scheduleGrid.getColumnConstraints().size();
             ROW_HEIGHT = scheduleGrid.getRowConstraints().get(0).getPrefHeight() - .5;
-            System.out.println("Row Height: " + ROW_HEIGHT);
             COL_WIDTH = scheduleGrid.getColumnConstraints().get(0).getPrefWidth() - .75;
-            System.out.println("Column Width: " + COL_WIDTH);
             drawGrid();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -239,7 +237,7 @@ public class CoursesController implements Initializable {
     }
 
     public void addEntry(ActionEvent _event) {
-        System.out.println("Adding entry");
+
         int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
         Section section = this.focusedCourse.getSections().get(secIndex);
 
@@ -272,12 +270,12 @@ public class CoursesController implements Initializable {
         GridPane.setHalignment(rect, HPos.LEFT);
         GridPane.setValignment(rect, VPos.TOP);
         rect.setStyle("-fx-fill: lightblue");
-        
+
         int row = (int)section.getStartTime() / 100 - 7;
         for (Integer col : days) {
             grid[col][row].getChildren().add(rect);
         }
-        
+
         }
     }
 }

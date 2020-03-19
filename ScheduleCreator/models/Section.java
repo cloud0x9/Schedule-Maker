@@ -26,7 +26,6 @@ public class Section {
         this.location = _location;
         this.instructor = _instructor;
         this.daysAndTimes = _daysAndTimes;
-        System.out.println(_daysAndTimes);
         this.CRN = _CRN;
         this.sectionNumber = _sectionNumber;
         this.isOnline = _isOnline;
