@@ -5,7 +5,7 @@ package ScheduleCreator;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/16/2020
+ * Last Updated: 3/18/2020
  */
 
 import java.io.IOException;
@@ -33,6 +33,9 @@ public class App extends Application {
 
         // sets primary scene
         primaryStage.setScene(primaryScene);
+
+        primaryStage.setMinHeight(560);
+        primaryStage.setMinWidth(1090);
 
         // shows window on screen
         primaryStage.show();
