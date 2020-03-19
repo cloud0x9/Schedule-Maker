@@ -5,8 +5,9 @@ package ScheduleCreator.controllers;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/16/2020
+ * Last Updated: 3/18/2020
  */
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -25,11 +26,9 @@ public class PrimaryController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/select_courses.fxml"));
         Scene classViewScene = new Scene(root);
 
-        //Get information from primary stage
+        //Get window object and refresh to show the new scene
         Stage window = (Stage) ((Node) _event.getSource()).getScene().getWindow();
         window.setScene(classViewScene);
-        window.setMinHeight(560);
-        window.setMinWidth(1090);
         window.show();
     }
 
@@ -38,7 +37,7 @@ public class PrimaryController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/primary.fxml"));
         Scene primaryScene = new Scene(root);
 
-        //Get information from primary stage
+        //Get window object and refresh to show the new scene
         Stage window = (Stage) ((Node) _event.getSource()).getScene().getWindow();
         window.setScene(primaryScene);
         window.show();
@@ -49,6 +48,7 @@ public class PrimaryController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/registration_screen.fxml"));
         Scene scene = new Scene(root);
 
+        //Get window object and refresh to show the new scene
         Stage stage = (Stage) ((Node) _event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
