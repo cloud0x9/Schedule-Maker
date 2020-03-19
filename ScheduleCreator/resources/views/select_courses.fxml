@@ -129,7 +129,6 @@
                         <Label text="8:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="TOP" />
                         <Label text="9:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="TOP" />
                         <Region prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="13" GridPane.valignment="TOP" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="1">
