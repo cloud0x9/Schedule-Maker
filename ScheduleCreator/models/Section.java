@@ -30,23 +30,25 @@ public class Section {
         this.isOnline = _isOnline;
         if (!this.isOnline) setTimes(_daysAndTimes);
     }
-
+/**
+ * 
+ * @param _daysAndTimes is a string similar to 11:00 am - 12:15 pm
+ */
     public void setTimes(String _daysAndTimes) {
         Scanner input = new Scanner(_daysAndTimes);
         input.next();
         int start = Integer.parseInt(input.next().replace(":", ""));
         if (input.next().equals("pm")) {
-            start += 1200;
-            if (start >= 2400) start -= 2400;
+            if (start < 1200) start += 1200;
         }
         input.next();
         int end = Integer.parseInt(input.next().replace(":", ""));
         if (input.next().equals("pm")) {
-            end += 1200;
-            if (end >= 2400) end -= 2400;
+            if (end < 1200) end += 1200;
         }
         this.startTime = start;
         this.endTime = end;
+
     }
 
 //=================  GETTERS ===============
