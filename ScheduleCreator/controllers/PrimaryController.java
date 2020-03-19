@@ -28,8 +28,8 @@ public class PrimaryController implements Initializable {
         //Get information from primary stage
         Stage window = (Stage) ((Node) _event.getSource()).getScene().getWindow();
         window.setScene(classViewScene);
-        window.setMinHeight(600);
-        window.setMinWidth(1000);
+        window.setMinHeight(560);
+        window.setMinWidth(1090);
         window.show();
     }
 

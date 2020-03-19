@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/17/2020
+ * Last Updated: 3/18/2020
  */
 
 public class Section {
@@ -15,8 +15,8 @@ public class Section {
     protected final String location;
     protected final String instructor;
     protected final String daysAndTimes;
-    protected int startTime;
-    protected int endTime;
+    protected double startTime;
+    protected double endTime;
     protected final String CRN;
     protected final String sectionNumber;
     protected final Boolean isOnline;
@@ -30,7 +30,7 @@ public class Section {
         this.isOnline = _isOnline;
         if (!this.isOnline) setTimes(_daysAndTimes);
     }
-    
+
     public void setTimes(String _daysAndTimes) {
         Scanner input = new Scanner(_daysAndTimes);
         input.next();
@@ -47,14 +47,20 @@ public class Section {
         }
         this.startTime = start;
         this.endTime = end;
-        System.out.println("Start time: " + this.startTime);
-        System.out.println("End time: " + this.endTime);
     }
 
 //=================  GETTERS ===============
 
     public String getDaysAndTimes() {
         return daysAndTimes;
+    }
+
+    public double getStartTime() {
+        return this.startTime;
+    }
+
+    public double getEndTime() {
+        return this.endTime;
     }
 
     public String getCRN() {
@@ -81,7 +87,7 @@ public class Section {
             string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.location + " | "+ this.instructor + " | " + this.CRN;
         }
         else {
-            string = this.sectionNumber + " | Online | " + this.instructor + " " + this.CRN;
+            string = this.sectionNumber + " | Online | " + this.instructor + " | " + this.CRN;
         }
         return string;
     }

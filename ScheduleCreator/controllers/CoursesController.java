@@ -17,15 +17,14 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Rectangle;
 
@@ -34,7 +33,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 3/16/2020
+ * Last Updated: 3/18/2020
  */
 public class CoursesController implements Initializable {
 
@@ -65,11 +64,24 @@ public class CoursesController implements Initializable {
     protected Semester spring2020 = new Semester("spring2020");
     protected Semester summer2020 = new Semester("summer2020");
     protected Semester fall2020 = new Semester("fall2020");
+    
+    protected Course focusedCourse;
+
+    protected int NUM_ROWS;
+    protected int NUM_COLS;
+    protected double ROW_HEIGHT;
+    protected double COL_WIDTH;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
             loadSemesters();
+            NUM_ROWS = scheduleGrid.getRowConstraints().size();
+            NUM_COLS = scheduleGrid.getColumnConstraints().size();
+            ROW_HEIGHT = scheduleGrid.getRowConstraints().get(0).getPrefHeight() - .5;
+            System.out.println("Row Height: " + ROW_HEIGHT);
+            COL_WIDTH = scheduleGrid.getColumnConstraints().get(0).getPrefWidth() - .75;
+            System.out.println("Column Width: " + COL_WIDTH);
             drawGrid();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,7 +93,7 @@ public class CoursesController implements Initializable {
         String selectedCourse = this.courseComboBox.getValue();
         this.courseComboBox.setValue("-");
 
-        if (selectedCourse != null && selectedCourse != "-") {
+        if (selectedCourse != null && !selectedCourse.equals("-")) {
 
             if (currentSemester.addCourse(selectedCourse)) {
                 this.selectedCourses.getItems().add(selectedCourse);
@@ -153,7 +165,9 @@ public class CoursesController implements Initializable {
 
         for (Course course : this.currentSemester.getSelectedCourses()) {
             if (course.getFullText().equals(currentSelection)) {
+                this.focusedCourse = course;
                 courseSections = course.getSections();
+                break;
             }
         }
 
@@ -209,18 +223,32 @@ public class CoursesController implements Initializable {
     public void drawGrid() {
 
         for (int i = 1; i <= 5; i++) {
-            for (int j = 1; j <= 13; j++) {
+            for (int j = 1; j <= 14; j++) {
                 Pane region = new Pane();
 
-                region.setStyle(("-fx-border-color: black;"));
+                region.setStyle(("-fx-border-color: black; -fx-border-width: .5;"));
                 scheduleGrid.add(region, i, j);
             }
         }
-        
+
+    }
+
+    public void addEntry(ActionEvent _event) {
+        System.out.println("Adding entry");
+        int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
+        Section section = this.focusedCourse.getSections().get(secIndex);
+        double duration = (section.getEndTime() - section.getStartTime()) / 100;
+        double entryHeight = duration  * this.ROW_HEIGHT;
         Rectangle rect = new Rectangle();
-        rect.setHeight(30);
-        rect.setWidth(49);
-        rect.setStyle("-fx-background-color: black");        
-        scheduleGrid.add(rect, 1, 1);
+        System.out.println("Time difference: " + duration);
+        System.out.println("row height: " + ROW_HEIGHT);
+        System.out.println("entry height: " + entryHeight);
+        rect.setHeight(entryHeight);
+        rect.setWidth(this.COL_WIDTH);
+        GridPane.setHalignment(rect, HPos.LEFT);
+        GridPane.setValignment(rect, VPos.TOP);
+        rect.setStyle("-fx-fill: lightblue");
+//        rect.heightProperty().bind(scheduleGrid.heightProperty().divide(15));
+        scheduleGrid.add(rect, 3, 3);
     }
 }
