@@ -25,7 +25,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Rectangle;
 
@@ -73,7 +72,7 @@ public class CoursesController implements Initializable {
     protected double ROW_HEIGHT;
     protected double COL_WIDTH;
 
-    Pane[][] grid = new Pane[6][15];
+    Pane[][] grid;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -83,6 +82,9 @@ public class CoursesController implements Initializable {
             NUM_COLS = scheduleGrid.getColumnConstraints().size();
             ROW_HEIGHT = scheduleGrid.getRowConstraints().get(0).getPrefHeight() - .5;
             COL_WIDTH = scheduleGrid.getColumnConstraints().get(0).getPrefWidth() - .75;
+            grid = new Pane[NUM_ROWS][NUM_COLS];
+            System.out.println("Number of rows: " + NUM_ROWS);
+            System.out.println("Number of columns: " + NUM_COLS);
             drawGrid();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -126,7 +128,13 @@ public class CoursesController implements Initializable {
     }
 
     public void clearCalendar() {
-        System.out.println("Dummy function to clear the calendar for when we switch semesters");
+        System.out.println("Calendar clear");
+
+        for (int i = 1; i <= NUM_ROWS - 1; i++) {
+            for (int j = 1; j <= NUM_COLS - 1; j++) {
+                grid[i][j].getChildren().clear();
+            }
+        }
     }
 
     protected void clearSectionList() {
@@ -223,13 +231,14 @@ public class CoursesController implements Initializable {
 
     public void drawGrid() {
 
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 1; j <= 14; j++) {
+        for (int i = 1; i <= NUM_ROWS - 1; i++) {
+            for (int j = 1; j <= NUM_COLS - 1; j++) {
                 Pane region = new Pane();
-                String name = "region("+i+","+j+")";
                 region.setStyle(("-fx-border-color: black; -fx-border-width: .5;"));
+                System.out.println("Row: " + i);
+                System.out.println("Col: " + j);
                 grid[i][j] = region;
-                scheduleGrid.add(region, i, j);
+                scheduleGrid.add(region, j, i);
 
             }
         }
@@ -238,6 +247,7 @@ public class CoursesController implements Initializable {
 
     public void addEntry(ActionEvent _event) {
 
+        clearCalendar();
         int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
         Section section = this.focusedCourse.getSections().get(secIndex);
 
@@ -273,7 +283,7 @@ public class CoursesController implements Initializable {
 
         int row = (int)section.getStartTime() / 100 - 7;
         for (Integer col : days) {
-            grid[col][row].getChildren().add(rect);
+            grid[row][col].getChildren().add(rect);
         }
 
         }
