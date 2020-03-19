@@ -25,6 +25,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.shape.Rectangle;
 
@@ -64,13 +65,15 @@ public class CoursesController implements Initializable {
     protected Semester spring2020 = new Semester("spring2020");
     protected Semester summer2020 = new Semester("summer2020");
     protected Semester fall2020 = new Semester("fall2020");
-    
+
     protected Course focusedCourse;
 
     protected int NUM_ROWS;
     protected int NUM_COLS;
     protected double ROW_HEIGHT;
     protected double COL_WIDTH;
+
+    Pane[][] grid = new Pane[6][15];
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -225,9 +228,11 @@ public class CoursesController implements Initializable {
         for (int i = 1; i <= 5; i++) {
             for (int j = 1; j <= 14; j++) {
                 Pane region = new Pane();
-
+                String name = "region("+i+","+j+")";
                 region.setStyle(("-fx-border-color: black; -fx-border-width: .5;"));
+                grid[i][j] = region;
                 scheduleGrid.add(region, i, j);
+
             }
         }
 
@@ -237,18 +242,42 @@ public class CoursesController implements Initializable {
         System.out.println("Adding entry");
         int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
         Section section = this.focusedCourse.getSections().get(secIndex);
-        double duration = (section.getEndTime() - section.getStartTime()) / 100;
-        double entryHeight = duration  * this.ROW_HEIGHT;
+
+        char[] daysString = section.getDays().toCharArray();
+        ArrayList<Integer> days = new ArrayList();
+        for (char day : daysString) {
+            switch (day) {
+                case 'T':
+                    days.add(2);
+                    break;
+                case 'M':
+                    days.add(1);
+                    break;
+                case 'W':
+                    days.add(3);
+                    break;
+                case 'R':
+                    days.add(4);
+                    break;
+                case 'F':
+                    days.add(5);
+                    break;
+
+            }
+
+        double entryHeight = section.getDurationHours() * this.ROW_HEIGHT;
         Rectangle rect = new Rectangle();
-        System.out.println("Time difference: " + duration);
-        System.out.println("row height: " + ROW_HEIGHT);
-        System.out.println("entry height: " + entryHeight);
         rect.setHeight(entryHeight);
         rect.setWidth(this.COL_WIDTH);
         GridPane.setHalignment(rect, HPos.LEFT);
         GridPane.setValignment(rect, VPos.TOP);
         rect.setStyle("-fx-fill: lightblue");
-//        rect.heightProperty().bind(scheduleGrid.heightProperty().divide(15));
-        scheduleGrid.add(rect, 3, 3);
+        
+        int row = (int)section.getStartTime() / 100 - 7;
+        for (Integer col : days) {
+            grid[col][row].getChildren().add(rect);
+        }
+        
+        }
     }
 }

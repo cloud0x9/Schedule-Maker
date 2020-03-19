@@ -15,6 +15,7 @@ public class Section {
     protected final String location;
     protected final String instructor;
     protected final String daysAndTimes;
+    protected String days;
     protected double startTime;
     protected double endTime;
     protected final String CRN;
@@ -25,18 +26,28 @@ public class Section {
         this.location = _location;
         this.instructor = _instructor;
         this.daysAndTimes = _daysAndTimes;
+        System.out.println(_daysAndTimes);
         this.CRN = _CRN;
         this.sectionNumber = _sectionNumber;
         this.isOnline = _isOnline;
-        if (!this.isOnline) setTimes(_daysAndTimes);
+        if (!this.isOnline) setTimes();
+    }
+
+    public double getDurationHours() {
+
+        double difference = this.endTime - this.startTime;
+        double hours = (int)(difference / 100);
+        double minutes = difference % 100;
+        hours += (minutes / 60);
+        return hours;
     }
 /**
- * 
+ *
  * @param _daysAndTimes is a string similar to 11:00 am - 12:15 pm
  */
-    public void setTimes(String _daysAndTimes) {
-        Scanner input = new Scanner(_daysAndTimes);
-        input.next();
+    public void setTimes() {
+        Scanner input = new Scanner(this.daysAndTimes);
+        this.days = input.next();
         int start = Integer.parseInt(input.next().replace(":", ""));
         if (input.next().equals("pm")) {
             if (start < 1200) start += 1200;
@@ -55,6 +66,10 @@ public class Section {
 
     public String getDaysAndTimes() {
         return daysAndTimes;
+    }
+
+    public String getDays() {
+        return this.days;
     }
 
     public double getStartTime() {
