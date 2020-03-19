@@ -170,24 +170,26 @@ public class CoursesController implements Initializable {
     public void loadCourseSections(ActionEvent _event) {
 
         List<Section> courseSections = new ArrayList();
-        String currentSelection = this.selectedCourses.getFocusModel().getFocusedItem().toString();
+        
+        if (this.selectedCourses.getFocusModel().getFocusedItem() != null) {
+            String currentSelection = this.selectedCourses.getFocusModel().getFocusedItem().toString();
 
-        for (Course course : this.currentSemester.getSelectedCourses()) {
-            if (course.getFullText().equals(currentSelection)) {
-                this.focusedCourse = course;
-                courseSections = course.getSections();
-                break;
+            for (Course course : this.currentSemester.getSelectedCourses()) {
+                if (course.getFullText().equals(currentSelection)) {
+                    this.focusedCourse = course;
+                    courseSections = course.getSections();
+                    break;
+                }
             }
-        }
 
-        List<String> listCellLabels = new ArrayList();
+            List<String> listCellLabels = new ArrayList();
 
-        for (Section section : courseSections) {
-            listCellLabels.add(section.toString());
-        }
+            for (Section section : courseSections) {
+                listCellLabels.add(section.toString());
+            }
 
-        this.sectionListView.setItems(FXCollections.observableList(listCellLabels));
-
+            this.sectionListView.setItems(FXCollections.observableList(listCellLabels));
+    }
     }
 
     public void loadAllCourses(String _semester) throws Exception {
@@ -235,8 +237,6 @@ public class CoursesController implements Initializable {
             for (int j = 1; j <= NUM_COLS - 1; j++) {
                 Pane region = new Pane();
                 region.setStyle(("-fx-border-color: black; -fx-border-width: .5;"));
-                System.out.println("Row: " + i);
-                System.out.println("Col: " + j);
                 grid[i][j] = region;
                 scheduleGrid.add(region, j, i);
 
