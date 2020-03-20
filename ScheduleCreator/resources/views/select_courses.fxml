@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
-<?import javafx.scene.effect.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -12,14 +12,14 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="1090.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleCreator.controllers.CoursesController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1101.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleCreator.controllers.CoursesController">
    <children>
       <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -36,34 +36,26 @@
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="342.0" minWidth="10.0" prefWidth="155.0" />
               </columnConstraints>
               <rowConstraints>
-                  <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                  <RowConstraints maxHeight="243.0" minHeight="0.0" prefHeight="30.0" vgrow="NEVER" />
-                  <RowConstraints maxHeight="375.0" minHeight="0.0" prefHeight="30.0" vgrow="NEVER" />
-                  <RowConstraints maxHeight="338.0" minHeight="10.0" prefHeight="87.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="33.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="243.0" minHeight="0.0" prefHeight="34.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="344.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="47.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="338.0" minHeight="10.0" prefHeight="172.0" vgrow="NEVER" />
                   <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="177.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="79.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="31.0" vgrow="NEVER" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="searchField" prefHeight="35.0" prefWidth="262.0" promptText="Search" GridPane.rowIndex="1" />
-                  <HBox maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <children>
-                        <Button fx:id="courseButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addSelectedCourse" prefHeight="200.0" prefWidth="177.0" text="Add Course" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <HBox maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <children>
-                        <ComboBox fx:id="courseComboBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="289.0" promptText="-" HBox.hgrow="ALWAYS" />
-                     </children>
-                  </HBox>
-                  <ComboBox fx:id="semesterComboBox" onAction="#switchSemester" prefHeight="30.0" prefWidth="182.0" promptText="Choose Semester" GridPane.columnIndex="1" GridPane.hgrow="NEVER" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#search" prefHeight="75.0" prefWidth="214.0" text="Search Classes" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.vgrow="NEVER" />
-                  <ListView fx:id="selectedCourses" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-                  <Button fx:id="getSectionsButton" mnemonicParsing="false" onAction="#loadCourseSections" prefHeight="70.0" prefWidth="357.0" text="Get Sections" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="4" GridPane.vgrow="NEVER" />
-                  <ListView fx:id="sectionListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.vgrow="NEVER" />
-                  <Button mnemonicParsing="false" onAction="#addEntry" prefHeight="43.0" prefWidth="248.0" text="Add Sections" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="6" GridPane.vgrow="NEVER" />
+                  <TextField fx:id="searchField" onAction="#addSelectedCourse" prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="semesterComboBox" onAction="#switchSemester" prefHeight="33.0" prefWidth="469.0" promptText="Choose Semester" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" />
+                  <ListView fx:id="selectedCourses" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <Button fx:id="getSectionsButton" mnemonicParsing="false" onAction="#loadCourseSections" prefHeight="70.0" prefWidth="357.0" text="Get Sections" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                  <ListView fx:id="sectionListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+                  <Button mnemonicParsing="false" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <Button mnemonicParsing="false" onAction="#addEntry" prefHeight="43.0" prefWidth="248.0" text="Add Sections" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <ListView fx:id="availableCourses" prefHeight="184.0" prefWidth="271.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#addSelectedCourse" prefHeight="26.0" prefWidth="703.0" text="Add Course" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -81,31 +73,31 @@
               </rowConstraints>
                <children>
 
-                <GridPane fx:id="scheduleGrid" prefHeight="822.0" prefWidth="872.0" GridPane.columnSpan="2" GridPane.vgrow="NEVER">
+                <GridPane fx:id="scheduleGrid" gridLinesVisible="false" prefHeight="822.0" prefWidth="872.0" GridPane.columnSpan="2">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints fx:id="topRow" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                      <RowConstraints fx:id="topRow" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="Monday" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
@@ -127,7 +119,7 @@
                         <Label text="7:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="TOP" />
                         <Label text="8:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="TOP" />
                         <Label text="9:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="TOP" />
-                        <Region prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+
                      </children>
                   </GridPane>
                   <GridPane GridPane.rowIndex="2">
@@ -137,6 +129,8 @@
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
                   <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">

@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class Section {
 
+    protected final String courseID;
     protected final String location;
     protected final String instructor;
     protected final String daysAndTimes;
@@ -22,7 +23,8 @@ public class Section {
     protected final String sectionNumber;
     protected final Boolean isOnline;
 
-    public Section(String _sectionNumber, String _daysAndTimes, String _location, String _instructor, String _CRN, Boolean _isOnline) {
+    public Section(String _courseID, String _sectionNumber, String _daysAndTimes, String _location, String _instructor, String _CRN, Boolean _isOnline) {
+        this.courseID = _courseID;
         this.location = _location;
         this.instructor = _instructor;
         this.daysAndTimes = _daysAndTimes;
@@ -65,19 +67,23 @@ public class Section {
     }
 
     public String getCRN() {
-        return CRN;
+        return this.CRN;
     }
 
     public String getInstructor() {
-        return instructor;
+        return this.instructor;
     }
 
     public String getLocation() {
-        return location;
+        return this.location;
     }
 
     public String getSectionNumber() {
-        return sectionNumber;
+        return this.sectionNumber;
+    }
+
+    public String getCourseID() {
+        return this.courseID;
     }
 
     @Override

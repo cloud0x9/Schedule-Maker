@@ -81,7 +81,7 @@ public class Course {
 //                System.out.println("Location: " + location);
 //                System.out.println("Instructor: " + instructor);
 //                System.out.println("This is not an online course");
-                Section newSection = new Section(sectionNumber, daysAndTimes, location, instructor, CRN, false);
+                Section newSection = new Section(this.id, sectionNumber, daysAndTimes, location, instructor, CRN, false);
 
                 this.sections.add(newSection);
             }
@@ -93,7 +93,7 @@ public class Course {
 //                System.out.println("Section #: " + sectionNumber);
 //                System.out.println("Online class");
 //                System.out.println("Instructor: " + instructor);
-                Section newSection = new Section(sectionNumber, daysAndTimes, location, instructor, CRN, true);
+                Section newSection = new Section(this.id, sectionNumber, daysAndTimes, location, instructor, CRN, true);
                 this.sections.add(newSection);
             }
 //            else System.out.println("Does not match");
