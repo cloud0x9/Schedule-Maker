@@ -40,11 +40,7 @@ import javafx.scene.shape.Rectangle;
 public class CoursesController implements Initializable {
 
     @FXML
-    protected Button semesterButton;
-    @FXML
     protected ComboBox<String> semesterComboBox;
-    @FXML
-    protected ComboBox<String> courseComboBox;
     @FXML
     protected ListView availableCourses;
     @FXML
@@ -55,8 +51,6 @@ public class CoursesController implements Initializable {
     protected Button courseButton;
     @FXML
     protected Button removeCourseButton;
-    @FXML
-    protected Button searchButton;
     @FXML
     protected TextField searchField;
     @FXML
@@ -96,38 +90,19 @@ public class CoursesController implements Initializable {
 
     }
 
-    public void search(ActionEvent _event) {
-        String searchString = this.searchField.getText();
-        List<String> filteredList = new ArrayList();
-
-        if (this.currentSemester != null) {
-
-            for (String course : this.currentSemester.getAllCourses()) {
-                if (course.toLowerCase().contains(searchString.toLowerCase())) {
-                    filteredList.add(course);
-                }
-            }
-
-        }
-        this.courseComboBox.setItems(FXCollections.observableList(filteredList));
-    }
-
     public void addSelectedCourse(ActionEvent _event) throws Exception {
 
-        String selectedCourse = this.courseComboBox.getValue();
-        this.courseComboBox.setValue("-");
-
-        if (selectedCourse != null && !selectedCourse.equals("-")) {
-
+        if (this.availableCourses.getFocusModel().getFocusedItem() != null) {
+            String selectedCourse = this.availableCourses.getFocusModel().getFocusedItem().toString();
             if (currentSemester.addCourse(selectedCourse)) {
                 this.selectedCourses.getItems().add(selectedCourse);
             }
         }
     }
 
+
     public void switchSemester(ActionEvent _event) throws Exception {
         String currentSemesterString = semesterComboBox.getValue();
-        this.courseComboBox.setValue("-");
 
         switch (formatSemester(currentSemesterString)) {
 
@@ -205,20 +180,22 @@ public class CoursesController implements Initializable {
         // create FilteredList that we'll actually use
         this.courseList = new FilteredList<>(OList, s -> true);
 
-        // connect availableCoursesListView to the courseList
-//        this.availableCourses = new ListView<>();
+        // connect availableCourses ListView to the courseList
         this.availableCourses.setItems(this.courseList);
 
-        // connect search bar filtering to the courseList FilteredList
+        // Connect search bar filtering to the courseList FilteredList (this uses lambdas, it's adapted from
+        // https://stackoverflow.com/questions/28448851/how-to-use-javafx-filteredlist-in-a-listview
+        // and https://stackoverflow.com/questions/45045631/filter-items-within-listview-in-javafx )
+
         searchField.textProperty().addListener(obs -> {
 
             // select the top entry whenever the search term changes, but use Platform.runLater() 
-            // so that JavaFX doesn't try to update the selection while it's still building the listview
+            // so that JavaFX doesn't try to update the selection while it's still building the ListView.
+            // See https://stackoverflow.com/questions/11088612/javafx-select-item-in-listview for some context
             Platform.runLater(new Runnable() {
-
                 @Override
                 public void run() {
-                    // Note: can't use "this" keyword here
+                    // Note: we can't use "this" keyword here
                     availableCourses.getSelectionModel().select(0);
                     availableCourses.getFocusModel().focus(0);
                 }
@@ -229,11 +206,13 @@ public class CoursesController implements Initializable {
             if (filter == null || filter.length() == 0) {
                 // show all courses
                 this.courseList.setPredicate(s -> true);
+                // otherwise
             } else {
                 // filter based on the contents of the search bar
                 this.courseList.setPredicate(s -> s.contains(filter));
             }
         });
+
     }
 
     public void loadSemesters() throws IOException {
