@@ -9,7 +9,6 @@ import java.util.Scanner;
  *
  * Last Updated: 3/18/2020
  */
-
 public class Section {
 
     protected final String courseID;
@@ -31,20 +30,18 @@ public class Section {
         this.CRN = _CRN;
         this.sectionNumber = _sectionNumber;
         this.isOnline = _isOnline;
-        if (!this.isOnline) setTimes();
+        setTimes();
     }
 
-/**
- *
- * @param _daysAndTimes is a string similar to 11:00 am - 12:15 pm
- */
-
+    /**
+     *
+     * @param _daysAndTimes is a string similar to 11:00 am - 12:15 pm
+     */
 //=================  GETTERS ===============
-
     public double getDurationHours() {
 
         double difference = this.endTime - this.startTime;
-        double hours = (int)(difference / 100);
+        double hours = (int) (difference / 100);
         double minutes = difference % 100;
         hours += (minutes / 60);
         return hours;
@@ -91,27 +88,36 @@ public class Section {
         String string = "";
 
         if (!this.isOnline) {
-            string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.location + " | "+ this.instructor + " | " + this.CRN;
-        }
-        else {
+            string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.location + " | " + this.instructor + " | " + this.CRN;
+        } else {
             string = this.sectionNumber + " | Online | " + this.instructor + " | " + this.CRN;
         }
         return string;
     }
 
 //========================= SETTERS =============================
+    public void setTimes() {
 
-        public void setTimes() {
+        if (this.isOnline) {
+            this.days = "";
+            this.startTime = 0;
+            this.endTime = 0;
+            return;
+        }
         Scanner input = new Scanner(this.daysAndTimes);
         this.days = input.next();
         int start = Integer.parseInt(input.next().replace(":", ""));
         if (input.next().equals("pm")) {
-            if (start < 1200) start += 1200;
+            if (start < 1200) {
+                start += 1200;
+            }
         }
         input.next();
         int end = Integer.parseInt(input.next().replace(":", ""));
         if (input.next().equals("pm")) {
-            if (end < 1200) end += 1200;
+            if (end < 1200) {
+                end += 1200;
+            }
         }
         this.startTime = start;
         this.endTime = end;

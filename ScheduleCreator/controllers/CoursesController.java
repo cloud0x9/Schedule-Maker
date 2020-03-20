@@ -2,6 +2,7 @@ package ScheduleCreator.controllers;
 
 import ScheduleCreator.Translator;
 import ScheduleCreator.models.Course;
+import ScheduleCreator.models.Schedule;
 import ScheduleCreator.models.Section;
 import ScheduleCreator.models.Semester;
 import javafx.scene.input.KeyEvent;
@@ -63,6 +64,8 @@ public class CoursesController implements Initializable {
     protected TextField searchField;
     @FXML
     protected GridPane scheduleGrid;
+    @FXML
+    protected Label scheduleLabel;
 
     // list of courses for current semester
     FilteredList<String> courseList;
@@ -79,6 +82,7 @@ public class CoursesController implements Initializable {
     protected int NUM_COLS;
     protected double ROW_HEIGHT;
     protected double COL_WIDTH;
+    protected int currentScheduleIndex;
 
     BorderPane[][] grid;
     List<BorderPane> entries = new ArrayList();
@@ -103,8 +107,9 @@ public class CoursesController implements Initializable {
 
         if (this.availableCourses.getFocusModel().getFocusedItem() != null) {
             String selectedCourse = this.availableCourses.getFocusModel().getFocusedItem().toString();
-            if (currentSemester.addCourse(selectedCourse)) {
+            if (this.currentSemester.addCourse(selectedCourse)) {
                 this.selectedCourses.getItems().add(selectedCourse);
+                this.currentSemester.generateSchedules();
             }
         }
     }
@@ -128,10 +133,14 @@ public class CoursesController implements Initializable {
         loadAllCourses(this.currentSemester.getName());
         loadSelectedCourses(this.currentSemester.getName());
 
+        if (this.currentSemester.getSelectedCourses().size() > 0) {
+            loadSchedule(this.currentSemester.getSchedules().get(0));
+        }
+
     }
 
     public void clearCalendar() {
-        for (BorderPane entry: entries) {
+        for (BorderPane entry : entries) {
             scheduleGrid.getChildren().remove(entry);
         }
     }
@@ -147,20 +156,43 @@ public class CoursesController implements Initializable {
         Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
         this.selectedCourses.getItems().remove(itemToRemove);
 
-        String courseToDelete = (String) itemToRemove;
-        this.currentSemester.removeCourse(courseToDelete.trim());
+        String courseToDelete = ((String) itemToRemove).trim();
+        this.currentSemester.removeCourse(courseToDelete);
+
+        this.currentSemester.generateSchedules();
+        regenerateSchedules();
+
+    }
+
+    public void regenerateSchedules() {
+        this.currentSemester.generateSchedules();
+        clearCalendar();
+
+        if (this.currentSemester.getNumberOfSchedules() == 0) {
+            scheduleLabel.setText("0/0");
+        }
+
+        else if (this.currentSemester.getNumberOfSchedules() > 0) {
+            loadSchedule(this.currentSemester.getSchedules().get(0));
+            scheduleLabel.setText("1/" + this.currentSemester.getNumberOfSchedules());
+        }
 
     }
 
     public void loadCourseSections(ActionEvent _event) {
 
         List<Section> courseSections = new ArrayList();
+        System.out.println("Number of selected courses: " + this.currentSemester.getSelectedCourses().size());
 
         if (this.selectedCourses.getFocusModel().getFocusedItem() != null) {
             String currentSelection = this.selectedCourses.getFocusModel().getFocusedItem().toString();
+            System.out.println("Current selection: " + currentSelection);
 
             for (Course course : this.currentSemester.getSelectedCourses()) {
+                System.out.println("Course full text:" + course.getFullText());
                 if (course.getFullText().equals(currentSelection)) {
+                    System.out.println("Matched it");
+
                     this.focusedCourse = course;
                     courseSections = course.getSections();
                     break;
@@ -264,6 +296,8 @@ public class CoursesController implements Initializable {
     public void loadSelectedCourses(String _semester) throws Exception {
         List<String> courses = Translator.getSelectedCourses(_semester);
         this.selectedCourses.setItems(FXCollections.observableList(courses));
+        regenerateSchedules();
+
     }
 
     public String formatSemester(String _semester) {
@@ -290,13 +324,18 @@ public class CoursesController implements Initializable {
 
     }
 
-    public void addEntry(ActionEvent _event) {
+    public void addSection(ActionEvent _event) {
 
-        clearCalendar();
         int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
-        Section section = this.focusedCourse.getSections().get(secIndex);
+        Section focusedSection = this.focusedCourse.getSections().get(secIndex);
+        this.currentSemester.addSelectedSection(focusedCourse, focusedSection);
+        this.currentSemester.generateSchedules();
+        loadSchedule(this.currentSemester.getSchedules().get(0));
+    }
 
-        char[] daysString = section.getDays().toCharArray();
+    public void addEntry(Section _section) {
+
+        char[] daysString = _section.getDays().toCharArray();
         ArrayList<Integer> days = new ArrayList();
         for (char day : daysString) {
             switch (day) {
@@ -318,10 +357,10 @@ public class CoursesController implements Initializable {
 
             }
 
-            int row = (int) section.getStartTime() / 100 - 7;
+            int row = (int) _section.getStartTime() / 100 - 7;
             for (Integer col : days) {
                 BorderPane region = grid[row][col];
-                Label label = new Label(section.getCourseID() + " - " + section.getSectionNumber());
+                Label label = new Label(_section.getCourseID() + " - " + _section.getSectionNumber());
                 BorderPane cont = new BorderPane();
                 StackPane pane = new StackPane();
 
@@ -335,12 +374,37 @@ public class CoursesController implements Initializable {
 
                 scheduleGrid.getChildren().add(cont);
                 GridPane.setConstraints(cont, col, row, 1, 2, HPos.CENTER, VPos.TOP);
-                rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(section.getDurationHours()));
+                rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(_section.getDurationHours()));
                 rect.widthProperty().bind(region.widthProperty().subtract(1.5));
                 entries.add(cont);
-                
+
             }
 
+        }
+    }
+
+    public void loadSchedule(Schedule _schedule) {
+        clearCalendar();
+        for (Section section : _schedule.getAddedSections()) {
+            addEntry(section);
+        }
+        scheduleLabel.setText(this.currentScheduleIndex + 1 + "/" + this.currentSemester.getNumberOfSchedules());
+    }
+
+    public void loadNextSchedule(ActionEvent _event) {
+
+        if (this.currentScheduleIndex < this.currentSemester.getSchedules().size() - 1) {
+            this.currentScheduleIndex++;
+            loadSchedule(this.currentSemester.getSchedules().get(this.currentScheduleIndex));
+        }
+
+    }
+
+    public void loadPrevSchedule(ActionEvent _event) {
+
+        if (this.currentScheduleIndex > 0) {
+            this.currentScheduleIndex--;
+            loadSchedule(this.currentSemester.getSchedules().get(this.currentScheduleIndex));
         }
     }
 }
