@@ -103,18 +103,22 @@ public  class Semester {
         this.numberOfSchedules = this.schedules.size();
     }
 
-    private List<Schedule> generateSchedules(List<Course> remainingCourses) {
+    private List<Schedule> generateSchedules(List<Course> selectedCourses) {
 
         List<Schedule> validSchedules = new ArrayList();
 
         //if there are no remaining, return an empty list
-        if (remainingCourses.isEmpty()) return validSchedules;
+        if (selectedCourses.isEmpty()) return validSchedules;
 
         //Select first course in the remaining course.
-        Course course = remainingCourses.get(0);
+        Course course = selectedCourses.get(0);
 
-        //If there is only one course in the remaing list, construct a new schedule for each section.
-        if (remainingCourses.size() == 1) {
+        /**
+         * Base case for recursion
+         *
+         * If there is only one course in the remaining list, construct a new schedule for each section.
+         **/
+        if (selectedCourses.size() == 1) {
             for (Section section : course.getSections()) {
                 Schedule newSchedule = new Schedule();
                 newSchedule.addSection(section);
@@ -126,17 +130,14 @@ public  class Semester {
         else {
 
             //Remove the current course from the remaining list
+            List<Course> remainingCourses = new ArrayList(selectedCourses);
             remainingCourses.remove(course);
 
             for (Section section : course.getSections()) {
-                System.out.println("Section attempting to add: " + section.getCourseID() + section.getSectionNumber());
                 for (Schedule schedule : generateSchedules(remainingCourses)) {
-                    for (Section oldSection : schedule.getAddedSections()) System.out.println("Existing section: "+ oldSection.getCourseID() + oldSection.getSectionNumber());
                     if (schedule.addSection(section)) validSchedules.add(schedule);
-                    System.out.println("\n\n");
                 }
             }
-
         }
 
         return validSchedules;
