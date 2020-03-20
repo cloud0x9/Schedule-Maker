@@ -250,7 +250,7 @@ public class CoursesController implements Initializable {
                 }
             });
 
-            String filter = searchField.getText();
+            String filter = searchField.getText().toLowerCase();
             // when there's nothing entered yet
             if (filter == null || filter.length() == 0) {
                 // show all courses
@@ -258,7 +258,7 @@ public class CoursesController implements Initializable {
                 // otherwise
             } else {
                 // filter based on the contents of the search bar
-                this.courseList.setPredicate(s -> s.contains(filter));
+                this.courseList.setPredicate(s -> s.toLowerCase().contains(filter));
             }
         });
 
