@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -29,7 +30,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
-
 /**
  * This class controls interactions in the Courses View.
  *
@@ -37,7 +37,6 @@ import javafx.scene.shape.Rectangle;
  *
  * Last Updated: 3/18/2020
  */
-
 public class CoursesController implements Initializable {
 
     @FXML
@@ -65,9 +64,8 @@ public class CoursesController implements Initializable {
 
     // list of courses for current semester
     FilteredList<String> courseList;
-    
+
     //ObservableList<String> courseList = FXCollections.observableArrayList();
-    
     protected Semester currentSemester;
     protected Semester spring2020 = new Semester("spring2020");
     protected Semester summer2020 = new Semester("summer2020");
@@ -96,13 +94,8 @@ public class CoursesController implements Initializable {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
-        
-
-        
     }
 
-    
     public void search(ActionEvent _event) {
         String searchString = this.searchField.getText();
         List<String> filteredList = new ArrayList();
@@ -118,8 +111,7 @@ public class CoursesController implements Initializable {
         }
         this.courseComboBox.setItems(FXCollections.observableList(filteredList));
     }
-    
-    
+
     public void addSelectedCourse(ActionEvent _event) throws Exception {
 
         String selectedCourse = this.courseComboBox.getValue();
@@ -168,7 +160,6 @@ public class CoursesController implements Initializable {
     protected void clearSectionList() {
         System.out.println("Dummy function to clear the list of available sections for when we switch semesters");
     }
-
 
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
 
@@ -219,17 +210,30 @@ public class CoursesController implements Initializable {
         this.availableCourses.setItems(this.courseList);
 
         // connect search bar filtering to the courseList FilteredList
-        searchField.textProperty().addListener(obs->{
-        String filter = searchField.getText();
-        // when there's nothing entered yet
-        if(filter == null || filter.length() == 0) {
-            // show all courses
-            this.courseList.setPredicate(s -> true);
-        }
-        else {
-            // filter based on the contents of the search bar
-            this.courseList.setPredicate(s -> s.contains(filter));
-        }});
+        searchField.textProperty().addListener(obs -> {
+
+            // select the top entry whenever the search term changes, but use Platform.runLater() 
+            // so that JavaFX doesn't try to update the selection while it's still building the listview
+            Platform.runLater(new Runnable() {
+
+                @Override
+                public void run() {
+                    // Note: can't use "this" keyword here
+                    availableCourses.getSelectionModel().select(0);
+                    availableCourses.getFocusModel().focus(0);
+                }
+            });
+
+            String filter = searchField.getText();
+            // when there's nothing entered yet
+            if (filter == null || filter.length() == 0) {
+                // show all courses
+                this.courseList.setPredicate(s -> true);
+            } else {
+                // filter based on the contents of the search bar
+                this.courseList.setPredicate(s -> s.contains(filter));
+            }
+        });
     }
 
     public void loadSemesters() throws IOException {
