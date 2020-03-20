@@ -4,6 +4,7 @@ import ScheduleCreator.Translator;
 import ScheduleCreator.models.Course;
 import ScheduleCreator.models.Section;
 import ScheduleCreator.models.Semester;
+import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -136,6 +138,8 @@ public class CoursesController implements Initializable {
         System.out.println("Dummy function to clear the list of available sections for when we switch semesters");
     }
 
+    // TODO: connect "delete" while in the selectedCourses ListView to this method and
+    // allow for selecting and deleting multiple courses
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
 
         Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
@@ -183,6 +187,31 @@ public class CoursesController implements Initializable {
         // connect availableCourses ListView to the courseList
         this.availableCourses.setItems(this.courseList);
 
+        // TODO: make up and down arrow on the keyboard scroll the search results
+  /*      searchField.setOnKeyPressed(new javafx.event.EventHandler<KeyEvent>() {
+                public void handle(KeyEvent event) {
+                    int i = 0;
+                    switch (event.getCode()) {
+                        case UP:
+                            i = 1;
+                            break;
+                        case DOWN:
+                            i = -1;
+                            break;
+                    }
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    availableCourses.getFocusModel().focus(availableCourses.getSelectionModel().getSelectedIndex() + 1);
+                }
+                });
+                }
+                });
+*/
+           
+
+        
+        
         // Connect search bar filtering to the courseList FilteredList (this uses lambdas, it's adapted from
         // https://stackoverflow.com/questions/28448851/how-to-use-javafx-filteredlist-in-a-listview
         // and https://stackoverflow.com/questions/45045631/filter-items-within-listview-in-javafx )
