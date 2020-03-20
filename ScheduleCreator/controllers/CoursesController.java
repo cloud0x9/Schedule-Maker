@@ -14,6 +14,8 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -45,6 +47,8 @@ public class CoursesController implements Initializable {
     @FXML
     protected ComboBox<String> courseComboBox;
     @FXML
+    protected ListView availableCourses;
+    @FXML
     protected ListView selectedCourses;
     @FXML
     protected ListView sectionListView;
@@ -59,6 +63,11 @@ public class CoursesController implements Initializable {
     @FXML
     protected GridPane scheduleGrid;
 
+    // list of courses for current semester
+    FilteredList<String> courseList;
+    
+    //ObservableList<String> courseList = FXCollections.observableArrayList();
+    
     protected Semester currentSemester;
     protected Semester spring2020 = new Semester("spring2020");
     protected Semester summer2020 = new Semester("summer2020");
@@ -86,8 +95,31 @@ public class CoursesController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
+        
+
+        
     }
 
+    
+    public void search(ActionEvent _event) {
+        String searchString = this.searchField.getText();
+        List<String> filteredList = new ArrayList();
+
+        if (this.currentSemester != null) {
+
+            for (String course : this.currentSemester.getAllCourses()) {
+                if (course.toLowerCase().contains(searchString.toLowerCase())) {
+                    filteredList.add(course);
+                }
+            }
+
+        }
+        this.courseComboBox.setItems(FXCollections.observableList(filteredList));
+    }
+    
+    
     public void addSelectedCourse(ActionEvent _event) throws Exception {
 
         String selectedCourse = this.courseComboBox.getValue();
@@ -115,7 +147,6 @@ public class CoursesController implements Initializable {
                 break;
             case "fall2020":
                 this.currentSemester = fall2020;
-
                 break;
         }
 
@@ -138,21 +169,6 @@ public class CoursesController implements Initializable {
         System.out.println("Dummy function to clear the list of available sections for when we switch semesters");
     }
 
-    public void search(ActionEvent _event) {
-        String searchString = this.searchField.getText();
-        List<String> filteredList = new ArrayList();
-
-        if (this.currentSemester != null) {
-
-            for (String course : this.currentSemester.getAllCourses()) {
-                if (course.toLowerCase().contains(searchString.toLowerCase())) {
-                    filteredList.add(course);
-                }
-            }
-
-        }
-        this.courseComboBox.setItems(FXCollections.observableList(filteredList));
-    }
 
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
 
@@ -191,7 +207,29 @@ public class CoursesController implements Initializable {
     }
 
     public void loadAllCourses(String _semester) throws Exception {
-        this.courseComboBox.setItems(FXCollections.observableList(this.currentSemester.getAllCourses()));
+
+        // intermediary ObservableList of the courses
+        ObservableList<String> OList = FXCollections.observableList(this.currentSemester.getAllCourses());
+
+        // create FilteredList that we'll actually use
+        this.courseList = new FilteredList<>(OList, s -> true);
+
+        // connect availableCoursesListView to the courseList
+//        this.availableCourses = new ListView<>();
+        this.availableCourses.setItems(this.courseList);
+
+        // connect search bar filtering to the courseList FilteredList
+        searchField.textProperty().addListener(obs->{
+        String filter = searchField.getText();
+        // when there's nothing entered yet
+        if(filter == null || filter.length() == 0) {
+            // show all courses
+            this.courseList.setPredicate(s -> true);
+        }
+        else {
+            // filter based on the contents of the search bar
+            this.courseList.setPredicate(s -> s.contains(filter));
+        }});
     }
 
     public void loadSemesters() throws IOException {
