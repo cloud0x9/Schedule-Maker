@@ -5,7 +5,6 @@ import ScheduleCreator.models.Course;
 import ScheduleCreator.models.Schedule;
 import ScheduleCreator.models.Section;
 import ScheduleCreator.models.Semester;
-import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -25,17 +24,13 @@ import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 
@@ -153,15 +148,16 @@ public class CoursesController implements Initializable {
     // TODO: connect "delete" while in the selectedCourses ListView to this method and
     // allow for selecting and deleting multiple courses
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
+        if (this.focusedCourse != null) {
+            Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
+            this.selectedCourses.getItems().remove(itemToRemove);
 
-        Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
-        this.selectedCourses.getItems().remove(itemToRemove);
+            String courseToDelete = ((String) itemToRemove).trim();
+            this.currentSemester.removeCourse(courseToDelete);
 
-        String courseToDelete = ((String) itemToRemove).trim();
-        this.currentSemester.removeCourse(courseToDelete);
-
-        this.currentSemester.generateSchedules();
-        regenerateSchedules();
+            this.currentSemester.generateSchedules();
+            regenerateSchedules();
+        }
 
     }
 
@@ -320,12 +316,13 @@ public class CoursesController implements Initializable {
     }
 
     public void addSection(ActionEvent _event) {
-
-        int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
-        Section focusedSection = this.focusedCourse.getSections().get(secIndex);
-        this.currentSemester.addSelectedSection(focusedCourse, focusedSection);
-        this.currentSemester.generateSchedules();
-        loadSchedule(this.currentSemester.getSchedules().get(0));
+        if (this.focusedCourse != null) {
+            int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
+            Section focusedSection = this.focusedCourse.getSections().get(secIndex);
+            this.currentSemester.addSelectedSection(focusedCourse, focusedSection);
+            this.currentSemester.generateSchedules();
+            loadSchedule(this.currentSemester.getSchedules().get(0));
+        }
     }
 
     public void addEntry(Section _section) {
@@ -370,7 +367,7 @@ public class CoursesController implements Initializable {
                 scheduleGrid.getChildren().add(cont);
                 GridPane.setConstraints(cont, col, row, 1, GridPane.REMAINING, HPos.CENTER, VPos.TOP);
                 rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(_section.getDurationHours()));
-                rect.widthProperty().bind(region.widthProperty().subtract(1.5));
+                rect.widthProperty().bind(region.widthProperty().subtract(2));
                 entries.add(cont);
 
             }
@@ -388,11 +385,12 @@ public class CoursesController implements Initializable {
 
     public void loadNextSchedule(ActionEvent _event) {
 
-        if (this.currentScheduleIndex < this.currentSemester.getSchedules().size() - 1) {
-            this.currentScheduleIndex++;
-            loadSchedule(this.currentSemester.getSchedules().get(this.currentScheduleIndex));
+        if (this.currentSemester != null) {
+            if (this.currentScheduleIndex < this.currentSemester.getSchedules().size() - 1) {
+                this.currentScheduleIndex++;
+                loadSchedule(this.currentSemester.getSchedules().get(this.currentScheduleIndex));
+            }
         }
-
     }
 
     public void loadPrevSchedule(ActionEvent _event) {
