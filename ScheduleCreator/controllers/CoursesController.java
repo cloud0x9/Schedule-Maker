@@ -111,6 +111,7 @@ public class CoursesController implements Initializable {
                 this.selectedCourses.getItems().add(selectedCourse);
                 this.currentSemester.generateSchedules();
             }
+            regenerateSchedules();
         }
     }
 
@@ -170,9 +171,7 @@ public class CoursesController implements Initializable {
 
         if (this.currentSemester.getNumberOfSchedules() == 0) {
             scheduleLabel.setText("0/0");
-        }
-
-        else if (this.currentSemester.getNumberOfSchedules() > 0) {
+        } else if (this.currentSemester.getNumberOfSchedules() > 0) {
             loadSchedule(this.currentSemester.getSchedules().get(0));
             scheduleLabel.setText("1/" + this.currentSemester.getNumberOfSchedules());
         }
@@ -182,16 +181,12 @@ public class CoursesController implements Initializable {
     public void loadCourseSections(ActionEvent _event) {
 
         List<Section> courseSections = new ArrayList();
-        System.out.println("Number of selected courses: " + this.currentSemester.getSelectedCourses().size());
 
         if (this.selectedCourses.getFocusModel().getFocusedItem() != null) {
             String currentSelection = this.selectedCourses.getFocusModel().getFocusedItem().toString();
-            System.out.println("Current selection: " + currentSelection);
 
             for (Course course : this.currentSemester.getSelectedCourses()) {
-                System.out.println("Course full text:" + course.getFullText());
                 if (course.getFullText().equals(currentSelection)) {
-                    System.out.println("Matched it");
 
                     this.focusedCourse = course;
                     courseSections = course.getSections();
@@ -373,7 +368,7 @@ public class CoursesController implements Initializable {
                 cont.setTop(pane);
 
                 scheduleGrid.getChildren().add(cont);
-                GridPane.setConstraints(cont, col, row, 1, 2, HPos.CENTER, VPos.TOP);
+                GridPane.setConstraints(cont, col, row, 1, GridPane.REMAINING, HPos.CENTER, VPos.TOP);
                 rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(_section.getDurationHours()));
                 rect.widthProperty().bind(region.widthProperty().subtract(1.5));
                 entries.add(cont);

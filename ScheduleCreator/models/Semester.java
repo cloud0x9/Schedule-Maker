@@ -19,8 +19,7 @@ public  class Semester {
 
     protected final String name;
     protected final List<String> allCourses;
-    protected List<Course> selectedCourses;
-    protected List<Schedule> validSchedules;
+    protected List<Schedule> schedules;
     protected HashMap<Course,List<Section>> selectedSections;
     protected int numberOfSchedules;
     /**
@@ -36,10 +35,10 @@ public  class Semester {
      */
     public Semester(String _name) {
         this.name = _name;
-        loadSelectedCoursesFromFile();
         this.allCourses = Translator.getCourses(this.name);
-        this.validSchedules = new ArrayList();
+        this.schedules = new ArrayList();
         this.selectedSections = new HashMap();
+        loadSelectedCoursesFromFile();
     }
 
     //WORK IN PROGRESS
@@ -83,7 +82,7 @@ public  class Semester {
 
         if (!contains) {
 
-            this.selectedCourses.add(new Course(_course, this.name));
+            this.selectedSections.put(new Course(_course, this.name), new ArrayList<Section>());
 
             Translator.saveCourse(_course, this.name);
             return true;
@@ -95,16 +94,17 @@ public  class Semester {
     }
 
     public List<Schedule> getSchedules() {
-        return this.validSchedules;
+        return this.schedules;
     }
 
     public void generateSchedules() {
-        List<Schedule> list = generateSchedules(new ArrayList<Course>(this.selectedCourses));
-        this.validSchedules = list;
-        this.numberOfSchedules = this.validSchedules.size();
+        List<Schedule> list = generateSchedules(new ArrayList<Course>(this.selectedSections.keySet()));
+        this.schedules = list;
+        this.numberOfSchedules = this.schedules.size();
     }
 
     private List<Schedule> generateSchedules(List<Course> remainingCourses) {
+
         List<Schedule> validSchedules = new ArrayList();
 
         //if there are no remaining, return an empty list
@@ -129,8 +129,11 @@ public  class Semester {
             remainingCourses.remove(course);
 
             for (Section section : course.getSections()) {
+                System.out.println("Section attempting to add: " + section.getCourseID() + section.getSectionNumber());
                 for (Schedule schedule : generateSchedules(remainingCourses)) {
+                    for (Section oldSection : schedule.getAddedSections()) System.out.println("Existing section: "+ oldSection.getCourseID() + oldSection.getSectionNumber());
                     if (schedule.addSection(section)) validSchedules.add(schedule);
+                    System.out.println("\n\n");
                 }
             }
 
@@ -148,7 +151,7 @@ public  class Semester {
     public int getNumberOfSchedules() {
         return this.numberOfSchedules;
     }
-    
+
     public List<String> getAllCourses() {
         return this.allCourses;
     }
@@ -162,10 +165,9 @@ public  class Semester {
     public void loadSelectedCoursesFromFile() {
 
         List<String> list = Translator.getSelectedCourses(this.name);
-        this.selectedCourses = new ArrayList();
         if (!list.isEmpty()) {
             for (String courseName: list) {
-                this.selectedCourses.add(new Course(courseName, this.name));
+                this.selectedSections.put(new Course(courseName, this.name), new ArrayList<Section>());
             }
         }
 
@@ -174,12 +176,12 @@ public  class Semester {
     public void removeCourse(String _course) throws Exception {
         Course courseToRemove;
 
-        for (Course course: this.selectedCourses) {
+        for (Course course: this.selectedSections.keySet()) {
 
             if (_course.equalsIgnoreCase(course.getFullText())) {
 
                 courseToRemove = course;
-                this.selectedSections.remove(courseToRemove);
+                this.selectedSections.remove(course);
                 break;
             }
         }
@@ -188,7 +190,7 @@ public  class Semester {
     }
 
     public List<Course> getSelectedCourses() {
-        return this.selectedCourses;
+        return new ArrayList<Course>(this.selectedSections.keySet());
     }
 
 }
