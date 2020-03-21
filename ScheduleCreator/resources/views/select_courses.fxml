@@ -26,18 +26,18 @@
       <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" minWidth="10.0" percentWidth="2.0" prefWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints fillHeight="false" maxHeight="100.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+      <RowConstraints fillHeight="false" maxHeight="100.0" minHeight="10.0" prefHeight="20.0" vgrow="NEVER" />
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
       <RowConstraints fillHeight="false" maxHeight="100.0" minHeight="10.0" prefHeight="20.0" vgrow="NEVER" />
    </rowConstraints>
    <children>
       <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <GridPane hgap="10.0" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.columnIndex="1">
+            <GridPane hgap="10.0" maxHeight="1.7976931348623157E308" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.columnIndex="1">
                <children>
                   <TextField fx:id="searchField" onAction="#addSelectedCourse" prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                   <ComboBox fx:id="semesterComboBox" onAction="#switchSemester" prefHeight="26.0" prefWidth="138.0" promptText="Choose Semester" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" />
-                  <ListView fx:id="selectedCourses" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <ListView fx:id="selectedCourses" maxHeight="1.7976931348623157E308" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
                   <Button fx:id="getSectionsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadCourseSections" prefHeight="58.0" prefWidth="292.0" text="Get Sections" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
                   <ListView fx:id="sectionListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
@@ -54,13 +54,13 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <rowConstraints>
-                  <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="30.0" />
-                  <RowConstraints maxHeight="243.0" minHeight="0.0" prefHeight="35.0" />
-                  <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="175.0" />
+                  <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="243.0" minHeight="0.0" prefHeight="35.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="175.0" vgrow="ALWAYS" />
                   <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="30.0" />
-                  <RowConstraints maxHeight="338.0" minHeight="10.0" prefHeight="133.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="133.0" vgrow="ALWAYS" />
                   <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" />
-                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="83.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="83.0" />
                   <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" />
                </rowConstraints>
             </GridPane>
