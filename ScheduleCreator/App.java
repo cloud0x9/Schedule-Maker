@@ -37,6 +37,7 @@ public class App extends Application {
         primaryStage.setMinHeight(560);
         primaryStage.setMinWidth(1090);
 
+
         // shows window on screen
         primaryStage.show();
     }

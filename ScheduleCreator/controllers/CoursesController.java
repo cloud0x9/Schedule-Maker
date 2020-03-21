@@ -22,6 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
@@ -39,7 +40,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 3/18/2020
+ * Last Updated: 3/21/2020
  */
 public class CoursesController implements Initializable {
 
@@ -350,10 +351,11 @@ public class CoursesController implements Initializable {
             }
 
             int row = (int) _section.getStartTime() / 100 - 7;
+            double topMargin = (_section.getStartTime() % 100 ) / 60;
             for (Integer col : days) {
-                BorderPane region = grid[row][col];
                 Label label = new Label(_section.getCourseID() + " - " + _section.getSectionNumber());
-                BorderPane cont = new BorderPane();
+                BorderPane entryContainer = new BorderPane();
+                entryContainer.paddingProperty().set(new Insets(grid[row][col].heightProperty().multiply(topMargin).doubleValue(), 0, 0, 0));
                 StackPane pane = new StackPane();
 
                 Rectangle rect = new Rectangle();
@@ -362,13 +364,14 @@ public class CoursesController implements Initializable {
 
                 pane.setStyle("-fx-border-color:blue;");
                 pane.getChildren().addAll(rect, label);
-                cont.setTop(pane);
+                entryContainer.setTop(pane);
 
-                scheduleGrid.getChildren().add(cont);
-                GridPane.setConstraints(cont, col, row, 1, GridPane.REMAINING, HPos.CENTER, VPos.TOP);
+                scheduleGrid.getChildren().add(entryContainer);
+                GridPane.setConstraints(entryContainer, col, row, 1, GridPane.REMAINING, HPos.CENTER, VPos.TOP);
+                BorderPane region = grid[row][col];
                 rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(_section.getDurationHours()));
                 rect.widthProperty().bind(region.widthProperty().subtract(2));
-                entries.add(cont);
+                entries.add(entryContainer);
 
             }
 

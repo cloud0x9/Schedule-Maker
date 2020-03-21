@@ -9,20 +9,14 @@ import java.util.List;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/16/2020
+ * Last Updated: 3/31/2020
  */
 public class Schedule {
 
     protected List<Section> addedSections;
     protected String totalCredits;
-
-    //checkConflicts
-    //addSection
-    //removeSection
     //getCRNS
-    //saveSchedule
-    //resetSchedule
-    //generateRandomSchedules
+
     public Schedule() {
         addedSections = new ArrayList();
     }

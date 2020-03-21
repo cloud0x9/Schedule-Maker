@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Nick Econopouly, Jamison Valentine
  *
- * Last Updated: 3/17/2020
+ * Last Updated: 3/31/2020
  */
 
 public  class Semester {
