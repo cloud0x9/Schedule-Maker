@@ -149,7 +149,7 @@ public class CoursesController implements Initializable {
     // TODO: connect "delete" while in the selectedCourses ListView to this method and
     // allow for selecting and deleting multiple courses
     public void removeSelectedCourse(ActionEvent _event) throws Exception {
-        if (this.focusedCourse != null) {
+        if (this.selectedCourses.getSelectionModel().getSelectedItem() != null) {
             Object itemToRemove = this.selectedCourses.getSelectionModel().getSelectedItem();
             this.selectedCourses.getItems().remove(itemToRemove);
 
@@ -179,8 +179,8 @@ public class CoursesController implements Initializable {
 
         List<Section> courseSections = new ArrayList();
 
-        if (this.selectedCourses.getFocusModel().getFocusedItem() != null) {
-            String currentSelection = this.selectedCourses.getFocusModel().getFocusedItem().toString();
+        if (this.selectedCourses.getSelectionModel().getSelectedItem() != null) {
+            String currentSelection = this.selectedCourses.getSelectionModel().getSelectedItem().toString();
 
             for (Course course : this.currentSemester.getSelectedCourses()) {
                 if (course.getFullText().equals(currentSelection)) {
@@ -318,7 +318,7 @@ public class CoursesController implements Initializable {
 
     public void addSection(ActionEvent _event) {
         if (this.focusedCourse != null) {
-            int secIndex = this.sectionListView.getFocusModel().getFocusedIndex();
+            int secIndex = this.sectionListView.getSelectionModel().getSelectedIndex();
             Section focusedSection = this.focusedCourse.getSections().get(secIndex);
             this.currentSemester.addSelectedSection(focusedCourse, focusedSection);
             this.currentSemester.generateSchedules();
@@ -359,10 +359,10 @@ public class CoursesController implements Initializable {
                 StackPane pane = new StackPane();
 
                 Rectangle rect = new Rectangle();
-                rect.setStyle("-fx-fill:lightblue;");
+                rect.setStyle("-fx-fill:lightblue; -fx-stroke: black; -fx-stroke-line-cap: round; -fx-arc-height: 10; -fx-arc-width: 10;");
                 label.setAlignment(Pos.CENTER);
 
-                pane.setStyle("-fx-border-color:blue;");
+                pane.setStyle("");
                 pane.getChildren().addAll(rect, label);
                 entryContainer.setTop(pane);
 
