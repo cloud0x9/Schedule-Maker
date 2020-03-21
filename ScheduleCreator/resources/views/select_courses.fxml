@@ -56,17 +56,17 @@
                <rowConstraints>
                   <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
                   <RowConstraints maxHeight="243.0" minHeight="0.0" prefHeight="35.0" vgrow="NEVER" />
-                  <RowConstraints minHeight="10.0" prefHeight="175.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="375.0" minHeight="10.0" prefHeight="30.0" />
-                  <RowConstraints minHeight="10.0" prefHeight="133.0" vgrow="ALWAYS" />
+                  <RowConstraints minHeight="10.0" prefHeight="134.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="375.0" minHeight="0.0" prefHeight="30.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="122.0" vgrow="ALWAYS" />
                   <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" />
-                  <RowConstraints minHeight="10.0" prefHeight="83.0" />
+                  <RowConstraints minHeight="10.0" prefHeight="112.0" vgrow="ALWAYS" />
                   <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" />
                </rowConstraints>
             </GridPane>
             <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2">
                <children>
-                  <GridPane fx:id="scheduleGrid" gridLinesVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1050.0" prefHeight="822.0" prefWidth="872.0" GridPane.columnSpan="2">
+                  <GridPane fx:id="scheduleGrid" gridLinesVisible="false" maxHeight="1.7976931348623157E308" maxWidth="1050.0" prefHeight="822.0" prefWidth="872.0" GridPane.columnSpan="2" GridPane.vgrow="ALWAYS">
                      <children>
                         <Label text="Monday" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
                         <Label text="Tuesday" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
