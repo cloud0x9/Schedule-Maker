@@ -371,7 +371,7 @@ public class CoursesController implements Initializable {
                     break;
                 case 5:
                     //orange
-                    color = "#f5be27";
+                    color = "#ffda75";
                     break;
                 case 6:
                     color = "#ff6666";
