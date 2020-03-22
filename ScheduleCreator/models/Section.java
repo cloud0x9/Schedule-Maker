@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/18/2020
+ * Last Updated: 3/21/2020
  */
 public class Section {
 
@@ -45,6 +45,10 @@ public class Section {
         double minutes = difference % 100;
         hours += (minutes / 60);
         return hours;
+    }
+
+    public Boolean isOnline() {
+        return this.isOnline;
     }
 
     public String getDaysAndTimes() {
