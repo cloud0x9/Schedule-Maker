@@ -74,13 +74,6 @@ public class Course {
                 daysAndTimes = m.group(4).trim() + " " + m.group(3).trim();
                 location = m.group(5).trim();
                 instructor = m.group(6).trim();
-//                System.out.println("CRN: " + CRN);
-//                System.out.println("Section #: " + sectionNumber);
-//                System.out.println("Times: " + daysAndTimes);
-//                System.out.println("Days: " + location);
-//                System.out.println("Location: " + location);
-//                System.out.println("Instructor: " + instructor);
-//                System.out.println("This is not an online course");
                 Section newSection = new Section(this.id, sectionNumber, daysAndTimes, location, instructor, CRN, false);
 
                 this.sections.add(newSection);
@@ -89,17 +82,9 @@ public class Course {
                 CRN = m2.group(1).trim();
                 sectionNumber = m2.group(2).trim();
                 instructor = m2.group(4).trim();
-//                System.out.println("CRN: " + CRN);
-//                System.out.println("Section #: " + sectionNumber);
-//                System.out.println("Online class");
-//                System.out.println("Instructor: " + instructor);
                 Section newSection = new Section(this.id, sectionNumber, daysAndTimes, location, instructor, CRN, true);
                 this.sections.add(newSection);
             }
-//            else System.out.println("Does not match");
         }
     }
-
-
-
 }

@@ -40,7 +40,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 3/21/2020
+ * Last Updated: 3/24/2020
  */
 public class CoursesController implements Initializable {
 
@@ -59,25 +59,20 @@ public class CoursesController implements Initializable {
     @FXML
     protected TextField searchField;
     @FXML
-    protected GridPane scheduleGrid;
+    protected GridPane scheduleGridPane;
     @FXML
     protected Label scheduleLabel;
 
-    // list of courses for current semester
+    // List of courses for current semester.
     FilteredList<String> courseList;
 
-    //ObservableList<String> courseList = FXCollections.observableArrayList();
     protected Semester currentSemester;
-    protected Semester spring2020 = new Semester("spring2020");
-    protected Semester summer2020 = new Semester("summer2020");
-    protected Semester fall2020 = new Semester("fall2020");
+    protected List<Semester> semesters = new ArrayList();
 
     protected Course focusedCourse;
 
     protected int NUM_ROWS;
     protected int NUM_COLS;
-    protected double ROW_HEIGHT;
-    protected double COL_WIDTH;
     protected int currentScheduleIndex;
 
     BorderPane[][] grid;
@@ -87,19 +82,22 @@ public class CoursesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             loadSemesters();
-            NUM_ROWS = scheduleGrid.getRowConstraints().size();
-            NUM_COLS = scheduleGrid.getColumnConstraints().size();
-            ROW_HEIGHT = scheduleGrid.getRowConstraints().get(0).getPrefHeight();
-            COL_WIDTH = scheduleGrid.getColumnConstraints().get(0).getPrefWidth();
+            NUM_ROWS = scheduleGridPane.getRowConstraints().size();
+            NUM_COLS = scheduleGridPane.getColumnConstraints().size();
             grid = new BorderPane[NUM_ROWS][NUM_COLS];
             drawGrid();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
-    public void addSelectedCourse(ActionEvent _event) throws Exception {
+    /**
+     * Called when "Add Course" button is clicked; Add selected course to the
+     * listview and saves in database.
+     *
+     * @param _event
+     */
+    public void addSelectedCourse(ActionEvent _event) {
 
         if (this.availableCourses.getFocusModel().getFocusedItem() != null) {
             String selectedCourse = this.availableCourses.getFocusModel().getFocusedItem().toString();
@@ -111,60 +109,81 @@ public class CoursesController implements Initializable {
         }
     }
 
-    public void switchSemester(ActionEvent _event) throws Exception {
+    /**
+     * Called when a different semester is chosen and loads appropriate info.
+     *
+     * @param _event
+     */
+    public void switchSemester(ActionEvent _event) {
+
         String currentSemesterString = semesterComboBox.getValue();
+        this.currentSemester = new Semester(semesterDirName(currentSemesterString));
 
-        switch (formatSemester(currentSemesterString)) {
+        loadAllCourses();
+        loadSelectedCourses();
+        //loadSelectedSections();
 
-            case "spring2020":
-                this.currentSemester = spring2020;
-                break;
-            case "summer2020":
-                this.currentSemester = summer2020;
-                break;
-            case "fall2020":
-                this.currentSemester = fall2020;
-                break;
-        }
-
-        loadAllCourses(this.currentSemester.getName());
-        loadSelectedCourses(this.currentSemester.getName());
-
+        //Renders the first generated schedule if there is at least 1 selected course.
         if (this.currentSemester.getSelectedCourses().size() > 0) {
             loadSchedule(this.currentSemester.getSchedules().get(0));
         }
-
     }
 
-    public void clearCalendar() {
+    /**
+     * Formats given string to appropriate semester directory name
+     *
+     * @param _semester
+     * @return
+     */
+    public String semesterDirName(String _semester) {
+
+        String[] temp = _semester.split(" ");
+
+        String formattedSemester = temp[0].toLowerCase() + temp[1];
+
+        return formattedSemester;
+    }
+
+    /**
+     * Clears the current displayed schedule.
+     */
+    public void clearScheduleGrid() {
         for (BorderPane entry : entries) {
-            scheduleGrid.getChildren().remove(entry);
+            scheduleGridPane.getChildren().remove(entry);
         }
         entries.clear();
     }
 
+    /**
+     * Removes the selected course from the listview and the database.
+     *
+     * @param _event
+     */
     // TODO: connect "delete" while in the selectedCourses ListView to this method and
     // allow for selecting and deleting multiple courses
-    public void removeSelectedCourse(ActionEvent _event) throws Exception {
+    public void removeSelectedCourse(ActionEvent _event) {
 
         if (this.selectedCoursesListView.getSelectionModel().getSelectedItem() != null) {
-            Object itemToRemove = this.selectedCoursesListView.getSelectionModel().getSelectedItem();
-            this.selectedCoursesListView.getItems().remove(itemToRemove);
+            String courseToRemove = ((String) this.selectedCoursesListView.getSelectionModel().getSelectedItem()).trim();
+            this.selectedCoursesListView.getItems().remove(courseToRemove);
+            this.currentSemester.removeCourse(courseToRemove);
 
-            String courseToDelete = ((String) itemToRemove).trim();
-            this.currentSemester.removeCourse(courseToDelete);
-
-            if (this.focusedCourse != null && this.focusedCourse.getFullText().equalsIgnoreCase(courseToDelete)) this.sectionListView.getItems().clear();;
+            // Clears the section listview if the focus is on the course to be removed.
+            if (this.focusedCourse != null && this.focusedCourse.getFullText().equalsIgnoreCase(courseToRemove)) {
+                this.sectionListView.getItems().clear();
+            }
 
             this.currentSemester.generateSchedules();
             regenerateSchedules();
         }
-
     }
 
+    /**
+     * Generates all possible schedules consisting of selected sections.
+     */
     public void regenerateSchedules() {
         this.currentSemester.generateSchedules();
-        clearCalendar();
+        clearScheduleGrid();
 
         if (this.currentSemester.getNumberOfSchedules() == 0) {
             scheduleLabel.setText("0/0");
@@ -172,37 +191,43 @@ public class CoursesController implements Initializable {
             loadSchedule(this.currentSemester.getSchedules().get(0));
             scheduleLabel.setText("1/" + this.currentSemester.getNumberOfSchedules());
         }
-
     }
 
+    /**
+     * Gets sections for a selected course and adds them to the sections
+     * listview.
+     *
+     * @param _event
+     */
     public void loadCourseSections(ActionEvent _event) {
 
-        List<Section> courseSections = new ArrayList();
-
-        if (this.selectedCoursesListView.getSelectionModel().getSelectedItem() != null) {
-            String currentSelection = this.selectedCoursesListView.getSelectionModel().getSelectedItem().toString();
-
-            for (Course course : this.currentSemester.getSelectedCourses()) {
-                if (course.getFullText().equals(currentSelection)) {
-
-                    this.focusedCourse = course;
-                    courseSections = course.getSections();
-                    break;
-                }
-            }
-
-            List<String> listCellLabels = new ArrayList();
-
-            for (Section section : courseSections) {
-                listCellLabels.add(section.toString());
-            }
-
-            this.sectionListView.setItems(FXCollections.observableList(listCellLabels));
+        //Do nothing if no course has been selected.
+        if (this.selectedCoursesListView.getSelectionModel().getSelectedItem() == null) {
+            return;
         }
+
+        String currentSelection = this.selectedCoursesListView.getSelectionModel().getSelectedItem().toString();
+
+        //Get the corresponding course to reference for sections
+        for (Course course : this.currentSemester.getSelectedCourses()) {
+            if (course.getFullText().equals(currentSelection)) {
+
+                this.focusedCourse = course;
+                break;
+            }
+        }
+
+        List<String> listCellLabels = new ArrayList();
+
+        for (Section section : this.focusedCourse.getSections()) {
+            listCellLabels.add(section.toString());
+        }
+
+        this.sectionListView.setItems(FXCollections.observableList(listCellLabels));
 
     }
 
-    public void loadAllCourses(String _semester) throws Exception {
+    public void loadAllCourses() {
 
         // intermediary ObservableList of the courses
         ObservableList<String> OList = FXCollections.observableList(this.currentSemester.getAllCourses());
@@ -262,7 +287,6 @@ public class CoursesController implements Initializable {
                 this.courseList.setPredicate(s -> s.toLowerCase().contains(filter));
             }
         });
-
     }
 
     public void loadSemesters() throws IOException {
@@ -285,35 +309,22 @@ public class CoursesController implements Initializable {
         this.semesterComboBox.setItems(FXCollections.observableList(newList));
     }
 
-    public void loadSelectedCourses(String _semester) throws Exception {
-        List<String> courses = Translator.getSelectedCourses(_semester);
-        this.selectedCoursesListView.setItems(FXCollections.observableList(courses));
+    public void loadSelectedCourses() {
+        this.selectedCoursesListView.setItems(FXCollections.observableList(this.currentSemester.getSelectedCourseStrings()));
         regenerateSchedules();
-
-    }
-
-    public String formatSemester(String _semester) {
-        //Format current semester to pass as argument in appropriate Translator methods
-
-        String[] temp = _semester.split(" ");
-
-        String formattedSemester = temp[0].toLowerCase() + temp[1];
-
-        return formattedSemester;
     }
 
     public void drawGrid() {
 
-        for (int i = 1; i <= NUM_ROWS - 1; i++) {
-            for (int j = 1; j <= NUM_COLS - 1; j++) {
+        for (int i = 1; i < NUM_ROWS; i++) {
+            for (int j = 1; j < NUM_COLS; j++) {
                 BorderPane region = new BorderPane();
                 region.setStyle(("-fx-border-color: black; -fx-border-width: .5;"));
                 grid[i][j] = region;
-                scheduleGrid.add(region, j, i);
+                scheduleGridPane.add(region, j, i);
 
             }
         }
-
     }
 
     public void addSection(ActionEvent _event) {
@@ -328,7 +339,40 @@ public class CoursesController implements Initializable {
 
     public void addEntry(Section _section, int _numberOfCampusCourses) {
 
+        String color = assignColor(_numberOfCampusCourses);
 
+        int row = (int) _section.getStartTime() / 100 - 7;
+        double topMargin = (_section.getStartTime() % 100) / 60;
+        for (Integer col : getDays(_section)) {
+            Label label = new Label(_section.getCourseID() + " - " + _section.getSectionNumber());
+            BorderPane entryContainer = new BorderPane();
+            entryContainer.paddingProperty().set(new Insets(grid[row][col].heightProperty().multiply(topMargin).doubleValue(), 0, 0, 0));
+            StackPane pane = new StackPane();
+
+            Rectangle rect = new Rectangle();
+            rect.setStyle("-fx-fill:" + color + "; -fx-stroke: black; -fx-stroke-line-cap: round; -fx-arc-height: 10; -fx-arc-width: 10;");
+            label.setAlignment(Pos.CENTER);
+
+            pane.setStyle("");
+            pane.getChildren().addAll(rect, label);
+            entryContainer.setTop(pane);
+
+            scheduleGridPane.getChildren().add(entryContainer);
+            GridPane.setConstraints(entryContainer, col, row, 1, GridPane.REMAINING, HPos.CENTER, VPos.TOP);
+            BorderPane region = grid[row][col];
+            rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(_section.getDurationHours()));
+            rect.widthProperty().bind(region.widthProperty().subtract(2));
+            entries.add(entryContainer);
+
+        }
+    }
+
+    /**
+     * Returns a list of meeting days for particular section.
+     * @param _section
+     * @return
+     */
+    public List<Integer> getDays(Section _section) {
         char[] daysString = _section.getDays().toCharArray();
         ArrayList<Integer> days = new ArrayList();
         for (char day : daysString) {
@@ -350,68 +394,52 @@ public class CoursesController implements Initializable {
                     break;
 
             }
-
-            String color = "";
-            switch (_numberOfCampusCourses) {
-                case 1:
-                    //green
-                    color = "#ccffcc";
-                    break;
-                case 2:
-                    //blue
-                    color = "#b3e1ff";
-                    break;
-                case 3:
-                    //red
-                    color = "#ffb3b3 ";
-                    break;
-                case 4:
-                    //yellow
-                    color = "#e6e600";
-                    break;
-                case 5:
-                    //orange
-                    color = "#ffda75";
-                    break;
-                case 6:
-                    color = "#ff6666";
-                    break;
-
-                default:
-                    color = "lightblue";
-
-            }
-
-            int row = (int) _section.getStartTime() / 100 - 7;
-            double topMargin = (_section.getStartTime() % 100 ) / 60;
-            for (Integer col : days) {
-                Label label = new Label(_section.getCourseID() + " - " + _section.getSectionNumber());
-                BorderPane entryContainer = new BorderPane();
-                entryContainer.paddingProperty().set(new Insets(grid[row][col].heightProperty().multiply(topMargin).doubleValue(), 0, 0, 0));
-                StackPane pane = new StackPane();
-
-                Rectangle rect = new Rectangle();
-                rect.setStyle("-fx-fill:" + color + "; -fx-stroke: black; -fx-stroke-line-cap: round; -fx-arc-height: 10; -fx-arc-width: 10;");
-                label.setAlignment(Pos.CENTER);
-
-                pane.setStyle("");
-                pane.getChildren().addAll(rect, label);
-                entryContainer.setTop(pane);
-
-                scheduleGrid.getChildren().add(entryContainer);
-                GridPane.setConstraints(entryContainer, col, row, 1, GridPane.REMAINING, HPos.CENTER, VPos.TOP);
-                BorderPane region = grid[row][col];
-                rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(_section.getDurationHours()));
-                rect.widthProperty().bind(region.widthProperty().subtract(2));
-                entries.add(entryContainer);
-
-            }
-
         }
+        return days;
+    }
+
+    /**
+     * Returns a different color for the next course on the grid.
+     *
+     * @param _numberOfCampusCourses
+     * @return
+     */
+    public String assignColor(int _numberOfCampusCourses) {
+        String color = "";
+        switch (_numberOfCampusCourses) {
+            case 1:
+                //green
+                color = "#ccffcc";
+                break;
+            case 2:
+                //blue
+                color = "#b3e1ff";
+                break;
+            case 3:
+                //red
+                color = "#ffb3b3 ";
+                break;
+            case 4:
+                //yellow
+                color = "#e6e600";
+                break;
+            case 5:
+                //orange
+                color = "#ffda75";
+                break;
+            case 6:
+                color = "#ff6666";
+                break;
+
+            default:
+                color = "lightblue";
+        }
+
+        return color;
     }
 
     public void loadSchedule(Schedule _schedule) {
-        clearCalendar();
+        clearScheduleGrid();
         int numberOfCampusCourses = 0;
         for (Section section : _schedule.getAddedSections()) {
             if (!section.isOnline()) {
