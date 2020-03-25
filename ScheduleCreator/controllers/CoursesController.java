@@ -67,8 +67,6 @@ public class CoursesController implements Initializable {
     FilteredList<String> courseList;
 
     protected Semester currentSemester;
-    protected List<Semester> semesters = new ArrayList();
-
     protected Course focusedCourse;
 
     protected int NUM_ROWS;
@@ -81,11 +79,11 @@ public class CoursesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            loadSemesters();
+            this.loadSemesters();
             NUM_ROWS = scheduleGridPane.getRowConstraints().size();
             NUM_COLS = scheduleGridPane.getColumnConstraints().size();
             grid = new BorderPane[NUM_ROWS][NUM_COLS];
-            drawGrid();
+            this.drawGrid();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -105,7 +103,7 @@ public class CoursesController implements Initializable {
                 this.selectedCoursesListView.getItems().add(selectedCourse);
                 this.currentSemester.generateSchedules();
             }
-            regenerateSchedules();
+            this.regenerateSchedules();
         }
     }
 
@@ -119,13 +117,13 @@ public class CoursesController implements Initializable {
         String currentSemesterString = semesterComboBox.getValue();
         this.currentSemester = new Semester(semesterDirName(currentSemesterString));
 
-        loadAllCourses();
-        loadSelectedCourses();
+        this.loadAllCourses();
+        this.loadSelectedCourses();
         //loadSelectedSections();
 
         //Renders the first generated schedule if there is at least 1 selected course.
         if (this.currentSemester.getSelectedCourses().size() > 0) {
-            loadSchedule(this.currentSemester.getSchedules().get(0));
+            this.loadSchedule(this.currentSemester.getSchedules().get(0));
         }
     }
 
@@ -174,7 +172,7 @@ public class CoursesController implements Initializable {
             }
 
             this.currentSemester.generateSchedules();
-            regenerateSchedules();
+            this.regenerateSchedules();
         }
     }
 
@@ -183,12 +181,12 @@ public class CoursesController implements Initializable {
      */
     public void regenerateSchedules() {
         this.currentSemester.generateSchedules();
-        clearScheduleGrid();
+        this.clearScheduleGrid();
 
         if (this.currentSemester.getNumberOfSchedules() == 0) {
             scheduleLabel.setText("0/0");
         } else if (this.currentSemester.getNumberOfSchedules() > 0) {
-            loadSchedule(this.currentSemester.getSchedules().get(0));
+            this.loadSchedule(this.currentSemester.getSchedules().get(0));
             scheduleLabel.setText("1/" + this.currentSemester.getNumberOfSchedules());
         }
     }
@@ -311,7 +309,7 @@ public class CoursesController implements Initializable {
 
     public void loadSelectedCourses() {
         this.selectedCoursesListView.setItems(FXCollections.observableList(this.currentSemester.getSelectedCourseStrings()));
-        regenerateSchedules();
+        this.regenerateSchedules();
     }
 
     public void drawGrid() {
