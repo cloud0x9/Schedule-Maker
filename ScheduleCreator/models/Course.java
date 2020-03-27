@@ -5,7 +5,7 @@ package ScheduleCreator.models;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/17/2020
+ * Last Updated: 3/26/2020
  */
 
 import ScheduleCreator.Translator;
@@ -27,19 +27,18 @@ public class Course {
         this.courseNumber = _name.substring(4, 7);
         this.abbreviation = _name.substring(0, 4);
         this.id = this.abbreviation + this.courseNumber;
-        loadSectionsFromFile( _semester);
+        this.loadSectionsFromFile( _semester);
     }
+
+    //=================  GETTERS ===============
 
     public String getFullText() {
         return this.fullText;
-
     }
 
     public String getabbreviation() {
         return abbreviation;
     }
-
-    //=================  GETTERS ===============
 
     public String getCourseNumber() {
         return courseNumber;
