@@ -2,7 +2,7 @@ package ScheduleCreator.models;
 
 import ScheduleCreator.Translator;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ public class Semester {
     protected final String name;
     protected final List<String> allCourses;
     protected List<Schedule> schedules;
-    protected HashMap<Course, List<Section>> selectedSections;
+    protected LinkedHashMap<Course, List<Section>> selectedSections;
     protected int numberOfSchedules;
 
     /**
@@ -28,8 +28,8 @@ public class Semester {
         this.name = _name;
         this.allCourses = Translator.getCourses(this.name);
         this.schedules = new ArrayList();
-        this.selectedSections = new HashMap();
-        loadSelectedCoursesFromFile();
+        this.selectedSections = new LinkedHashMap();
+        this.loadSelectedCoursesFromFile();
     }
 
     public void addSelectedSection(Course _course, Section _section) {
@@ -45,7 +45,7 @@ public class Semester {
         }
     }
 
-    public HashMap<Course, List<Section>> getSelectedSections() {
+    public LinkedHashMap<Course, List<Section>> getSelectedSections() {
         return this.selectedSections;
     }
 
@@ -63,7 +63,7 @@ public class Semester {
 
         if (!contains) {
 
-            this.selectedSections.put(new Course(_course, this.name), new ArrayList<Section>());
+            this.selectedSections.put(new Course(_course, this.name), new ArrayList());
 
             Translator.saveCourse(_course, this.name);
             return true;
@@ -77,7 +77,7 @@ public class Semester {
     }
 
     public void generateSchedules() {
-        List<Schedule> list = generateSchedules(new ArrayList<Course>(this.selectedSections.keySet()));
+        List<Schedule> list = generateSchedules(new ArrayList(this.selectedSections.keySet()));
         this.schedules = list;
         this.numberOfSchedules = this.schedules.size();
     }
@@ -126,7 +126,7 @@ public class Semester {
         return validSchedules;
     }
 
-    public void loadSelectedCoursesFromFile() {
+    private void loadSelectedCoursesFromFile() {
 
         List<String> list = Translator.getSelectedCourses(this.name);
         if (!list.isEmpty()) {
@@ -148,6 +148,7 @@ public class Semester {
         Translator.removeCourse(_course, this.name);
     }
 
+    @Override
     public boolean equals(Object _obj) {
         Semester otherSemester = (Semester) _obj;
         return this.name.equalsIgnoreCase(otherSemester.getName());
@@ -167,7 +168,7 @@ public class Semester {
     }
 
     public List<Course> getSelectedCourses() {
-        return new ArrayList<Course>(this.selectedSections.keySet());
+        return new ArrayList(this.selectedSections.keySet());
     }
 
     public List<String> getSelectedCourseStrings() {
