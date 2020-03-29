@@ -11,10 +11,10 @@ package ScheduleCreator.API;
 public interface ApiInterface {
     /**
      * The API has only one field that is also optional, the field is left blank.
-     * 
+     *
      * @param _decision The decision the API returns can be forced to a specific choice
      * this is left blank here, so the API makes its own choice.
-     * @return 
+     * @return
      */
     public String decisionForce(String _decision);
 

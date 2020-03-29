@@ -14,10 +14,10 @@ public class ApiAdapter implements ApiInterface {
     protected static final ApiInterface thisApi = new YesNoApi();
 
     /**
-     * 
+     *
      * @param _decision The decision the API returns can be forced to a specific choice
      * this is left blank here, so the API makes its own choice.
-     * @return 
+     * @return
      */
     @Override
     public String decisionForce(String _decision) {

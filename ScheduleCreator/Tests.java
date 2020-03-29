@@ -20,9 +20,9 @@ public class Tests {
         //regen databse
         Admin.regenDB();
 
-        //test api call
-        //ApiAdapter testAPI = new ApiAdapter();
-        //System.out.println("API returned "+testAPI.decisionForce(""));
+//        test api call
+//        ApiAdapter testAPI = new ApiAdapter();
+//        System.out.println("API returned "+testAPI.decisionForce(""));
         //
         // TODO: add courselist regex;
         // fix regenDB() so that it doesn't rely on classpath resources (so tests always work the first time)
