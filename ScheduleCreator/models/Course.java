@@ -5,7 +5,7 @@ package ScheduleCreator.models;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/26/2020
+ * Last Updated: 3/27/2020
  */
 
 import ScheduleCreator.Translator;
@@ -32,6 +32,10 @@ public class Course {
 
     //=================  GETTERS ===============
 
+    public String getID() {
+        return this.id;
+    }
+
     public String getFullText() {
         return this.fullText;
     }
@@ -48,7 +52,7 @@ public class Course {
         return this.sections;
     }
 
-    public void loadSectionsFromFile(String _semester) {
+    private void loadSectionsFromFile(String _semester) {
         List<String> sectionStrings = Translator.getSections(this.id, _semester);
         this.sections = new ArrayList();
         Pattern p = Pattern.compile(".*([0-9]{5}).*- ([0-9]{2})\\s*(\\S* [ap]m - \\S* [ap]m)\\s*(\\S*)(.*)=(.*)");

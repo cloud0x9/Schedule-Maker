@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.shape.*?>
@@ -38,13 +39,16 @@
                   <TextField fx:id="searchField" onAction="#addSelectedCourse" prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                   <ComboBox fx:id="semesterComboBox" onAction="#switchSemester" prefHeight="26.0" prefWidth="138.0" promptText="Choose Semester" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" />
                   <ListView fx:id="selectedCoursesListView" maxHeight="1.7976931348623157E308" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-                  <Button fx:id="getSectionsButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#loadCourseSections" prefHeight="58.0" prefWidth="292.0" text="Get Sections" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
-                  <ListView fx:id="sectionListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6" />
-                  <Button mnemonicParsing="false" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
-                  <Button mnemonicParsing="false" onAction="#addSection" prefHeight="43.0" prefWidth="248.0" text="Add Sections" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                  <Button onAction="#selectAll" mnemonicParsing="false" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <Button fx:id="sectionsButton" onAction="#setSections" mnemonicParsing="false" prefHeight="43.0" prefWidth="248.0" text="Submit" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
                   <ListView fx:id="availableCourses" prefHeight="184.0" prefWidth="271.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" onAction="#addSelectedCourse" prefHeight="26.0" prefWidth="703.0" text="Add Course" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <TabPane fx:id="sectionTabPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowIndex="6">
+                    <tabs>
+
+                    </tabs>
+                  </TabPane>
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="289.0" />
@@ -56,10 +60,10 @@
                <rowConstraints>
                   <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
                   <RowConstraints maxHeight="243.0" minHeight="0.0" prefHeight="35.0" vgrow="NEVER" />
-                  <RowConstraints minHeight="10.0" prefHeight="134.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="375.0" minHeight="0.0" prefHeight="30.0" />
-                  <RowConstraints minHeight="10.0" prefHeight="122.0" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" />
+                  <RowConstraints maxHeight="123.0" minHeight="10.0" prefHeight="105.0" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="375.0" minHeight="0.0" prefHeight="30.0" vgrow="NEVER" />
+                  <RowConstraints maxHeight="132.0" minHeight="10.0" prefHeight="94.0" vgrow="ALWAYS" />
+                  <RowConstraints fillHeight="false" maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
                   <RowConstraints minHeight="10.0" prefHeight="112.0" vgrow="ALWAYS" />
                   <RowConstraints maxHeight="305.0" minHeight="10.0" prefHeight="30.0" />
                </rowConstraints>
@@ -116,7 +120,7 @@
                   </GridPane>
                   <GridPane GridPane.columnSpan="2" GridPane.rowIndex="1">
                      <children>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <center>
                               <Button mnemonicParsing="false" onAction="#loadPrevSchedule" text="Previous" BorderPane.alignment="CENTER" />
                            </center>
@@ -124,7 +128,7 @@
                               <Insets left="100.0" />
                            </padding>
                         </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <center>
                               <Button mnemonicParsing="false" onAction="#loadNextSchedule" text="  Next  " BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
@@ -133,11 +137,12 @@
                               </Button>
                            </center>
                         </BorderPane>
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <center>
                               <Label fx:id="scheduleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="##" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
+                        <Label fx:id="onlineClassesLabel" text="Online Classes: #" textFill="#da0e0e" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -145,9 +150,11 @@
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                      </columnConstraints>
                      <rowConstraints>
-                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="22.0" minHeight="10.0" prefHeight="16.66668701171875" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="27.33331298828125" minHeight="10.0" prefHeight="27.33331298828125" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
+                  <Button mnemonicParsing="false" text="Show CRNs" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -155,8 +162,8 @@
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints fx:id="heightRestricted" minHeight="10.0" prefHeight="489.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="57.3333740234375" minHeight="10.0" prefHeight="57.3333740234375" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="32.0" minHeight="0.0" prefHeight="26.6666259765625" vgrow="SOMETIMES" />
                </rowConstraints>
             </GridPane>
          </children>

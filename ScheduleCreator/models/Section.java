@@ -7,11 +7,12 @@ import java.util.Scanner;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/21/2020
+ * Last Updated: 3/27/2020
  */
 public class Section {
 
     protected final String courseID;
+    protected final String id;
     protected final String location;
     protected final String instructor;
     protected final String daysAndTimes;
@@ -29,15 +30,17 @@ public class Section {
         this.daysAndTimes = _daysAndTimes;
         this.CRN = _CRN;
         this.sectionNumber = _sectionNumber;
+        this.id = _courseID + "-" + _sectionNumber;
         this.isOnline = _isOnline;
         setTimes();
     }
 
-    /**
-     *
-     * @param _daysAndTimes is a string similar to 11:00 am - 12:15 pm
-     */
+
 //=================  GETTERS ===============
+    public String getID() {
+        return this.id;
+    }
+
     public double getDurationHours() {
 
         double difference = this.endTime - this.startTime;

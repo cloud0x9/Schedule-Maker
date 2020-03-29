@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Nick Econopouly, Jamison Valentine
  *
- * Last Updated: 3/24/2020
+ * Last Updated: 3/28/2020
  */
 public class Semester {
 
@@ -18,18 +18,15 @@ public class Semester {
     protected final List<String> allCourses;
     protected List<Schedule> schedules;
     protected LinkedHashMap<Course, List<Section>> selectedSections;
-    protected int numberOfSchedules;
 
-    /**
-     *
-     * @param _name
-     */
+
     public Semester(String _name) {
         this.name = _name;
         this.allCourses = Translator.getCourses(this.name);
         this.schedules = new ArrayList();
         this.selectedSections = new LinkedHashMap();
         this.loadSelectedCoursesFromFile();
+        this.generateSchedules();
     }
 
     public void addSelectedSection(Course _course, Section _section) {
@@ -49,27 +46,13 @@ public class Semester {
         return this.selectedSections;
     }
 
-    public Boolean addCourse(String _course) {
-        Boolean contains = false;
-
-        for (Course course : this.selectedSections.keySet()) {
-
-            if (course.getFullText().equalsIgnoreCase(_course)) {
-
-                contains = true;
-                break;
-            }
-        }
-
-        if (!contains) {
-
-            this.selectedSections.put(new Course(_course, this.name), new ArrayList());
-
-            Translator.saveCourse(_course, this.name);
+    public Boolean addCourse(Course _course) {
+        if (!this.selectedSections.keySet().contains(_course)) {
+            this.selectedSections.put(_course, _course.getSections());
+            Translator.saveCourse(_course.getFullText(), this.name);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public List<Schedule> getSchedules() {
@@ -79,7 +62,6 @@ public class Semester {
     public void generateSchedules() {
         List<Schedule> list = generateSchedules(new ArrayList(this.selectedSections.keySet()));
         this.schedules = list;
-        this.numberOfSchedules = this.schedules.size();
     }
 
     private List<Schedule> generateSchedules(List<Course> selectedCourses) {
@@ -91,7 +73,7 @@ public class Semester {
             return validSchedules;
         }
 
-        //Select first course in the remaining course.
+        //Select first course in the remaining list of coursec.
         Course course = selectedCourses.get(0);
 
         /**
@@ -102,7 +84,7 @@ public class Semester {
          *
          */
         if (selectedCourses.size() == 1) {
-            for (Section section : course.getSections()) {
+            for (Section section : this.selectedSections.get(course)) {
                 Schedule newSchedule = new Schedule();
                 newSchedule.addSection(section);
                 validSchedules.add(newSchedule);
@@ -114,7 +96,7 @@ public class Semester {
             List<Course> remainingCourses = new ArrayList(selectedCourses);
             remainingCourses.remove(course);
 
-            for (Section section : course.getSections()) {
+            for (Section section : this.selectedSections.get(course)) {
                 for (Schedule schedule : generateSchedules(remainingCourses)) {
                     if (schedule.addSection(section)) {
                         validSchedules.add(schedule);
@@ -131,7 +113,8 @@ public class Semester {
         List<String> list = Translator.getSelectedCourses(this.name);
         if (!list.isEmpty()) {
             for (String courseName : list) {
-                this.selectedSections.put(new Course(courseName, this.name), new ArrayList<Section>());
+                Course course = new Course(courseName, this.name);
+                this.selectedSections.put(new Course(courseName, this.name), course.getSections());
             }
         }
     }
@@ -160,7 +143,7 @@ public class Semester {
     }
 
     public int getNumberOfSchedules() {
-        return this.numberOfSchedules;
+        return this.schedules.size();
     }
 
     public List<String> getAllCourses() {
@@ -174,5 +157,4 @@ public class Semester {
     public List<String> getSelectedCourseStrings() {
         return Translator.getSelectedCourses(this.name);
     }
-
 }

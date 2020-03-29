@@ -1,7 +1,6 @@
 package ScheduleCreator.models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,7 +8,7 @@ import java.util.List;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/31/2020
+ * Last Updated: 3/28/2020
  */
 public class Schedule {
 
@@ -35,10 +34,10 @@ public class Schedule {
                 }
 
                 if (sameDay) {
-                    if (existingSection.endTime >= _newSection.startTime && existingSection.startTime < _newSection.startTime) {
+                    if (existingSection.endTime >= _newSection.startTime && existingSection.startTime <= _newSection.startTime) {
                         return false;
                     }
-                    if (existingSection.startTime <= _newSection.endTime && existingSection.endTime > _newSection.endTime) {
+                    if (existingSection.startTime <= _newSection.endTime && existingSection.endTime >= _newSection.endTime) {
                         return false;
                     }
                 }

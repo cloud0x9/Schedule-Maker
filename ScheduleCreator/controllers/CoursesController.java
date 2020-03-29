@@ -26,13 +26,19 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
 /**
@@ -40,7 +46,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 3/24/2020
+ * Last Updated: 3/28/2020
  */
 public class CoursesController implements Initializable {
 
@@ -61,13 +67,16 @@ public class CoursesController implements Initializable {
     @FXML
     protected GridPane scheduleGridPane;
     @FXML
-    protected Label scheduleLabel;
+    protected Label scheduleLabel, onlineClassesLabel;
+    @FXML
+    protected TabPane sectionTabPane;
 
     // List of courses for current semester.
     FilteredList<String> courseList;
 
     protected Semester currentSemester;
     protected Course focusedCourse;
+    protected Course currentCourse;
 
     protected int NUM_ROWS;
     protected int NUM_COLS;
@@ -99,12 +108,37 @@ public class CoursesController implements Initializable {
 
         if (this.availableCourses.getFocusModel().getFocusedItem() != null) {
             String selectedCourse = this.availableCourses.getFocusModel().getFocusedItem().toString();
-            if (this.currentSemester.addCourse(selectedCourse)) {
+            Course newCourse = new Course(selectedCourse, this.currentSemester.getName());
+            if (this.currentSemester.addCourse(newCourse)) {
                 this.selectedCoursesListView.getItems().add(selectedCourse);
                 this.currentSemester.generateSchedules();
+                this.createNewTab(newCourse);
             }
             this.regenerateSchedules();
         }
+    }
+
+    public void setSections(ActionEvent _event) {
+
+        int index = this.sectionTabPane.getSelectionModel().getSelectedIndex();
+
+        Course course;
+        Tab tab;
+        for (int i = 0; i < this.sectionTabPane.getTabs().size(); i++) {
+            tab = this.sectionTabPane.getTabs().get(i);
+            course = this.currentSemester.getSelectedCourses().get(i);
+            List<Section> selected = new ArrayList();
+            VBox container = (VBox)((ScrollPane) tab.getContent()).getContent();
+            for (int j = 0; j < container.getChildren().size(); j++) {
+                VBox entry = (VBox) container.getChildren().get(j);
+                CheckBox checkBox = (CheckBox) entry.getChildren().get(0);
+                if (checkBox.isSelected()) {
+                    selected.add(course.getSections().get(j));
+                }
+            }
+            this.currentSemester.getSelectedSections().put(course, selected);
+        }
+        this.regenerateSchedules();
     }
 
     /**
@@ -162,6 +196,8 @@ public class CoursesController implements Initializable {
     public void removeSelectedCourse(ActionEvent _event) {
 
         if (this.selectedCoursesListView.getSelectionModel().getSelectedItem() != null) {
+            int index = this.selectedCoursesListView.getSelectionModel().getSelectedIndex();
+            this.sectionTabPane.getTabs().remove(index);
             String courseToRemove = ((String) this.selectedCoursesListView.getSelectionModel().getSelectedItem()).trim();
             this.selectedCoursesListView.getItems().remove(courseToRemove);
             this.currentSemester.removeCourse(courseToRemove);
@@ -308,8 +344,84 @@ public class CoursesController implements Initializable {
     }
 
     public void loadSelectedCourses() {
+        this.sectionTabPane.getTabs().clear();
         this.selectedCoursesListView.setItems(FXCollections.observableList(this.currentSemester.getSelectedCourseStrings()));
+
+        for (Course course : this.currentSemester.getSelectedCourses()) {
+            this.createNewTab(course);
+        }
+
         this.regenerateSchedules();
+    }
+
+    /**
+     * Creates new tab that display associated course sections.
+     * @param _course
+     */
+    public void createNewTab(Course _course) {
+        Tab tab = new Tab();
+        tab.setText(_course.getID());
+        VBox content = new VBox();
+        ScrollPane pane = new ScrollPane();
+        for (Section section : _course.getSections()) {
+            VBox sectionEntry = new VBox();
+            sectionEntry.setPrefHeight(30);
+            sectionEntry.setMinHeight(30);
+            VBox.setVgrow(content, Priority.NEVER);
+            sectionEntry.setAlignment(Pos.CENTER_LEFT);
+            sectionEntry.setStyle("-fx-border-color: grey; -fx-border-width: 0 0 .5 0;");
+            CheckBox checkBox = new CheckBox();
+            checkBox.setSelected(true);
+            VBox.setMargin(checkBox, new Insets(0, 0, 0, 10));
+            checkBox.setText(section.toString());
+            sectionEntry.getChildren().add(checkBox);
+            content.getChildren().add(sectionEntry);
+        }
+        pane.setContent(content);
+        tab.setContent(pane);
+        this.sectionTabPane.getTabs().add(tab);
+    }
+
+    /**
+     * If there are no selections, force select all;
+     * if there are any selections, unselect all of them.
+     *
+     * @param _event
+     */
+    public void selectAll(ActionEvent _event) {
+        if (this.sectionTabPane.getSelectionModel().getSelectedItem() == null) return;
+        int index = this.sectionTabPane.getSelectionModel().getSelectedIndex();
+        Tab currentTab = this.sectionTabPane.getTabs().get(index);
+
+        if (this.allUnselected(currentTab)) setSelectAll(true, currentTab);
+        else setSelectAll(false, currentTab);
+    }
+
+    /**
+     *
+     * @param _tab
+     */
+    public boolean allUnselected(Tab _tab) {
+
+        VBox container = (VBox)((ScrollPane) _tab.getContent()).getContent();
+        for (int j = 0; j < container.getChildren().size(); j++) {
+            VBox entry = (VBox) container.getChildren().get(j);
+            CheckBox checkBox = (CheckBox) entry.getChildren().get(0);
+            if (checkBox.isSelected()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void setSelectAll(boolean _option, Tab _tab) {
+
+        VBox container = (VBox)((ScrollPane) _tab.getContent()).getContent();
+        for (int j = 0; j < container.getChildren().size(); j++) {
+            VBox entry = (VBox) container.getChildren().get(j);
+            CheckBox checkBox = (CheckBox) entry.getChildren().get(0);
+            checkBox.setSelected(_option);
+        }
     }
 
     public void drawGrid() {
@@ -320,7 +432,6 @@ public class CoursesController implements Initializable {
                 region.setStyle(("-fx-border-color: black; -fx-border-width: .5;"));
                 grid[i][j] = region;
                 scheduleGridPane.add(region, j, i);
-
             }
         }
     }
@@ -361,12 +472,12 @@ public class CoursesController implements Initializable {
             rect.heightProperty().bind(region.heightProperty().subtract(2).multiply(_section.getDurationHours()));
             rect.widthProperty().bind(region.widthProperty().subtract(2));
             entries.add(entryContainer);
-
         }
     }
 
     /**
      * Returns a list of meeting days for particular section.
+     *
      * @param _section
      * @return
      */
@@ -439,12 +550,20 @@ public class CoursesController implements Initializable {
     public void loadSchedule(Schedule _schedule) {
         clearScheduleGrid();
         int numberOfCampusCourses = 0;
+        int onlineCourses = 0;
+        StringBuilder label = new StringBuilder("Online Classes: ");
         for (Section section : _schedule.getAddedSections()) {
             if (!section.isOnline()) {
                 addEntry(section, ++numberOfCampusCourses);
             }
+            else {
+                if (onlineCourses >= 1) label.append(" | ");
+                label.append(section.getID());
+                onlineCourses++;
+            }
         }
         scheduleLabel.setText(this.currentScheduleIndex + 1 + "/" + this.currentSemester.getNumberOfSchedules());
+        onlineClassesLabel.setText(label.toString());
     }
 
     public void loadNextSchedule(ActionEvent _event) {
