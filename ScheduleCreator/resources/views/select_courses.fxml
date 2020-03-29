@@ -40,8 +40,8 @@
                   <ComboBox fx:id="semesterComboBox" onAction="#switchSemester" prefHeight="26.0" prefWidth="138.0" promptText="Choose Semester" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" />
                   <ListView fx:id="selectedCoursesListView" maxHeight="1.7976931348623157E308" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.columnSpan="2" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
-                  <Button onAction="#selectAll" mnemonicParsing="false" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
-                  <Button fx:id="sectionsButton" onAction="#setSections" mnemonicParsing="false" prefHeight="43.0" prefWidth="248.0" text="Submit" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <Button mnemonicParsing="false" onAction="#selectAll" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <Button fx:id="sectionsButton" mnemonicParsing="false" onAction="#setSections" prefHeight="43.0" prefWidth="248.0" text="Submit" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
                   <ListView fx:id="availableCourses" prefHeight="184.0" prefWidth="271.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                   <Button mnemonicParsing="false" onAction="#addSelectedCourse" prefHeight="26.0" prefWidth="703.0" text="Add Course" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                   <TabPane fx:id="sectionTabPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowIndex="6">
@@ -91,6 +91,15 @@
                         <Label text="7:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="TOP" />
                         <Label text="8:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="TOP" />
                         <Label text="9:00 PM" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="TOP" />
+                        <StackPane fx:id="CRNPane" style="-fx-border-color: black; -fx-background-color: white;" visible="false" GridPane.columnIndex="2" GridPane.columnSpan="3" GridPane.rowIndex="6" GridPane.rowSpan="4">
+                           <children>
+                              <ToolBar layoutX="4.0" layoutY="-3.0" prefHeight="35.0" prefWidth="314.0" StackPane.alignment="TOP_LEFT">
+                                <items>
+                                  <Button mnemonicParsing="false" onAction="#hideCRNs" text="Close" />
+                                </items>
+                              </ToolBar>
+                           </children>
+                        </StackPane>
                      </children>
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -154,7 +163,7 @@
                         <RowConstraints maxHeight="27.33331298828125" minHeight="10.0" prefHeight="27.33331298828125" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
-                  <Button mnemonicParsing="false" text="Show CRNs" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#showCRNs" text="Show CRNs" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

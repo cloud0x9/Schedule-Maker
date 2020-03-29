@@ -36,6 +36,7 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -70,6 +71,7 @@ public class CoursesController implements Initializable {
     protected Label scheduleLabel, onlineClassesLabel;
     @FXML
     protected TabPane sectionTabPane;
+    @FXML protected Pane CRNPane;
 
     // List of courses for current semester.
     FilteredList<String> courseList;
@@ -93,6 +95,7 @@ public class CoursesController implements Initializable {
             NUM_COLS = scheduleGridPane.getColumnConstraints().size();
             grid = new BorderPane[NUM_ROWS][NUM_COLS];
             this.drawGrid();
+            this.CRNPane.toFront();
         } catch (IOException ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -434,6 +437,15 @@ public class CoursesController implements Initializable {
                 scheduleGridPane.add(region, j, i);
             }
         }
+    }
+
+    public void showCRNs(ActionEvent _event) {
+        this.CRNPane.setVisible(true);
+        this.scheduleGridPane.toBack();
+    }
+    
+    public void hideCRNs(ActionEvent _event) {
+        this.CRNPane.setVisible(false);
     }
 
     public void addSection(ActionEvent _event) {
