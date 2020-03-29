@@ -71,7 +71,7 @@ public class CoursesController implements Initializable {
     protected Label scheduleLabel, onlineClassesLabel;
     @FXML
     protected TabPane sectionTabPane;
-    @FXML protected Pane CRNPane;
+    @FXML protected VBox CRNContainer, CRNPane;
 
     // List of courses for current semester.
     FilteredList<String> courseList;
@@ -440,22 +440,18 @@ public class CoursesController implements Initializable {
     }
 
     public void showCRNs(ActionEvent _event) {
+        this.CRNContainer.getChildren().clear();
+        for (Section section : this.currentSemester.getSchedules().get(this.currentScheduleIndex).getAddedSections()) {
+            this.CRNContainer.getChildren().add(new Label(section.getCRN()));
+        }
+        
         this.CRNPane.setVisible(true);
         this.scheduleGridPane.toBack();
-    }
-    
-    public void hideCRNs(ActionEvent _event) {
-        this.CRNPane.setVisible(false);
+        this.CRNPane.toFront();
     }
 
-    public void addSection(ActionEvent _event) {
-//        if (this.focusedCourse != null) {
-//            int secIndex = this.sectionListView.getSelectionModel().getSelectedIndex();
-//            Section focusedSection = this.focusedCourse.getSections().get(secIndex);
-//            this.currentSemester.addSelectedSection(focusedCourse, focusedSection);
-//            this.currentSemester.generateSchedules();
-//            loadSchedule(this.currentSemester.getSchedules().get(0));
-//        }
+    public void hideCRNs() {
+        this.CRNPane.setVisible(false);
     }
 
     public void addEntry(Section _section, int _numberOfCampusCourses) {
@@ -560,6 +556,7 @@ public class CoursesController implements Initializable {
     }
 
     public void loadSchedule(Schedule _schedule) {
+        this.hideCRNs();
         clearScheduleGrid();
         int numberOfCampusCourses = 0;
         int onlineCourses = 0;
@@ -579,7 +576,6 @@ public class CoursesController implements Initializable {
     }
 
     public void loadNextSchedule(ActionEvent _event) {
-
         if (this.currentSemester != null) {
             if (this.currentScheduleIndex < this.currentSemester.getSchedules().size() - 1) {
                 this.currentScheduleIndex++;
@@ -589,7 +585,6 @@ public class CoursesController implements Initializable {
     }
 
     public void loadPrevSchedule(ActionEvent _event) {
-
         if (this.currentScheduleIndex > 0) {
             this.currentScheduleIndex--;
             loadSchedule(this.currentSemester.getSchedules().get(this.currentScheduleIndex));
