@@ -1,25 +1,36 @@
 package ScheduleCreator;
 
+/**
+ * Test class
+ *
+ * @author Nick Econopouly, Ilyass Sfar
+ *
+ * Last Updated: 3/27/2020
+ */
+import ScheduleCreator.API.ApiAdapter;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author wrycode
- */
 public class Tests {
 
     public static void main(String[] args) throws IOException {
 
+        //regen databse
         Admin.regenDB();
+
+        //test api call
+        //ApiAdapter testAPI = new ApiAdapter();
+        //System.out.println("API returned "+testAPI.decisionForce(""));
+        //
         // TODO: add courselist regex;
         // fix regenDB() so that it doesn't rely on classpath resources (so tests always work the first time)
         // getSections()
         // regenerate the database
+        //
         // test how DBAdapter works with current semesters
-        //      testSemester();
+        //testSemester();
     }
 
     public static void testSemester() throws IOException {

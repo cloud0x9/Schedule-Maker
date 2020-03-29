@@ -139,11 +139,11 @@ public class Translator {
             // this still needs to be finished, we need to account for different times on different days
             case TIME:
                 regex = "(?<=([ ]\\b[A-Z]{3}\\b.\\b[0-9]{3}\\b.+ [0-9]{2}\\b)).+?(?=\\b((TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(	 	TBA\\b))))";
-                dataFileType = "times_and_dates";
+                //dataFileType = "times_and_dates";
                 break;
             case DAY:
                 regex = "\\b([	](TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA\\b)))\\b";
-                dataFileType = "times_and_dates";
+                //dataFileType = "times_and_dates";
                 break;
             case BUILDING:
                 regex = "(?<=\\b([	](TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA\\b)))\\b).*(?=\\=)";
