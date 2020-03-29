@@ -98,12 +98,7 @@
                                   <Button mnemonicParsing="false" onAction="#hideCRNs" text="Close" />
                                 </items>
                               </ToolBar>
-                              <VBox fx:id="CRNContainer" alignment="CENTER" prefHeight="83.0" prefWidth="340.0">
-                                 <children>
-                                    <Label alignment="CENTER" text="First" />
-                                    <Label text="First" />
-                                 </children>
-                              </VBox>
+                              <VBox fx:id="CRNContainer" alignment="CENTER" prefHeight="168.0" prefWidth="321.0" />
                            </children>
                         </VBox>
                      </children>
@@ -124,8 +119,8 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="34.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />

@@ -33,10 +33,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -47,7 +47,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 3/28/2020
+ * Last Updated: 3/29/2020
  */
 public class CoursesController implements Initializable {
 
@@ -441,12 +441,14 @@ public class CoursesController implements Initializable {
 
     public void showCRNs(ActionEvent _event) {
         this.CRNContainer.getChildren().clear();
+        StringBuilder content = new StringBuilder();
         for (Section section : this.currentSemester.getSchedules().get(this.currentScheduleIndex).getAddedSections()) {
-            this.CRNContainer.getChildren().add(new Label(section.getCRN()));
+            content.append(section.getCRN() + "\n");
         }
-        
+        TextArea textArea = new TextArea(content.toString());
+        textArea.setEditable(false);
+        this.CRNContainer.getChildren().add(textArea);
         this.CRNPane.setVisible(true);
-        this.scheduleGridPane.toBack();
         this.CRNPane.toFront();
     }
 
