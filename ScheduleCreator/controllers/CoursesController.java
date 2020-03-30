@@ -468,7 +468,7 @@ public class CoursesController implements Initializable {
         this.CRNContainer.getChildren().clear();
         StringBuilder content = new StringBuilder();
         for (Section section : this.currentSemester.getSchedules().get(this.currentScheduleIndex).getAddedSections()) {
-            content.append(section.getCRN() + "\n");
+            content.append(section.getID() + " - " + section.getCRN() + "\n");
         }
         TextArea textArea = new TextArea(content.toString());
         textArea.setEditable(false);
