@@ -215,6 +215,19 @@ public class CoursesController implements Initializable {
         }
     }
 
+    public void removeAllCourses(ActionEvent _event) {
+        List<String> courses = this.currentSemester.getSelectedCourseStrings();
+
+        for(String course: courses){
+                this.currentSemester.removeCourse(course);
+        }
+
+        this.currentSemester.generateSchedules();
+        this.regenerateSchedules();
+        this.loadSelectedCourses();
+    }
+
+
     /**
      * Generates all possible schedules consisting of selected sections.
      */
