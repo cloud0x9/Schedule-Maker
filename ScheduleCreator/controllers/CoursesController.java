@@ -1,10 +1,5 @@
 package ScheduleCreator.controllers;
 
-import ScheduleCreator.Translator;
-import ScheduleCreator.models.Course;
-import ScheduleCreator.models.Schedule;
-import ScheduleCreator.models.Section;
-import ScheduleCreator.models.Semester;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -14,6 +9,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import ScheduleCreator.Translator;
+import ScheduleCreator.models.Course;
+import ScheduleCreator.models.Schedule;
+import ScheduleCreator.models.Section;
+import ScheduleCreator.models.Semester;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -35,6 +35,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -47,7 +48,7 @@ import javafx.scene.shape.Rectangle;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 3/29/2020
+ *         Last Updated: 3/29/2020
  */
 public class CoursesController implements Initializable {
 
@@ -71,7 +72,8 @@ public class CoursesController implements Initializable {
     protected Label scheduleLabel, onlineClassesLabel;
     @FXML
     protected TabPane sectionTabPane;
-    @FXML protected VBox CRNContainer, CRNPane;
+    @FXML
+    protected VBox CRNContainer, CRNPane;
 
     // List of courses for current semester.
     FilteredList<String> courseList;
@@ -131,7 +133,7 @@ public class CoursesController implements Initializable {
             tab = this.sectionTabPane.getTabs().get(i);
             course = this.currentSemester.getSelectedCourses().get(i);
             List<Section> selected = new ArrayList();
-            VBox container = (VBox)((ScrollPane) tab.getContent()).getContent();
+            VBox container = (VBox) ((ScrollPane) tab.getContent()).getContent();
             for (int j = 0; j < container.getChildren().size(); j++) {
                 VBox entry = (VBox) container.getChildren().get(j);
                 CheckBox checkBox = (CheckBox) entry.getChildren().get(0);
@@ -156,9 +158,9 @@ public class CoursesController implements Initializable {
 
         this.loadAllCourses();
         this.loadSelectedCourses();
-        //loadSelectedSections();
+        // loadSelectedSections();
 
-        //Renders the first generated schedule if there is at least 1 selected course.
+        // Renders the first generated schedule if there is at least 1 selected course.
         if (this.currentSemester.getSelectedCourses().size() > 0) {
             this.loadSchedule(this.currentSemester.getSchedules().get(0));
         }
@@ -194,8 +196,7 @@ public class CoursesController implements Initializable {
      *
      * @param _event
      */
-    // TODO: connect "delete" while in the selectedCourses ListView to this method and
-    // allow for selecting and deleting multiple courses
+    // TODO: connect "delete" while in the selectedCourses ListView to this method
     public void removeSelectedCourse(ActionEvent _event) {
 
         if (this.selectedCoursesListView.getSelectionModel().getSelectedItem() != null) {
@@ -215,18 +216,20 @@ public class CoursesController implements Initializable {
         }
     }
 
+    /*
+     * Remove all selected courses from the ListView (and reload the UI)
+     */
     public void removeAllCourses(ActionEvent _event) {
         List<String> courses = this.currentSemester.getSelectedCourseStrings();
 
-        for(String course: courses){
-                this.currentSemester.removeCourse(course);
+        for (String course : courses) {
+            this.currentSemester.removeCourse(course);
         }
 
         this.currentSemester.generateSchedules();
         this.regenerateSchedules();
         this.loadSelectedCourses();
     }
-
 
     /**
      * Generates all possible schedules consisting of selected sections.
@@ -244,21 +247,20 @@ public class CoursesController implements Initializable {
     }
 
     /**
-     * Gets sections for a selected course and adds them to the sections
-     * listview.
+     * Gets sections for a selected course and adds them to the sections listview.
      *
      * @param _event
      */
     public void loadCourseSections(ActionEvent _event) {
 
-        //Do nothing if no course has been selected.
+        // Do nothing if no course has been selected.
         if (this.selectedCoursesListView.getSelectionModel().getSelectedItem() == null) {
             return;
         }
 
         String currentSelection = this.selectedCoursesListView.getSelectionModel().getSelectedItem().toString();
 
-        //Get the corresponding course to reference for sections
+        // Get the corresponding course to reference for sections
         for (Course course : this.currentSemester.getSelectedCourses()) {
             if (course.getFullText().equals(currentSelection)) {
 
@@ -277,6 +279,10 @@ public class CoursesController implements Initializable {
 
     }
 
+    /*
+     * Load list of courses into the availableCourses ListBox and connect a few
+     * things
+     */
     public void loadAllCourses() {
 
         // intermediary ObservableList of the courses
@@ -288,35 +294,35 @@ public class CoursesController implements Initializable {
         // connect availableCourses ListView to the courseList
         this.availableCourses.setItems(this.courseList);
 
-        // TODO: make up and down arrow on the keyboard scroll the search results
-        /*      searchField.setOnKeyPressed(new javafx.event.EventHandler<KeyEvent>() {
-                public void handle(KeyEvent event) {
-                    int i = 0;
-                    switch (event.getCode()) {
-                        case UP:
-                            i = 1;
-                            break;
-                        case DOWN:
-                            i = -1;
-                            break;
-                    }
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    availableCourses.getFocusModel().focus(availableCourses.getSelectionModel().getSelectedIndex() + 1);
+        // make up or down arrow on the keyboard begin to scroll the search results
+        searchField.setOnKeyReleased(new javafx.event.EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch (event.getCode()) {
+                    case UP:
+                    case DOWN:
+                        availableCourses.requestFocus();
+                    default:
+                        break;
                 }
-                });
-                }
-                });
-         */
-        // Connect search bar filtering to the courseList FilteredList (this uses lambdas, it's adapted from
+            }
+        });
+
+        // Connect search bar filtering to the courseList FilteredList (this uses
+        // lambdas, it's adapted from
         // https://stackoverflow.com/questions/28448851/how-to-use-javafx-filteredlist-in-a-listview
-        // and https://stackoverflow.com/questions/45045631/filter-items-within-listview-in-javafx )
+        // and
+        // https://stackoverflow.com/questions/45045631/filter-items-within-listview-in-javafx
+        // )
         searchField.textProperty().addListener(obs -> {
 
-            // select the top entry whenever the search term changes, but use Platform.runLater()
-            // so that JavaFX doesn't try to update the selection while it's still building the ListView.
-            // See https://stackoverflow.com/questions/11088612/javafx-select-item-in-listview for some context
+            // select the top entry whenever the search term changes, but use
+            // Platform.runLater()
+            // so that JavaFX doesn't try to update the selection while it's still building
+            // the ListView.
+            // See
+            // https://stackoverflow.com/questions/11088612/javafx-select-item-in-listview
+            // for some context
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
@@ -351,7 +357,8 @@ public class CoursesController implements Initializable {
             m = p.matcher(semester);
 
             if (m.matches()) {
-                formattedSemester = m.group(1).substring(0, 1).toUpperCase() + m.group(1).substring(1) + " " + m.group(2);
+                formattedSemester = m.group(1).substring(0, 1).toUpperCase() + m.group(1).substring(1) + " "
+                        + m.group(2);
             }
             newList.add(formattedSemester);
         }
@@ -361,7 +368,8 @@ public class CoursesController implements Initializable {
 
     public void loadSelectedCourses() {
         this.sectionTabPane.getTabs().clear();
-        this.selectedCoursesListView.setItems(FXCollections.observableList(this.currentSemester.getSelectedCourseStrings()));
+        this.selectedCoursesListView
+                .setItems(FXCollections.observableList(this.currentSemester.getSelectedCourseStrings()));
 
         for (Course course : this.currentSemester.getSelectedCourses()) {
             this.createNewTab(course);
@@ -372,6 +380,7 @@ public class CoursesController implements Initializable {
 
     /**
      * Creates new tab that display associated course sections.
+     *
      * @param _course
      */
     public void createNewTab(Course _course) {
@@ -399,18 +408,21 @@ public class CoursesController implements Initializable {
     }
 
     /**
-     * If there are no selections, force select all;
-     * if there are any selections, unselect all of them.
+     * If there are no selections, force select all; if there are any selections,
+     * unselect all of them.
      *
      * @param _event
      */
     public void selectAll(ActionEvent _event) {
-        if (this.sectionTabPane.getSelectionModel().getSelectedItem() == null) return;
+        if (this.sectionTabPane.getSelectionModel().getSelectedItem() == null)
+            return;
         int index = this.sectionTabPane.getSelectionModel().getSelectedIndex();
         Tab currentTab = this.sectionTabPane.getTabs().get(index);
 
-        if (this.allUnselected(currentTab)) setSelectAll(true, currentTab);
-        else setSelectAll(false, currentTab);
+        if (this.allUnselected(currentTab))
+            setSelectAll(true, currentTab);
+        else
+            setSelectAll(false, currentTab);
     }
 
     /**
@@ -419,7 +431,7 @@ public class CoursesController implements Initializable {
      */
     public boolean allUnselected(Tab _tab) {
 
-        VBox container = (VBox)((ScrollPane) _tab.getContent()).getContent();
+        VBox container = (VBox) ((ScrollPane) _tab.getContent()).getContent();
         for (int j = 0; j < container.getChildren().size(); j++) {
             VBox entry = (VBox) container.getChildren().get(j);
             CheckBox checkBox = (CheckBox) entry.getChildren().get(0);
@@ -432,7 +444,7 @@ public class CoursesController implements Initializable {
 
     public void setSelectAll(boolean _option, Tab _tab) {
 
-        VBox container = (VBox)((ScrollPane) _tab.getContent()).getContent();
+        VBox container = (VBox) ((ScrollPane) _tab.getContent()).getContent();
         for (int j = 0; j < container.getChildren().size(); j++) {
             VBox entry = (VBox) container.getChildren().get(j);
             CheckBox checkBox = (CheckBox) entry.getChildren().get(0);
@@ -478,11 +490,13 @@ public class CoursesController implements Initializable {
         for (Integer col : getDays(_section)) {
             Label label = new Label(_section.getCourseID() + " - " + _section.getSectionNumber());
             BorderPane entryContainer = new BorderPane();
-            entryContainer.paddingProperty().set(new Insets(grid[row][col].heightProperty().multiply(topMargin).doubleValue(), 0, 0, 0));
+            entryContainer.paddingProperty()
+                    .set(new Insets(grid[row][col].heightProperty().multiply(topMargin).doubleValue(), 0, 0, 0));
             StackPane pane = new StackPane();
 
             Rectangle rect = new Rectangle();
-            rect.setStyle("-fx-fill:" + color + "; -fx-stroke: black; -fx-stroke-line-cap: round; -fx-arc-height: 10; -fx-arc-width: 10;");
+            rect.setStyle("-fx-fill:" + color
+                    + "; -fx-stroke: black; -fx-stroke-line-cap: round; -fx-arc-height: 10; -fx-arc-width: 10;");
             label.setAlignment(Pos.CENTER);
 
             pane.setStyle("");
@@ -540,23 +554,23 @@ public class CoursesController implements Initializable {
         String color = "";
         switch (_numberOfCampusCourses) {
             case 1:
-                //green
+                // green
                 color = "#ccffcc";
                 break;
             case 2:
-                //blue
+                // blue
                 color = "#b3e1ff";
                 break;
             case 3:
-                //red
+                // red
                 color = "#ffb3b3 ";
                 break;
             case 4:
-                //yellow
+                // yellow
                 color = "#e6e600";
                 break;
             case 5:
-                //orange
+                // orange
                 color = "#ffda75";
                 break;
             case 6:
@@ -579,9 +593,9 @@ public class CoursesController implements Initializable {
         for (Section section : _schedule.getAddedSections()) {
             if (!section.isOnline()) {
                 addEntry(section, ++numberOfCampusCourses);
-            }
-            else {
-                if (onlineCourses >= 1) label.append(" | ");
+            } else {
+                if (onlineCourses >= 1)
+                    label.append(" | ");
                 label.append(section.getID());
                 onlineCourses++;
             }
