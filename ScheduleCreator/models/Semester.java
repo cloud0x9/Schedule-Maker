@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author Nick Econopouly, Jamison Valentine
  *
- * Last Updated: 3/28/2020
+ * Last Updated: 3/31/2020
  */
 public class Semester {
 
@@ -18,7 +18,6 @@ public class Semester {
     protected final List<String> allCourses;
     protected List<Schedule> schedules;
     protected LinkedHashMap<Course, List<Section>> selectedSections;
-
 
     public Semester(String _name) {
         this.name = _name;
@@ -31,19 +30,20 @@ public class Semester {
 
     public void addSelectedSection(Course _course, Section _section) {
         List<Section> list = new ArrayList();
+
+        //If the selected Course is not the the Map, add it.
         if (this.selectedSections.get(_course) == null) {
             list.add(_section);
             this.selectedSections.put(_course, list);
-        } else {
+        }
+        else {
+
+            //Checks to see if this section is already selected.
             List<Section> sectionList = this.selectedSections.get(_course);
             if (!sectionList.contains(_section)) {
                 sectionList.add(_section);
             }
         }
-    }
-
-    public LinkedHashMap<Course, List<Section>> getSelectedSections() {
-        return this.selectedSections;
     }
 
     public Boolean addCourse(Course _course) {
@@ -55,11 +55,7 @@ public class Semester {
         return false;
     }
 
-    public List<Schedule> getSchedules() {
-        return this.schedules;
-    }
-
-    public void generateSchedules() {
+    public final void generateSchedules() {
         List<Schedule> list = generateSchedules(new ArrayList(this.selectedSections.keySet()));
         this.schedules = list;
     }
@@ -89,7 +85,9 @@ public class Semester {
                 newSchedule.addSection(section);
                 validSchedules.add(newSchedule);
             }
-        } //If there is more than one course in the list
+        }
+
+        //If there is more than one course in the list
         else {
 
             //Remove the current course from the remaining list
@@ -104,7 +102,6 @@ public class Semester {
                 }
             }
         }
-
         return validSchedules;
     }
 
@@ -127,7 +124,6 @@ public class Semester {
                 break;
             }
         }
-
         Translator.removeCourse(_course, this.name);
     }
 
@@ -156,5 +152,13 @@ public class Semester {
 
     public List<String> getSelectedCourseStrings() {
         return Translator.getSelectedCourses(this.name);
+    }
+
+    public List<Schedule> getSchedules() {
+        return this.schedules;
+    }
+
+    public LinkedHashMap<Course, List<Section>> getSelectedSections() {
+        return this.selectedSections;
     }
 }

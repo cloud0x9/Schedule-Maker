@@ -8,18 +8,23 @@ import java.util.List;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/28/2020
+ * Last Updated: 3/31/2020
  */
 public class Schedule {
 
     protected List<Section> addedSections;
     protected String totalCredits;
-    //getCRNS
 
     public Schedule() {
-        addedSections = new ArrayList();
+        this.addedSections = new ArrayList();
     }
 
+    /**
+     * Checks to see if this _newSection can be added to the schedule
+     * without incident
+     * @param _newSection
+     * @return
+     */
     public Boolean addSection(Section _newSection) {
         if (this.addedSections.size() > 0 && !_newSection.isOnline) {
 
@@ -55,7 +60,7 @@ public class Schedule {
     @Override
         public String toString() {
         StringBuilder string = new StringBuilder();
-        for (Section section : addedSections) {
+        for (Section section : this.addedSections) {
             string.append("(" + section.getCourseID() + " - " + section.getSectionNumber() + ")\n");
         }
         return string.toString();

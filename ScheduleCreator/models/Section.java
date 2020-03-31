@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author Jamison Valentine
  *
- * Last Updated: 3/27/2020
+ * Last Updated: 3/31/2020
  */
 public class Section {
 
@@ -32,7 +32,7 @@ public class Section {
         this.sectionNumber = _sectionNumber;
         this.id = _courseID + "-" + _sectionNumber;
         this.isOnline = _isOnline;
-        setTimes();
+        this.setTimes();
     }
 
 
@@ -42,7 +42,6 @@ public class Section {
     }
 
     public double getDurationHours() {
-
         double difference = this.endTime - this.startTime;
         double hours = (int) (difference / 100);
         double minutes = difference % 100;
@@ -55,7 +54,7 @@ public class Section {
     }
 
     public String getDaysAndTimes() {
-        return daysAndTimes;
+        return this.daysAndTimes;
     }
 
     public String getDays() {
@@ -103,7 +102,7 @@ public class Section {
     }
 
 //========================= SETTERS =============================
-    public void setTimes() {
+    private void setTimes() {
 
         if (this.isOnline) {
             this.days = "";
