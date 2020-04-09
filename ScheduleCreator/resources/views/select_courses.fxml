@@ -128,7 +128,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <center>
-                              <Button mnemonicParsing="false" onAction="#loadPrevSchedule" text="Previous" BorderPane.alignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#loadPrevSchedule" prefHeight="27.0" prefWidth="107.0" text="Previous" translateX="20.0" BorderPane.alignment="CENTER" />
                            </center>
                            <padding>
                               <Insets left="100.0" />
@@ -136,7 +136,7 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <center>
-                              <Button mnemonicParsing="false" onAction="#loadNextSchedule" text="  Next  " BorderPane.alignment="CENTER">
+                              <Button mnemonicParsing="false" onAction="#loadNextSchedule" prefHeight="27.0" prefWidth="105.0" text="  Next  " translateX="20.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
                                     <Insets right="100.0" />
                                  </BorderPane.margin>
@@ -145,7 +145,7 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <center>
-                              <Label fx:id="scheduleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="##" BorderPane.alignment="CENTER" />
+                              <Label fx:id="scheduleLabel" alignment="CENTER" maxWidth="1.7976931348623157E308" text="##" translateX="10.0" BorderPane.alignment="CENTER" />
                            </center>
                         </BorderPane>
                         <Label fx:id="onlineClassesLabel" text="Online Classes: #" textFill="#da0e0e" GridPane.columnIndex="1" GridPane.columnSpan="2" />
@@ -160,8 +160,9 @@
                         <RowConstraints maxHeight="27.33331298828125" minHeight="10.0" prefHeight="27.33331298828125" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
-                  <Button mnemonicParsing="false" onAction="#showCRNs" text="Show CRNs" translateX="-50.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#popupAction" prefHeight="27.0" prefWidth="97.0" text="Email CRNs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#showCRNs" prefHeight="27.0" prefWidth="107.0" text="Show CRNs" translateX="-110.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#popupAction" prefHeight="27.0" prefWidth="104.0" text="Email CRNs" translateX="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#changeToRegistrationScreen" prefHeight="27.0" prefWidth="106.0" text="Registration" translateX="290.0" GridPane.rowIndex="2" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
