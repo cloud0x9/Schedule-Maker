@@ -16,22 +16,26 @@ public class Section {
     protected final String location;
     protected final String instructor;
     protected final String daysAndTimes;
+    protected final String secondDaysAndTimes;
     protected String days;
     protected double startTime;
     protected double endTime;
     protected final String CRN;
     protected final String sectionNumber;
     protected final Boolean isOnline;
+    protected final Boolean hasTwoTimes;
 
-    public Section(String _courseID, String _sectionNumber, String _daysAndTimes, String _location, String _instructor, String _CRN, Boolean _isOnline) {
+    public Section(String _courseID, String _sectionNumber, String _daysAndTimes,String _secondDaysAndTimes, String _location, String _instructor, String _CRN, Boolean _isOnline, Boolean _twoTimes) {
         this.courseID = _courseID;
         this.location = _location;
         this.instructor = _instructor;
         this.daysAndTimes = _daysAndTimes;
+        this.secondDaysAndTimes = _secondDaysAndTimes;
         this.CRN = _CRN;
         this.sectionNumber = _sectionNumber;
         this.id = _courseID + "-" + _sectionNumber;
         this.isOnline = _isOnline;
+        this.hasTwoTimes = _twoTimes;
         this.setTimes();
     }
 
@@ -93,10 +97,12 @@ public class Section {
     public String toString() {
         String string = "";
 
-        if (!this.isOnline) {
+        if (!this.isOnline && !this.hasTwoTimes) {
             string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.location + " | " + this.instructor + " | " + this.CRN;
-        } else {
+        } else if(this.isOnline){
             string = this.sectionNumber + " | Online | " + this.instructor + " | " + this.CRN;
+        }else if(this.hasTwoTimes){
+            string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.secondDaysAndTimes + " | " + this.location + " | " + this.instructor + " | " + this.CRN;
         }
         return string;
     }
