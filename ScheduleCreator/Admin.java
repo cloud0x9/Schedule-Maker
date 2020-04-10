@@ -124,7 +124,7 @@ public class Admin {
 
         //Puts every class on a line of its own with time and day following.
         //Break to a new line where needed.
-        String pass1 = output.replaceAll("(\\(P\\))", "\n");
+        String pass1 = output.replaceAll("\\(P\\)	(((?:(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b).-.(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b))([\\t](TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b))|\\(P\\)", "$2 $4\n");
         //same as above (new lines where needed) but another pass to handle some special cases that aren't handled by the previous regex
         String pass2 = pass1.replaceAll("((?=(\\tLecture|\\tLab|\\tIndividual Study|\\tSeminar|\\tClinical|Colloquia|\\tDissertation or Thesis|\\tEnsemble|\\tInternship, Field Exp, Coop Ed|\\tLecture and lab|\\tPerformance|\\tPhysical Activity|\\tPracticum - Dlvrd Ind Setting|\\tPracticum - Dlvrd Org Course|\\tRecitations|\\tStudent Teaching|\\tStudio|\\tLecture and Lab|\\tDissertation or Thesis)).*?TBA)", "$1\n");
 
