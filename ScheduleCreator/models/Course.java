@@ -3,9 +3,9 @@ package ScheduleCreator.models;
 /**
  * This class stores various course information.
  *
- * @author Jamison Valentine
+ * @author Jamison Valentine, Ilyass sfar
  *
- * Last Updated: 3/27/2020
+ * Last Updated: 4/11/2020
  */
 import ScheduleCreator.Adapter;
 import java.util.ArrayList;

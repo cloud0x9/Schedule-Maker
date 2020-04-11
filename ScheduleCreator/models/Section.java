@@ -5,9 +5,9 @@ import java.util.Scanner;
 /**
  * This class models information for course sections.
  *
- * @author Jamison Valentine
+ * @author Jamison Valentine, Ilyass sfar
  *
- * Last Updated: 3/31/2020
+ * Last Updated: 4/11/2020
  */
 public class Section {
 
