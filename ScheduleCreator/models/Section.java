@@ -25,7 +25,7 @@ public class Section {
     protected final Boolean isOnline;
     protected final Boolean hasTwoTimes;
 
-    public Section(String _courseID, String _sectionNumber, String _daysAndTimes,String _secondDaysAndTimes, String _location, String _instructor, String _CRN, Boolean _isOnline, Boolean _twoTimes) {
+    public Section(String _courseID, String _sectionNumber, String _daysAndTimes, String _secondDaysAndTimes, String _location, String _instructor, String _CRN, Boolean _isOnline, Boolean _twoTimes) {
         this.courseID = _courseID;
         this.location = _location;
         this.instructor = _instructor;
@@ -38,7 +38,6 @@ public class Section {
         this.hasTwoTimes = _twoTimes;
         this.setTimes();
     }
-
 
 //=================  GETTERS ===============
     public String getID() {
@@ -99,9 +98,9 @@ public class Section {
 
         if (!this.isOnline && !this.hasTwoTimes) {
             string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.location + " | " + this.instructor + " | " + this.CRN;
-        } else if(this.isOnline){
+        } else if (this.isOnline) {
             string = this.sectionNumber + " | Online | " + this.instructor + " | " + this.CRN;
-        }else if(this.hasTwoTimes){
+        } else if (this.hasTwoTimes) {
             string = this.sectionNumber + " | " + this.daysAndTimes + " | " + this.secondDaysAndTimes + " | " + this.location + " | " + this.instructor + " | " + this.CRN;
         }
         return string;

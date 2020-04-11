@@ -56,7 +56,7 @@ public class Admin {
         String[] pathnames = rawDir.list();
 
         // 'pathnames.length - 1' so we don't count the raw directory itself
-        try ( FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
+        try (FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
             for (String pathname : pathnames) {
                 // add filename to list of semesters
                 outputFile.append(pathname);
@@ -118,20 +118,20 @@ public class Admin {
 
     protected static void generateAllInfo(String _inputFilepath, String _outputFilepath) throws IOException {
         // initial regex
-        String regex = "(.+?(?= - (?:[0-9]{5}))[ ])|([ ][0-9]{5}[ ])|([ ]\\b[A-Z]{3}\\b.\\b[0-9]{3}\\b.+ [0-9]{2}\\b)|([\\t](?:(?:(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\\\b).-.(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b))|(\\b([\\t](TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA.*TBA\\b)))\\b)|(\\t.*([0-9]{3}))(?=\\t[A-z]{3} [0-9]{2})|((?=(\\tLecture|\\tLab|\\tIndividual Study|\\tSeminar|\\tClinical|Colloquia|\\tDissertation or Thesis|\\tEnsemble|\\tInternship, Field Exp, Coop Ed|\\tLecture and lab|\\tPerformance|\\tPhysical Activity|\\tPracticum - Dlvrd Ind Setting|\\tPracticum - Dlvrd Org Course|\\tRecitations|\\tStudent Teaching|\\tStudio|\\tLecture and Lab|\\tDissertation or Thesis)).+?(?<=(((\\(P\\)E-mail)|(\\(P\\))|(TBA)))))";
+        String regex = "(.+?(?= - (?:[0-9]{5}))[ ])|([ ][0-9]{5}[ ])|([ ]\\b[A-Z]{3}\\b.\\b[0-9]{3}\\b.+ [0-9]{2}\\b)|([\\t](?:(?:(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b).-.(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b))|(\\b([\\t](TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b|(TBA.*TBA\\b)))\\b)|(\\t.*([0-9]{3}))(?=\\t[A-z]{3} [0-9]{2})|((?=(\\tLecture|\\tLab|\\tIndividual Study|\\tSeminar|\\tClinical|Colloquia|\\tDissertation or Thesis|\\tEnsemble|\\tInternship, Field Exp, Coop Ed|\\tLecture and lab|\\tPerformance|\\tPhysical Activity|\\tPracticum - Dlvrd Ind Setting|\\tPracticum - Dlvrd Org Course|\\tRecitations|\\tStudent Teaching|\\tStudio|\\tLecture and Lab|\\tDissertation or Thesis)).*?(?<=(((\\(P\\)E-mail)|(\\(P\\))|(TBA)))))";
 
         String output = Admin.runRegexOnFile(regex, _inputFilepath);
 
         //Puts every class on a line of its own with time and day following.
         //Break to a new line where needed.
-        String pass1 = output.replaceAll("\\(P\\)	(((?:(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b).-.(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b))([\\t](TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b))|\\(P\\)", "$2 $4\n");
+        String pass1 = output.replaceAll("\\(P\\)	((?:(?:(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b).-.(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9].(?:[AaPp][Mm])\\b))([\\t](?:TR\\b|MW\\b|MWF\\b|M\\b|T\\b|W\\b|R\\b|F\\b))|\\(P\\)", "$1 $2\n");
         //same as above (new lines where needed) but another pass to handle some special cases that aren't handled by the previous regex
-        String pass2 = pass1.replaceAll("((?=(\\tLecture|\\tLab|\\tIndividual Study|\\tSeminar|\\tClinical|Colloquia|\\tDissertation or Thesis|\\tEnsemble|\\tInternship, Field Exp, Coop Ed|\\tLecture and lab|\\tPerformance|\\tPhysical Activity|\\tPracticum - Dlvrd Ind Setting|\\tPracticum - Dlvrd Org Course|\\tRecitations|\\tStudent Teaching|\\tStudio|\\tLecture and Lab|\\tDissertation or Thesis)).*?TBA)", "$1\n");
+        String pass2 = pass1.replaceAll("((?=(\\tLecture and lab|\\tLecture|\\tLab|\\tIndividual Study|\\tSeminar|\\tClinical|Colloquia|\\tDissertation or Thesis|\\tEnsemble|\\tInternship, Field Exp, Coop Ed|\\tLecture and lab|\\tPerformance|\\tPhysical Activity|\\tPracticum - Dlvrd Ind Setting|\\tPracticum - Dlvrd Org Course|\\tRecitations|\\tStudent Teaching|\\tStudio|\\tLecture and Lab|\\tDissertation or Thesis)).*?TBA)", "$1\n");
 
         // Insert a equal sign inebtween the Building name and the instructor
         // This is done since a regex cant be made to stricly get a persons or building
         // name or since both lacks defined structure, so a = is used as a barrier
-        String finalOutput = pass2.replaceAll("(\tLecture|\tLab|\tIndividual Study|\tSeminar|\tClinical|Colloquia|\tDissertation or Thesis|\tEnsemble|\tInternship, Field Exp, Coop Ed|\tLecture and lab|\tPerformance|\tPhysical Activity|\tPracticum - Dlvrd Ind Setting|\\tPracticum - Dlvrd Org Course|\tRecitations|\tStudent Teaching|\tStudio|\tLecture and Lab|\tDissertation or Thesis)", " = ");
+        String finalOutput = pass2.replaceAll("(\\tLecture and lab|\tLecture|\tLab|\tIndividual Study|\tSeminar|\tClinical|Colloquia|\tDissertation or Thesis|\tEnsemble|\tInternship, Field Exp, Coop Ed|\tLecture and lab|\tPerformance|\tPhysical Activity|\tPracticum - Dlvrd Ind Setting|\\tPracticum - Dlvrd Org Course|\tRecitations|\tStudent Teaching|\tStudio|\tLecture and Lab|\tDissertation or Thesis)", " = ");
 
         // write the file
         Admin.writeNewFile(_outputFilepath, finalOutput);
@@ -161,7 +161,7 @@ public class Admin {
             }
         }
         File outputFile = new File(_outputFilepath);
-        try ( FileWriter output = new FileWriter(outputFile)) {
+        try (FileWriter output = new FileWriter(outputFile)) {
             for (String s : allCourses) {
                 output.append(s + '\n');
             }
