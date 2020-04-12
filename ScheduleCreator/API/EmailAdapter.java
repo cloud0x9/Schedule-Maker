@@ -27,5 +27,13 @@ public class EmailAdapter implements APIInterface {
     public void sendEmail(String _email, String _message) throws MailjetException, MailjetSocketTimeoutException {
         EmailAdapter.thisApi.sendEmail(_email, _message);
     }
+    
+    public static boolean validate(String emailStr) {
+        if(EmailAPI.validate(emailStr)){
+        return true;}
+        else{
+        return false;
+        }
+    }
 
 }

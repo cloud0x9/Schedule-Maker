@@ -8,11 +8,14 @@ package ScheduleCreator.controllers;
  * Last Updated: 4/6/2020
  */
 import ScheduleCreator.API.EmailAdapter;
+import ScheduleCreator.models.Section;
 import com.mailjet.client.errors.MailjetException;
 import com.mailjet.client.errors.MailjetSocketTimeoutException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -23,14 +26,33 @@ public class EmailPopupController {
 
     @FXML
     private Button sendBtn;
-    
-    //Calls email api 
+
+    //Calls email api
     @FXML
     public void sendEmail(ActionEvent event) throws MailjetException, MailjetSocketTimeoutException {
-        EmailAdapter testAPI = new EmailAdapter();
-        testAPI.sendEmail(emailTF.getText(), "This is a temp UI API test call");
-        Stage stage = (Stage) sendBtn.getScene().getWindow();
-        stage.close();
+        if (EmailAdapter.validate(emailTF.getText())) {
+            EmailAdapter testAPI = new EmailAdapter();
+            testAPI.sendEmail(emailTF.getText(), "This is a temp UI API test call");
+            Stage stage = (Stage) sendBtn.getScene().getWindow();
+            stage.close();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "The given email " + "\"" + emailTF.getText() + "\"" + " is NOT valid.", ButtonType.OK);
+            alert.showAndWait();
+        }
+    }
+
+    public static String getCRNS() {
+        //Check if the user has choosen any courses when pressing the email button, if not a error popup is shown notifying the user
+        if (CoursesController.currentSemester == null || CoursesController.currentSemester.getSelectedCourses().size() == 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "You have not selected a semseter or any courses", ButtonType.OK);
+            alert.showAndWait();
+        }
+        //If the user has selected some course then the crns for the coruses are rietrived.
+        StringBuilder content = new StringBuilder();
+        for (Section section : CoursesController.currentSemester.getSchedules().get(CoursesController.currentScheduleIndex).getAddedSections()) {
+            content.append(section.getID() + "-" + section.getSectionNumber() + " | " + section.getCRN() + "\n");
+        }
+        return content.toString();
     }
 
 }
