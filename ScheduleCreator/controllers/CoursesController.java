@@ -82,14 +82,14 @@ public class CoursesController implements Initializable {
     // List of courses for current semester.
     FilteredList<String> courseList;
 
-    protected Semester currentSemester;
+    protected static Semester currentSemester;
     protected Course focusedCourse;
     protected Course currentCourse;
     protected Adapter adapter = new Adapter();
 
     protected int NUM_ROWS;
     protected int NUM_COLS;
-    protected int currentScheduleIndex;
+    protected static int currentScheduleIndex;
 
     BorderPane[][] grid;
     List<BorderPane> entries = new ArrayList();

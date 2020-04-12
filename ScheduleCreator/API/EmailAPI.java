@@ -14,6 +14,8 @@ import com.mailjet.client.MailjetRequest;
 import com.mailjet.client.MailjetResponse;
 import com.mailjet.client.ClientOptions;
 import com.mailjet.client.resource.Emailv31;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,6 +25,7 @@ public class EmailAPI implements APIInterface {
     private static final String apiPrivateKey = "2ebe9765bf49eeac4c25fa0436edbcbf";
     private static final String clientVersion = "v3.1";
     private static final String sendEmail = "ScheduleCreatorUNCG@gmail.com";
+    public static final Pattern validEmail = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     /**
      * Send email's using an API.
@@ -35,6 +38,8 @@ public class EmailAPI implements APIInterface {
      */
     @Override
     public void sendEmail(String _email, String _message) throws MailjetException, MailjetSocketTimeoutException {
+        //Check if the email given by user is valid, if so then the api call is made.
+        if(validate(_email)){
         //Initalize the API requirements
         MailjetClient client;
         MailjetRequest request;
@@ -62,5 +67,20 @@ public class EmailAPI implements APIInterface {
         //Print out what email was just sent, it was sent or not, and any errors from the API
         System.out.println(response.getStatus());
         System.out.println(response.getData());
+    }
+        else{
+          //if the email is INVALID then the api call is not made.
+          System.out.println("\""+_email +"\""+ " is NOT a valid email....."+ "\n" +"Email was not sent, the email given is invalid.");
+
+        }
+    }
+        //Suporting method to "sendEmail", to validate emails before a api call is made.
+        public static boolean validate(String _email) {
+        Matcher matcher = validEmail.matcher(_email);
+        if (matcher.find()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

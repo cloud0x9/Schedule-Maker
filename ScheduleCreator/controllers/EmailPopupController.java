@@ -16,7 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class PopupController {
+public class EmailPopupController {
 
     @FXML
     private TextField emailTF;
