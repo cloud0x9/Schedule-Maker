@@ -32,11 +32,14 @@ public class EmailPopupController {
     public void sendEmail(ActionEvent event) throws MailjetException, MailjetSocketTimeoutException {
         if (EmailAdapter.validate(emailTF.getText())) {
             EmailAdapter testAPI = new EmailAdapter();
-            testAPI.sendEmail(emailTF.getText(), "This is a temp UI API test call");
+            testAPI.sendEmail(emailTF.getText(), EmailPopupController.getCRNS());
             Stage stage = (Stage) sendBtn.getScene().getWindow();
             stage.close();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "The given email " + "\"" + emailTF.getText() + "\"" + " is NOT valid.", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "", ButtonType.OK);
+            alert.setTitle("Invalid Email");
+            alert.setHeaderText("Invalid Email");
+            alert.setContentText("The given email " + "\"" + emailTF.getText() + "\"" + " is NOT valid.");       
             alert.showAndWait();
         }
     }
