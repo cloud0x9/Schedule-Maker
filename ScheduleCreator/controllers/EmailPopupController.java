@@ -5,7 +5,7 @@ package ScheduleCreator.controllers;
  *
  * @author Ilyass Sfar
  *
- * Last Updated: 4/6/2020
+ * Last Updated: 4/12/2020
  */
 import ScheduleCreator.API.EmailAdapter;
 import ScheduleCreator.models.Section;
@@ -39,7 +39,7 @@ public class EmailPopupController {
             Alert alert = new Alert(Alert.AlertType.ERROR, "", ButtonType.OK);
             alert.setTitle("Invalid Email");
             alert.setHeaderText("Invalid Email");
-            alert.setContentText("The given email " + "\"" + emailTF.getText() + "\"" + " is NOT valid.");       
+            alert.setContentText("The given email " + "\"" + emailTF.getText() + "\"" + " is NOT valid.");
             alert.showAndWait();
         }
     }

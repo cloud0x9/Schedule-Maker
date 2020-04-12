@@ -5,7 +5,7 @@ package ScheduleCreator.controllers;
  *
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  *
- * Last Updated: 4/6/2020
+ * Last Updated: 4/12/2020
  */
 import ScheduleCreator.Adapter;
 import java.io.IOException;
@@ -636,6 +636,8 @@ public class CoursesController implements Initializable {
             alert.setHeaderText("You have not selected any courses yet");
             alert.setContentText("Select a semseter and courses and try again!");
             alert.showAndWait();
+            System.out.println("No semster or courses choosen.");
+
             //if the user does have a course selected and the email button is pressed, it shows as normal
         } else {
             try {
