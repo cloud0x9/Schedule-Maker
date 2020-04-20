@@ -22,7 +22,6 @@ import ScheduleCreator.models.Schedule;
 import ScheduleCreator.models.Section;
 import ScheduleCreator.models.Semester;
 import java.util.Arrays;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -34,8 +33,6 @@ import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -60,30 +57,23 @@ import javafx.stage.Stage;
 public class CoursesController implements Initializable {
 
     @FXML
-    protected ComboBox<String> semesterComboBox;
+    private ComboBox<String> semesterComboBox;
     @FXML
-    protected TextField searchField;    
+    private TextField searchField;
     @FXML
-    protected ListView availableCourses;
+    private ListView availableCourses, selectedCoursesListView, sectionListView;
     @FXML
-    protected ListView selectedCoursesListView;
+    private Button courseButton, removeCourseButton;
     @FXML
-    protected ListView sectionListView;
+    private GridPane scheduleGridPane;
     @FXML
-    protected Button courseButton;
+    private Label scheduleLabel, onlineClassesLabel;
     @FXML
-    protected Button removeCourseButton;
-
+    private TabPane sectionTabPane;
     @FXML
-    protected GridPane scheduleGridPane;
+    private VBox CRNContainer, CRNPane;
     @FXML
-    protected Label scheduleLabel, onlineClassesLabel;
-    @FXML
-    protected TabPane sectionTabPane;
-    @FXML
-    protected VBox CRNContainer, CRNPane;
-    @FXML
-    protected StackPane mainContent;
+    private StackPane mainContent;
 
     // the following buttons are only here for the buttonSetup() method
     @FXML
@@ -94,17 +84,22 @@ public class CoursesController implements Initializable {
     private FilteredList<String> courseList;
 
     protected static Semester currentSemester;
-    protected Course focusedCourse;
-    protected Course currentCourse;
-    protected Adapter adapter = new Adapter();
+    private Course focusedCourse;
+    private Course currentCourse;
+    private Adapter adapter = new Adapter();
 
-    protected int NUM_ROWS;
-    protected int NUM_COLS;
+    private int NUM_ROWS;
+    private int NUM_COLS;
     protected static int currentScheduleIndex;
 
-    BorderPane[][] grid;
-    List<BorderPane> entries = new ArrayList();
+    private BorderPane[][] grid;
+    private List<BorderPane> entries = new ArrayList();
 
+    /**
+     * Set up the "Build Schedule" view and load the semesters.
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -135,30 +130,6 @@ public class CoursesController implements Initializable {
         });
     }
 
-    public void changeToSelectClasses(ActionEvent _event) throws Exception {
-
-        //new FXML loader and scene for new screen
-        Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/select_courses.fxml"));
-        Scene classViewScene = new Scene(root);
-
-
-        //Get window object and refresh to show the new scene
-        Stage window = (Stage) ((Node) _event.getSource()).getScene().getWindow();
-        window.setScene(classViewScene);
-        window.show();
-    }
-
-    public void changeToRegistrationScreen(ActionEvent _event) throws Exception {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/registration_screen.fxml"));
-        Scene scene = new Scene(root);
-
-        //Get window object and refresh to show the new scene
-        Stage stage = (Stage) ((Node) _event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
     /**
      * Called when "Add Course" button is clicked; Add selected course to the
      * listview and saves in database.
@@ -179,6 +150,11 @@ public class CoursesController implements Initializable {
         }
     }
 
+    /**
+     * Called when "Submit" button is clicked; update the list of selected sections
+     * for generating schedules.
+     * @param _event
+     */
     public void setSections(ActionEvent _event) {
 
         Course course;
@@ -201,7 +177,7 @@ public class CoursesController implements Initializable {
     }
 
     /**
-     * Called when a different semester is chosen and loads appropriate info.
+     * Called when a different semester is chosen and loads semester and course list.
      *
      * @param _event
      */
@@ -212,7 +188,6 @@ public class CoursesController implements Initializable {
 
         this.loadAllCourses();
         this.loadSelectedCourses();
-        // loadSelectedSections();
 
         // Renders the first generated schedule if there is at least 1 selected course.
         if (this.currentSemester.getSelectedCourses().size() > 0) {
@@ -300,7 +275,6 @@ public class CoursesController implements Initializable {
     /**
      * Gets sections for a selected course and adds them to the sections
      * listview.
-     *
      * @param _event
      */
     public void loadCourseSections(ActionEvent _event) {
@@ -331,8 +305,7 @@ public class CoursesController implements Initializable {
     }
 
     /*
-     * Load list of courses into the availableCourses ListBox and connect a few
-     * things
+     * Load list of courses into the availableCourses ListBox
      */
     public void loadAllCourses() {
 
@@ -353,22 +326,6 @@ public class CoursesController implements Initializable {
         // )
         searchField.textProperty().addListener(obs -> {
 
-            // select the top entry whenever the search term changes, but use
-            // Platform.runLater()
-            // so that JavaFX doesn't try to update the selection while it's still building
-            // the ListView.
-            // See
-            // https://stackoverflow.com/questions/11088612/javafx-select-item-in-listview
-            // for some context
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    // Note: we can't use "this" keyword here
-                    availableCourses.getSelectionModel().select(0);
-                    availableCourses.getFocusModel().focus(0);
-                }
-            });
-
             String filter = searchField.getText().toLowerCase();
             // when there's nothing entered yet
             if (filter == null || filter.length() == 0) {
@@ -382,6 +339,10 @@ public class CoursesController implements Initializable {
         });
     }
 
+    /**
+     * Load list of semesters and show them in the dropdown menu
+     * @throws IOException
+     */
     public void loadSemesters() throws IOException {
         List<String> semesters = this.adapter.getSemesters();
 
@@ -402,6 +363,9 @@ public class CoursesController implements Initializable {
         this.semesterComboBox.setItems(FXCollections.observableList(newList));
     }
 
+    /**
+     * Refresh the tabbed section selection box
+     */
     public void loadSelectedCourses() {
         this.sectionTabPane.getTabs().clear();
         this.selectedCoursesListView.setItems(FXCollections.observableList(this.currentSemester.getSelectedCourseStrings()));
@@ -463,7 +427,7 @@ public class CoursesController implements Initializable {
     }
 
     /**
-     *
+     * Returns true if all sections checkboxes are unchecked
      * @param _tab
      */
     public boolean allUnselected(Tab _tab) {
@@ -479,6 +443,11 @@ public class CoursesController implements Initializable {
         return true;
     }
 
+    /**
+     * Check all of the section checkboxes
+     * @param _option
+     * @param _tab
+     */
     public void setSelectAll(boolean _option, Tab _tab) {
 
         VBox container = (VBox) ((ScrollPane) _tab.getContent()).getContent();
@@ -489,6 +458,9 @@ public class CoursesController implements Initializable {
         }
     }
 
+    /**
+     * Draw the week schedule grid.
+     */
     public void drawGrid() {
 
         for (int i = 1; i < this.NUM_ROWS; i++) {
@@ -501,6 +473,10 @@ public class CoursesController implements Initializable {
         }
     }
 
+    /**
+     * Show the current list of CRNs to the user when they click on the "Show CRNs" button
+     * @param _event
+     */
     public void showCRNs(ActionEvent _event) {
         if (this.currentSemester == null) {
             return;
@@ -520,10 +496,18 @@ public class CoursesController implements Initializable {
         this.CRNPane.toFront();
     }
 
+    /**
+     * Hide the list of CRNs.
+     */
     public void hideCRNs() {
         this.CRNPane.setVisible(false);
     }
 
+    /**
+     * Draw a colored box for a course in the week schedule.
+     * @param _section
+     * @param _numberOfCampusCourses
+     */
     public void addEntry(Section _section, int _numberOfCampusCourses) {
 
         String color = this.assignColor(_numberOfCampusCourses);
@@ -624,6 +608,11 @@ public class CoursesController implements Initializable {
         return color;
     }
 
+    /**
+     * Update the grid and other UI elements on the right side to reflect
+     * the currently selected sections.
+     * @param _schedule
+     */
     public void loadSchedule(Schedule _schedule) {
         this.hideCRNs();
         this.clearScheduleGrid();
@@ -645,6 +634,10 @@ public class CoursesController implements Initializable {
         this.onlineClassesLabel.setText(label.toString());
     }
 
+    /**
+     * Load schedule for the next semester
+     * @param _event
+     */
     public void loadNextSchedule(ActionEvent _event) {
         if (this.currentSemester != null) {
             if (this.currentScheduleIndex < this.currentSemester.getSchedules().size() - 1) {
@@ -654,6 +647,10 @@ public class CoursesController implements Initializable {
         }
     }
 
+    /**
+     * Load schedule for the previous semester
+     * @param _event
+     */
     public void loadPrevSchedule(ActionEvent _event) {
         if (this.currentScheduleIndex > 0) {
             this.currentScheduleIndex--;
@@ -661,7 +658,10 @@ public class CoursesController implements Initializable {
         }
     }
 
-    //Calls popup fxml for the email api
+    /**
+     * Open the popup for when the user clicks "Email CRN"
+     * @param event
+     */
     public void popupAction(ActionEvent event) {
         //if no courses are selected, and the email button is pressed then thier is nothing to email, an error box is thrown
         if (this.currentSemester == null || this.currentSemester.getSelectedCourses().size() == 0) {
