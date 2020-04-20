@@ -32,21 +32,21 @@ public class Tests {
      */
     private static void emailMethodTestData() {
         //edge cases
-        emailValidationTest(" ", "FAIL");
-        emailValidationTest("@", "FAIL");
-        emailValidationTest(".com", "FAIL");
-        emailValidationTest("@.com", "FAIL");
-        emailValidationTest("@.com", "FAIL");
-        emailValidationTest("!@#.gov", "FAIL");
-        emailValidationTest("123!ABC@test.co", "FAIL");
-        emailValidationTest("aBCdE@12AbC.edu", "PASS");
+        emailValidationTest(" ", false);
+        emailValidationTest("@", false);
+        emailValidationTest(".com", false);
+        emailValidationTest("@.com", false);
+        emailValidationTest("@.com", false);
+        emailValidationTest("!@#.gov", false);
+        emailValidationTest("123!ABC@test.co", false);
+        emailValidationTest("aBCdE@12AbC.edu", true);
         //normal cases
-        emailValidationTest("test@test.edu", "PASS");
-        emailValidationTest("test@test.gov", "PASS");
-        emailValidationTest("123@123.co", "PASS");
-        emailValidationTest("ABC@123.io", "PASS");
-        emailValidationTest("123@ABC.net", "PASS");
-        emailValidationTest("123@ABC.org", "PASS");
+        emailValidationTest("test@test.edu", true);
+        emailValidationTest("test@test.gov", true);
+        emailValidationTest("123@123.co", true);
+        emailValidationTest("ABC@123.io", true);
+        emailValidationTest("123@ABC.net", true);
+        emailValidationTest("123@ABC.org", true);
 
     }
 
@@ -58,14 +58,12 @@ public class Tests {
      * @param _expectedResults What the result should be.
      * @return
      */
-    private static String emailValidationTest(String _email, String _expectedResults) {
+    private static void emailValidationTest(String _email, Boolean _expectedResults) {
 
-        if (ScheduleCreator.API.EmailAPI.validate(_email)) {
-            System.out.println("PASSED : \"" + _email + "\"  Is a valid email. EXPECTED: " + _expectedResults);
-        } else {
-            System.out.println("FAILED : \"" + _email + "\" Is NOT a valid email. EXPECTED: " + _expectedResults);
-        }
-        return null;
+        String status = (ScheduleCreator.API.EmailAPI.validate(_email) == _expectedResults) ? "Test Passed:"
+                : "Test Failed:";
+
+        System.out.println(status + " value of EmailAPI.validate(\"" + _email + "\")" + "should be " + _expectedResults);
 
     }
 }
