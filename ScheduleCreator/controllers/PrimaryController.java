@@ -7,6 +7,7 @@ package ScheduleCreator.controllers;
  *
  * Last Updated: 4/19/2020
  */
+
 import com.sun.javafx.css.StyleManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -28,25 +29,25 @@ import javafx.scene.layout.VBox;
 public class PrimaryController implements Initializable {
 
     @FXML
-    private ToggleButton darkmode;
+    private ToggleButton darkMode;
     @FXML
-    protected StackPane mainContent;
+    private StackPane mainContent;
     @FXML
-    protected ToggleButton toggleMenu;
+    private ToggleButton toggleMenu;
     @FXML
-    protected VBox menuBox;
+    private VBox menuBox;
     @FXML
-    protected GridPane mainBox;
+    private GridPane mainBox;
     @FXML
-    protected HBox schedMenuItem, advMenuItem, regMenuItem, currentMenuItem;
+    private HBox schedMenuItem, advMenuItem, regMenuItem, currentMenuItem;
     @FXML
-    protected Label schedMenuItemLabel, advMenuItemLabel, regMenuItemLabel;
-    protected HashMap<HBox, Label> menuItems = new HashMap();
-    protected boolean showMenu = false;
+    private Label schedMenuItemLabel, advMenuItemLabel, regMenuItemLabel;
+    private HashMap<HBox, Label> menuItems = new HashMap();
+    private boolean showMenu = false;
 
     /**
-     * Set's the current view of the app to the course selection view.
-     * @throws Exception 
+     * Sets the current view of the app to the course selection view.
+     * @throws Exception
      */
     public void changeToSelectCourses() throws Exception {
 
@@ -59,9 +60,9 @@ public class PrimaryController implements Initializable {
 
     /**
      * Sets the current menu item to the given argument.
-     * @param _menuItem 
+     * @param _menuItem
      */
-    public void setCurrentItem(HBox _menuItem) {
+    private void setCurrentItem(HBox _menuItem) {
         if (this.currentMenuItem != null) this.unhighlight(this.currentMenuItem);
         this.currentMenuItem = _menuItem;
         this.highlight(this.currentMenuItem);
@@ -69,25 +70,25 @@ public class PrimaryController implements Initializable {
 
     /**
      * Changes the appropriate text color to white to indicate current focus.
-     * @param _menuItem 
+     * @param _menuItem
      */
-    public void highlight(HBox _menuItem) {
+    private void highlight(HBox _menuItem) {
         Label label = this.menuItems.get(_menuItem);
         label.setStyle("-fx-text-fill: white");
     }
 
     /**
      * Undoes highlighting of previously focused item.
-     * @param _menuItem 
+     * @param _menuItem
      */
-    public void unhighlight(HBox _menuItem) {
+    private void unhighlight(HBox _menuItem) {
         Label label = this.menuItems.get(_menuItem);
         label.setStyle("-fx-text-fill:black");
     }
 
     /**
      * Changes application view to registration
-     * @throws Exception 
+     * @throws Exception
      */
     public void changeToRegistrationScreen() throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/registration_screen.fxml"));
@@ -96,19 +97,31 @@ public class PrimaryController implements Initializable {
         this.setCurrentItem(this.regMenuItem);
     }
 
+    /**
+     * Highlight menu item when user mouses over it
+     * @param _event 
+     */
     public void hoverItem(MouseEvent _event) {
         HBox item = (HBox) _event.getSource();
         this.highlight(item);
     }
 
+    /**
+     * Unhighlight menu item when user mouses over it
+     * @param _event 
+     */
     public void unhoverItem(MouseEvent _event) {
         HBox item = (HBox) _event.getSource();
         if (item != this.currentMenuItem)
             this.unhighlight(item);
     }
 
+    /**
+     * Toggle visibility of menu with the toggleMenu ToggleButton
+     * @param _event 
+     */
     @FXML
-    public void toggleMenu(ActionEvent _event) {
+    private void toggleMenu(ActionEvent _event) {
         if (!this.showMenu) {
             this.mainBox.getColumnConstraints().get(0).setMaxWidth(200);
             this.menuBox.setVisible(true);
@@ -120,10 +133,12 @@ public class PrimaryController implements Initializable {
         }
     }
 
-    //toggle and untoggle darkmode css to defult theme from button
+    /**
+     * Toggle darkMode css with the toggleDarkMode ToggleButton
+     */
     @FXML
-    public void toggleDarkMode(ActionEvent event) {
-        if (darkmode.isSelected()) {
+    private void toggleDarkMode(ActionEvent event) {
+        if (darkMode.isSelected()) {
             Application.setUserAgentStylesheet(Application.STYLESHEET_MODENA);
             StyleManager.getInstance().addUserAgentStylesheet("ScheduleCreator/resources/Darkmode.css");
         } else {
@@ -132,6 +147,11 @@ public class PrimaryController implements Initializable {
         }
     }
 
+    /**
+     * Set up the primary view with the menu and the "Build Schedule" window visible by default
+     * @param url
+     * @param rb
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
