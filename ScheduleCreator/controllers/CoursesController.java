@@ -21,6 +21,7 @@ import ScheduleCreator.models.Course;
 import ScheduleCreator.models.Schedule;
 import ScheduleCreator.models.Section;
 import ScheduleCreator.models.Semester;
+import java.util.Arrays;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -48,7 +49,6 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -62,6 +62,8 @@ public class CoursesController implements Initializable {
     @FXML
     protected ComboBox<String> semesterComboBox;
     @FXML
+    protected TextField searchField;    
+    @FXML
     protected ListView availableCourses;
     @FXML
     protected ListView selectedCoursesListView;
@@ -71,8 +73,7 @@ public class CoursesController implements Initializable {
     protected Button courseButton;
     @FXML
     protected Button removeCourseButton;
-    @FXML
-    protected TextField searchField;
+
     @FXML
     protected GridPane scheduleGridPane;
     @FXML
@@ -84,8 +85,13 @@ public class CoursesController implements Initializable {
     @FXML
     protected StackPane mainContent;
 
+    // the following buttons are only here for the buttonSetup() method
+    @FXML
+    private Button addCourseButton, removeAllCoursesButton, selectAllButton,
+            previousButton, nextButton, showCRNButton, emailCRNButton, sectionsButton;
+
     // List of courses for current semester.
-    FilteredList<String> courseList;
+    private FilteredList<String> courseList;
 
     protected static Semester currentSemester;
     protected Course focusedCourse;
@@ -108,18 +114,33 @@ public class CoursesController implements Initializable {
             this.grid = new BorderPane[NUM_ROWS][NUM_COLS];
             this.drawGrid();
             this.CRNPane.toFront();
+
+            // final tweaks to make buttons keyboard-navigable
+            this.buttonSetup();
+
         } catch (Exception ex) {
             Logger.getLogger(CoursesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
+    /**
+     * Run the action for each button if it's selected and the user types "Enter"
+     */
+    private void buttonSetup() {
+        Arrays.asList(addCourseButton, removeCourseButton, removeAllCoursesButton, selectAllButton,
+                sectionsButton, previousButton, nextButton, showCRNButton, emailCRNButton).forEach((button) -> {
+            // temporarily set the button as the default button (only while the button is in focus)
+            // https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/Button.html#defaultButtonProperty
+            button.defaultButtonProperty().bind(button.focusedProperty());
+        });
+    }
 
     public void changeToSelectClasses(ActionEvent _event) throws Exception {
 
         //new FXML loader and scene for new screen
         Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/select_courses.fxml"));
         Scene classViewScene = new Scene(root);
-        
+
 
         //Get window object and refresh to show the new scene
         Stage window = (Stage) ((Node) _event.getSource()).getScene().getWindow();
@@ -227,7 +248,6 @@ public class CoursesController implements Initializable {
      *
      * @param _event
      */
-    // TODO: connect "delete" while in the selectedCourses ListView to this method
     public void removeSelectedCourse(ActionEvent _event) {
 
         if (this.selectedCoursesListView.getSelectionModel().getSelectedItem() != null) {
@@ -324,20 +344,6 @@ public class CoursesController implements Initializable {
 
         // connect availableCourses ListView to the courseList
         this.availableCourses.setItems(this.courseList);
-
-        // make up or down arrow on the keyboard begin to scroll the search results
-        this.searchField.setOnKeyReleased(new javafx.event.EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                switch (event.getCode()) {
-                    case UP:
-                    case DOWN:
-                        availableCourses.requestFocus();
-                    default:
-                        break;
-                }
-            }
-        });
 
         // Connect search bar filtering to the courseList FilteredList (this uses
         // lambdas, it's adapted from

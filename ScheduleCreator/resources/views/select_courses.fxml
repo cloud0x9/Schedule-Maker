@@ -31,20 +31,20 @@
          <children>
             <GridPane hgap="10.0" maxHeight="1.7976931348623157E308" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" GridPane.columnIndex="1">
                <children>
-                  <TextField fx:id="searchField" onAction="#addSelectedCourse" prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                   <ComboBox fx:id="semesterComboBox" onAction="#switchSemester" prefHeight="26.0" prefWidth="692.0" promptText="Choose Semester" GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" />
-                  <ListView fx:id="selectedCoursesListView" maxHeight="1.7976931348623157E308" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
-                  <Button mnemonicParsing="false" onAction="#selectAll" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
-                  <Button fx:id="sectionsButton" mnemonicParsing="false" onAction="#setSections" prefHeight="43.0" prefWidth="248.0" text="Submit" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <TextField fx:id="searchField" onAction="#addSelectedCourse" prefHeight="25.0" prefWidth="262.0" promptText="Search" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                   <ListView fx:id="availableCourses" prefHeight="184.0" prefWidth="271.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#addSelectedCourse" prefHeight="26.0" prefWidth="635.0" text="Add Course" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <Button fx:id="addCourseButton" mnemonicParsing="false" onAction="#addSelectedCourse" prefHeight="26.0" prefWidth="635.0" text="Add Course" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                  <ListView fx:id="selectedCoursesListView" maxHeight="1.7976931348623157E308" prefHeight="114.0" prefWidth="454.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+                  <Button fx:id="removeCourseButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#removeSelectedCourse" prefHeight="72.0" prefWidth="172.0" text="Remove" GridPane.hgrow="NEVER" GridPane.rowIndex="5" GridPane.vgrow="NEVER" />
+                  <Button fx:id="removeAllCoursesButton" mnemonicParsing="false" onAction="#removeAllCourses" prefHeight="26.0" prefWidth="421.0" text="Remove All" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button fx:id="selectAllButton" mnemonicParsing="false" onAction="#selectAll" prefHeight="79.0" prefWidth="517.0" text="Select/Deselect All" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
+                  <Button fx:id="sectionsButton" mnemonicParsing="false" onAction="#setSections" prefHeight="43.0" prefWidth="248.0" text="Submit" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="7" GridPane.vgrow="NEVER" />
                   <TabPane fx:id="sectionTabPane" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: grey;" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowIndex="6">
                     <tabs>
 
                     </tabs>
                   </TabPane>
-                  <Button mnemonicParsing="false" onAction="#removeAllCourses" prefHeight="26.0" prefWidth="421.0" text="Remove All" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="469.0" minWidth="10.0" prefWidth="289.0" />
@@ -128,7 +128,7 @@
                      <children>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                            <center>
-                              <Button mnemonicParsing="false" onAction="#loadPrevSchedule" text="Previous" BorderPane.alignment="CENTER" />
+                              <Button fx:id="previousButton" mnemonicParsing="false" onAction="#loadPrevSchedule" text="Previous" BorderPane.alignment="CENTER" />
                            </center>
                            <padding>
                               <Insets left="100.0" />
@@ -136,7 +136,7 @@
                         </BorderPane>
                         <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <center>
-                              <Button mnemonicParsing="false" onAction="#loadNextSchedule" text="  Next  " BorderPane.alignment="CENTER">
+                              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#loadNextSchedule" text="  Next  " BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
                                     <Insets right="100.0" />
                                  </BorderPane.margin>
@@ -160,8 +160,8 @@
                         <RowConstraints maxHeight="27.33331298828125" minHeight="10.0" prefHeight="27.33331298828125" vgrow="SOMETIMES" />
                      </rowConstraints>
                   </GridPane>
-                  <Button mnemonicParsing="false" onAction="#showCRNs" text="Show CRNs" translateX="-50.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#popupAction" prefHeight="27.0" prefWidth="97.0" text="Email CRNs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="showCRNButton" mnemonicParsing="false" onAction="#showCRNs" text="Show CRNs" translateX="-50.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                  <Button fx:id="emailCRNButton" mnemonicParsing="false" onAction="#popupAction" prefHeight="27.0" prefWidth="97.0" text="Email CRNs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
