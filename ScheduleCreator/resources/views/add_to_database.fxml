@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+
+<AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleCreator.controllers.AddToDatabaseController">
+   <children>
+      <SubScene height="400.0" onDragDropped="#dragDrop" onDragOver="#dragOver" width="600.0">
+        <root>
+          <Region />
+        </root>
+      </SubScene>
+      <Label layoutX="142.0" layoutY="183.0" text="Drag and drop a text file here to add it to the database" />
+   </children>
+</AnchorPane>
