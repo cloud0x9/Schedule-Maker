@@ -14,65 +14,70 @@
 <?import javafx.scene.text.Text?>
 
 <StackPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleCreator.controllers.PrimaryController">
-   <children>
-      <GridPane fx:id="mainBox">
-         <columnConstraints>
-            <ColumnConstraints hgrow="ALWAYS" maxWidth="63.0" minWidth="0.0" prefWidth="63.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <GridPane alignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" HBox.hgrow="NEVER">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="ALWAYS" />
-                  <ColumnConstraints />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints fillHeight="false" maxHeight="200.0" minHeight="0.0" prefHeight="60.0" vgrow="NEVER" />
-                  <RowConstraints minHeight="10.0" prefHeight="666.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <Text layoutX="186.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UNCG Schedule Creator" wrappingWidth="451.1748046875" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                     <font>
-                        <Font name="System Italic" size="37.0" />
-                     </font>
-                  </Text>
-                  <VBox prefHeight="169.0" prefWidth="275.0" spacing="10.0" GridPane.rowIndex="1">
-                     <children>
-                         <StackPane fx:id="mainContent" prefHeight="150.0" VBox.vgrow="ALWAYS" />
+    <children>
+        <GridPane fx:id="mainBox">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="63.0" minWidth="0.0" prefWidth="63.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="-Infinity" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <GridPane alignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" HBox.hgrow="NEVER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints fillHeight="false" maxHeight="200.0" minHeight="0.0" prefHeight="60.0" vgrow="NEVER" />
+                        <RowConstraints minHeight="10.0" prefHeight="666.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Text layoutX="186.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UNCG Schedule Creator" wrappingWidth="451.1748046875" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                            <font>
+                                <Font name="System Italic" size="37.0" />
+                            </font>
+                        </Text>
+                        <VBox prefHeight="169.0" prefWidth="275.0" spacing="10.0" GridPane.rowIndex="1">
+                            <children>
+                                <StackPane fx:id="mainContent" prefHeight="150.0" VBox.vgrow="ALWAYS" />
 
-                           </children>
-                  </VBox>
-                  <ToggleButton fx:id="darkMode" mnemonicParsing="false" onAction="#toggleDarkMode" text="Dark Mode" GridPane.halignment="RIGHT" />
-               </children>
-            </GridPane>
-            <VBox fx:id="menuBox" alignment="CENTER" fillWidth="false" layoutX="57.0" layoutY="39.0" maxWidth="200.0" minHeight="200.0" minWidth="0.0" prefHeight="727.0" prefWidth="34.0" spacing="10.0" style="-fx-background-color:rgb(6,42,87);" visible="false" SplitPane.resizableWithParent="false">
-               <children>
-                  <HBox fx:id="schedMenuItem" alignment="CENTER" onMouseClicked="#changeToSelectCourses" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
-                     <children>
-                        <Label fx:id="schedMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" text="Build Schedule" />
-                     </children>
-                  </HBox>
-                  <HBox fx:id="advMenuItem" alignment="CENTER" maxWidth="1.7976931348623157E308" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
-                     <children>
-                        <Label fx:id="advMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" text="Contact Advisor" />
-                     </children>
-                  </HBox>
-                  <HBox fx:id="regMenuItem" alignment="CENTER" onMouseClicked="#changeToRegistrationScreen" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
-                     <children>
-                        <Label fx:id="regMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="200.0" text="Registration" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
-         </children>
-      </GridPane>
-      <ToggleButton fx:id="toggleMenu" mnemonicParsing="false" onAction="#toggleMenu" text="Menu" StackPane.alignment="TOP_LEFT">
-         <StackPane.margin>
-            <Insets left="15.0" top="15.0" />
-         </StackPane.margin>
-      </ToggleButton>
-   </children>
+                            </children>
+                        </VBox>
+                        <ToggleButton fx:id="darkMode" mnemonicParsing="false" onAction="#toggleDarkMode" text="Dark Mode" GridPane.halignment="RIGHT" />
+                    </children>
+                </GridPane>
+                <VBox fx:id="menuBox" alignment="CENTER" fillWidth="false" layoutX="57.0" layoutY="39.0" maxWidth="200.0" minHeight="200.0" minWidth="0.0" prefHeight="727.0" prefWidth="34.0" spacing="10.0" style="-fx-background-color:rgb(6,42,87);" visible="false" SplitPane.resizableWithParent="false">
+                    <children>
+                        <HBox fx:id="schedMenuItem" alignment="CENTER" onMouseClicked="#changeToSelectCourses" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
+                            <children>
+                                <Label fx:id="schedMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" text="Build Schedule" />
+                            </children>
+                        </HBox>
+                        <HBox fx:id="advMenuItem" alignment="CENTER" maxWidth="1.7976931348623157E308" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
+                            <children>
+                                <Label fx:id="advMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" text="Contact Advisor" />
+                            </children>
+                        </HBox>
+                        <HBox fx:id="regMenuItem" alignment="CENTER" onMouseClicked="#changeToRegistrationScreen" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
+                            <children>
+                                <Label fx:id="regMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="200.0" text="Registration" />
+                            </children>
+                        </HBox>
+                        <HBox fx:id="dbItem" alignment="CENTER" onMouseClicked="#changeToDBScreen" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
+                            <children>
+                                <Label fx:id="dbItemLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="200.0" text="Add to Database" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+        <ToggleButton fx:id="toggleMenu" mnemonicParsing="false" onAction="#toggleMenu" text="Menu" StackPane.alignment="TOP_LEFT">
+            <StackPane.margin>
+                <Insets left="15.0" top="15.0" />
+            </StackPane.margin>
+        </ToggleButton>
+    </children>
 </StackPane>
