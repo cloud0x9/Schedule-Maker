@@ -1,5 +1,13 @@
 package ScheduleCreator;
 
+/**
+ * Utility classes for generating the DB (these do NOT work at runtime) TODO: -
+ * pull out hardcoded paths -
+ *
+ * @author Nick Econopouly, Jamison Valentine, Ilyass Sfar
+ *
+ * Last Updated: 3/16/2020
+ */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,14 +23,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Utility classes for generating the DB (these do NOT work at runtime) TODO: -
- * pull out hardcoded paths -
- *
- * @author Nick Econopouly, Jamison Valentine, Ilyass Sfar
- *
- * Last Updated: 3/16/2020
- */
 public class Admin {
 
     /**
@@ -56,7 +56,7 @@ public class Admin {
         String[] pathnames = rawDir.list();
 
         // 'pathnames.length - 1' so we don't count the raw directory itself
-        try ( FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
+        try (FileWriter outputFile = new FileWriter(semesterListFile.getPath())) {
             for (String pathname : pathnames) {
                 // add filename to list of semesters
                 outputFile.append(pathname);
@@ -161,7 +161,7 @@ public class Admin {
             }
         }
         File outputFile = new File(_outputFilepath);
-        try ( FileWriter output = new FileWriter(outputFile)) {
+        try (FileWriter output = new FileWriter(outputFile)) {
             for (String s : allCourses) {
                 output.append(s + '\n');
             }

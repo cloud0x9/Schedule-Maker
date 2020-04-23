@@ -17,7 +17,7 @@
          <font>
             <Font name="System Bold" size="29.0" />
          </font></Text>
-      <Text layoutX="100.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Go to the resgiration tab in the menu.">
+      <Text layoutX="100.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. Go to the &quot;Registration&quot; tab in the menu.">
          <font>
             <Font size="18.0" />
          </font></Text>
