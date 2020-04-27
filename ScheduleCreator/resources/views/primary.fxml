@@ -55,11 +55,6 @@
                                 <Label fx:id="schedMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" text="Build Schedule" />
                             </children>
                         </HBox>
-                        <HBox fx:id="advMenuItem" alignment="CENTER" maxWidth="1.7976931348623157E308" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
-                            <children>
-                                <Label fx:id="advMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="200.0" text="Contact Advisor" />
-                            </children>
-                        </HBox>
                         <HBox fx:id="regMenuItem" alignment="CENTER" onMouseClicked="#changeToRegistrationScreen" onMouseEntered="#hoverItem" onMouseExited="#unhoverItem" style="-fx-background-color: rgb(229,191,16); -fx-border-color: black;">
                             <children>
                                 <Label fx:id="regMenuItemLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="200.0" text="Registration" />

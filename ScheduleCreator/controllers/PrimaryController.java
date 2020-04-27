@@ -38,9 +38,9 @@ public class PrimaryController implements Initializable {
     @FXML
     private GridPane mainBox;
     @FXML
-    private HBox schedMenuItem, advMenuItem, regMenuItem, currentMenuItem, dbItem;
+    private HBox schedMenuItem, regMenuItem, currentMenuItem, dbItem;
     @FXML
-    private Label schedMenuItemLabel, advMenuItemLabel, regMenuItemLabel, dbItemLabel;
+    private Label schedMenuItemLabel, regMenuItemLabel, dbItemLabel;
     private HashMap<HBox, Label> menuItems = new HashMap();
     private boolean showMenu = false;
 
@@ -64,7 +64,7 @@ public class PrimaryController implements Initializable {
      * @throws Exception
      */
     public void changeToDBScreen() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/add_to_database.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/UserUpdatedDB.fxml"));
         mainContent.getChildren().clear();
         mainContent.getChildren().add(root);
         this.setCurrentItem(this.dbItem);
@@ -183,7 +183,6 @@ public class PrimaryController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             this.menuItems.put(this.schedMenuItem, this.schedMenuItemLabel);
-            this.menuItems.put(this.advMenuItem, this.advMenuItemLabel);
             this.menuItems.put(this.regMenuItem, this.regMenuItemLabel);
             this.menuItems.put(this.dbItem, this.dbItemLabel);
             this.mainBox.getColumnConstraints().get(0).setMaxWidth(0);

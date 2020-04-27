@@ -80,7 +80,7 @@ public class UserUpdatedDBController extends Admin {
                     }
                     //Throw error popup if file name is not valid to what was specificed.
                 } else {
-                    showError("Invalid File Name", "Rename the file and try again.\n Semester should be lowercase directly followed by year.\nExamples of valid file names...\"fall2020\",\"spring3020\",\"summer2015\"...etc");
+                    showError("Invalid File Name", "Rename the file and try again.\n *Semester should be lowercase directly followed by year with no spaces.\nExamples of valid file names.. \"fall2020\",\"spring3020\",\"summer2015\"...etc");
                     System.out.println("file name is not valid for the database");
                 }
             }

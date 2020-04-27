@@ -8,12 +8,7 @@
 
 <AnchorPane id="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleCreator.controllers.UserUpdatedDBController">
    <children>
-      <SubScene height="567.0" layoutX="3.0" layoutY="1.0" onDragDropped="#dragDrop" onDragOver="#dragOver" width="829.0">
-        <root>
-          <Region />
-        </root>
-      </SubScene>
-      <Text layoutX="65.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to add new semesters to the database." wrappingWidth="650.9179649353027">
+      <Text layoutX="65.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to Add New Semesters to the Database" wrappingWidth="650.9179649353027">
          <font>
             <Font name="System Bold" size="29.0" />
          </font></Text>
@@ -45,14 +40,19 @@
          <font>
             <Font size="15.0" />
          </font></Text>
-      <Text layoutX="139.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="***File name should be lower case and contain no spaces (ex. spring2020, fall2025)">
+      <Text layoutX="139.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*File name should be lower case and contain no spaces (ex. spring2020, fall2025)">
          <font>
             <Font size="15.0" />
          </font></Text>
-      <Text layoutX="99.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. If and only if all pervious steps were done correctly, you can drag and drop your text file on the current screen and it will be added to the database!" wrappingWidth="658.91796875">
+      <Text layoutX="99.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. If all pervious steps were done correctly, you can drag and drop your text file on the current screen and it will be added to the database!" wrappingWidth="658.91796875">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
+      <SubScene height="567.0" layoutX="3.0" layoutY="1.0" onDragDropped="#dragDrop" onDragOver="#dragOver" opacity="0.0" width="829.0">
+        <root>
+          <Region />
+        </root>
+      </SubScene>
    </children>
 </AnchorPane>
