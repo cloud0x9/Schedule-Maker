@@ -1,4 +1,5 @@
 package ScheduleCreator;
+
 /**
  * An interface to allow easier modularity of the adapter.
  *
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface TranslatorInterface {
+
     /**
      *
      * @return a list of semester names (Strings) that can be used as arguments

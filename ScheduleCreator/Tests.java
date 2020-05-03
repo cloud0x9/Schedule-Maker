@@ -19,9 +19,8 @@ public class Tests {
 
         // uncomment and run this once when we add a new semester
         // Admin.regenDB();
-        
         //test validate method
-          emailMethodTestData();
+        emailMethodTestData();
 
     }
 
