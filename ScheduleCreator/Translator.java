@@ -8,7 +8,6 @@ package ScheduleCreator;
  *
  * Last Updated: 4/21/2020
  */
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -126,7 +125,8 @@ public class Translator implements TranslatorInterface {
     }
 
     /**
-     * Get specific information about a section
+     * Get specific information about a section, this is a backup method if
+     * necessary in the future, since the models package uses its own regex.
      *
      * @param _choice type of info wanted about section
      * @param _semesterName semester name from getSemesters()
@@ -190,8 +190,6 @@ public class Translator implements TranslatorInterface {
         return "Error: Check ScheduleCreator.DBAdapter.getInfoBase";
     }
 
-    // ===============================================
-    // (DELETE THIS) methods above this point don't modify files
     /**
      * Saves the selected course (abbreviation and number) to persistent
      * database.

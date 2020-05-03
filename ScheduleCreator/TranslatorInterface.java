@@ -6,7 +6,6 @@ package ScheduleCreator;
  * @author Jamison Valentine, Ilyass Sfar, Nick Econopouly, Nathan Tolodzieki
  * Last updated 04/21/2020
  */
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
