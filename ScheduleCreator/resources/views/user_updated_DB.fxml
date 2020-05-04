@@ -28,12 +28,12 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <Text layoutX="100.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4. Copy the enitre page" wrappingWidth="457.20605850219727">
+        <Text layoutX="100.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4. Copy the entire page" wrappingWidth="457.20605850219727">
             <font>
                 <Font size="18.0" />
             </font>
         </Text>
-        <Text layoutX="99.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Create a new text file, paste everything copied in the pervious step, name* and save the file." wrappingWidth="636.2802734375">
+        <Text layoutX="99.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. Create a new text file, paste everything copied in the previous step, name* and save the file." wrappingWidth="636.2802734375">
             <font>
                 <Font size="18.0" />
             </font>
@@ -53,7 +53,7 @@
                 <Font size="15.0" />
             </font>
         </Text>
-        <Text layoutX="99.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. If all pervious steps were done correctly, you can drag and drop your text file on the current screen and it will be added to the database!" wrappingWidth="658.91796875">
+        <Text layoutX="99.0" layoutY="419.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. If all previous steps were done correctly, you can drag and drop your text file on the current screen and it will be added to the database!" wrappingWidth="658.91796875">
             <font>
                 <Font name="System Bold" size="18.0" />
             </font>

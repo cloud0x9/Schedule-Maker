@@ -13,7 +13,7 @@ import com.mailjet.client.errors.MailjetSocketTimeoutException;
 public interface APIInterface {
 
     /**
-     * Send email's using an API.
+     * Send emails using an API.
      *
      * @param _email The email that is being sent to, this comes from the user.
      * @param _message This is what is being sent in the email.

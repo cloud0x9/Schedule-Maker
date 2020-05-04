@@ -28,7 +28,7 @@ public class EmailAPI implements APIInterface {
     public static final Pattern validEmail = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
     /**
-     * Send email's using an API.
+     * Send emails using an API.
      *
      * @param _email The email address that is being sent to, this comes from
      * the user.
