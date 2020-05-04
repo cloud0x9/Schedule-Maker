@@ -11,6 +11,7 @@ import com.mailjet.client.errors.MailjetException;
 import com.mailjet.client.errors.MailjetSocketTimeoutException;
 
 public interface APIInterface {
+
     /**
      * Send email's using an API.
      *
@@ -19,5 +20,5 @@ public interface APIInterface {
      * @throws MailjetException
      * @throws MailjetSocketTimeoutException
      */
-    public void sendEmail(String _email, String _message)throws MailjetException, MailjetSocketTimeoutException;
+    public void sendEmail(String _email, String _message) throws MailjetException, MailjetSocketTimeoutException;
 }

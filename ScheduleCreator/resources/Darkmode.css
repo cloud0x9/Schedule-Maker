@@ -1,3 +1,8 @@
+/*
+  CSS used for darkmode, based on https://stackoverflow.com/questions/49159286.
+  @author Ilyass Sfar
+  Last Updated: 4/21/2020
+*/
 .root {
     -fx-accent: #1e74c6;
     -fx-focus-color: -fx-accent;
@@ -11,7 +16,8 @@
 }
 
 .text-field {
-    -fx-prompt-text-fill: gray;
+    -fx-prompt-text-fill: #666666;
+
 }
 
 .titulo{

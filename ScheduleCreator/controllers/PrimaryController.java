@@ -64,7 +64,7 @@ public class PrimaryController implements Initializable {
      * @throws Exception
      */
     public void changeToDBScreen() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/UserUpdatedDB.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/ScheduleCreator/resources/views/user_updated_DB.fxml"));
         mainContent.getChildren().clear();
         mainContent.getChildren().add(root);
         this.setCurrentItem(this.dbItem);

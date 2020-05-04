@@ -672,7 +672,7 @@ public class CoursesController implements Initializable {
     }
 
     /**
-     * Open the popup for when the user clicks "Email CRN"
+     * Open the email popup for when the user clicks "Email CRN".
      *
      * @param event
      */

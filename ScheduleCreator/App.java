@@ -7,13 +7,13 @@ package ScheduleCreator;
  *
  * Last Updated: 3/18/2020
  */
-
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 public class App extends Application {
 
     /**
@@ -36,7 +36,6 @@ public class App extends Application {
 
         primaryStage.setMinHeight(560);
         primaryStage.setMinWidth(1090);
-
 
         // shows window on screen
         primaryStage.show();

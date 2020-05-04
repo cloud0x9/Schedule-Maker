@@ -114,7 +114,8 @@ public class Semester {
 
     /**
      * Removes the course from the Semester.
-     * @param _course 
+     *
+     * @param _course
      */
     public void removeCourse(String _course) {
 
@@ -129,7 +130,7 @@ public class Semester {
 
     @Override
     public boolean equals(Object _obj) {
-        if(!(_obj instanceof Semester)){
+        if (!(_obj instanceof Semester)) {
             return false;
         }
         Semester otherSemester = (Semester) _obj;
