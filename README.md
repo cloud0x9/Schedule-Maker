@@ -6,14 +6,6 @@ registration.
 
 ![screenshot](screenshot.png)
 
-### Usage
-
-TODO
-
-## License
-
-TODO
-
 ### Authors
 - [@cloud0x9](https://github.com/cloud0x9)
 - [@jamisonv93](https://github.com/jamisonv93)
