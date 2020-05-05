@@ -18,7 +18,7 @@ public class Tests {
     public static void main(String[] args) throws IOException, MailjetException, MailjetSocketTimeoutException {
 
         // uncomment and run this once when we add a new semester
-        // Admin.regenDB();
+         Admin.regenDB();
         //test validate method
         emailMethodTestData();
 
